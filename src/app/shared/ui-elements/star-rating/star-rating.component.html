@@ -1,0 +1,36 @@
+<form class="star-rating" [formGroup]="ratingForm">
+  <input  id="star-5" type="radio" formControlName="rating" name="rating" value="5">
+  <label for="star-5"
+    [title]="'custom-elements.star-rating.5' | translate"
+    (click)="sendRate('5')">
+    <i class="fa fa-star" aria-hidden="true"></i>
+  </label>
+
+  <input  id="star-4" type="radio" formControlName="rating" name="rating" value="4">
+  <label for="star-4"
+    [title]="'custom-elements.star-rating.4' | translate"
+    (click)="sendRate('4')">
+    <i class="fa fa-star" aria-hidden="true"></i>
+  </label>
+
+  <input  id="star-3" type="radio" formControlName="rating" name="rating" value="3">
+  <label for="star-3"
+    [title]="'custom-elements.star-rating.3' | translate"
+    (click)="sendRate('3')">
+    <i class="fa fa-star" aria-hidden="true"></i>
+  </label>
+
+  <input  id="star-2" type="radio" formControlName="rating" name="rating" value="2">
+  <label for="star-2"
+    [title]="'custom-elements.star-rating.2' | translate"
+    (click)="sendRate('2')">
+    <i class="fa fa-star" aria-hidden="true"></i>
+  </label>
+
+  <input  id="star-1" type="radio" formControlName="rating" name="rating" value="1">
+  <label for="star-1"
+    [title]="'custom-elements.star-rating.1' | translate"
+    (click)="sendRate('1')">
+    <i class="fa fa-star" aria-hidden="true"></i>
+  </label>
+</form>

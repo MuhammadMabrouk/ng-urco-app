@@ -1,0 +1,345 @@
+@import "../../../../../styles/helpers/variables";
+@import "../../../../../styles/helpers/mixins";
+@import "../../../../../styles/components/components";
+
+.content {
+  .the-main-box {
+    .box {
+      @media #{$max_767} {
+        background: none;
+        padding: 0;
+        border-radius: unset;
+        box-shadow: none;
+      }
+
+      .box-content {
+        @media #{$max_767} {
+          margin-bottom: auto;
+        }
+
+        .users {
+          width: 100%;
+
+          @media #{$min_768} {
+            border-collapse: collapse;
+          }
+
+          @media #{$max_767} {
+            display: block;
+          }
+
+          .no-items-msg {
+            @media #{$max_767} {
+              display: block;
+            }
+
+            td {
+              text-align: center;
+              font-size: 16px;
+              font-weight: 500;
+
+              @media #{$min_768} {
+                padding: 40px 0;
+              }
+
+              @media #{$max_767} {
+                display: block;
+                background-color: #fff;
+                padding: 40px 20px;
+                border-radius: $borderRadius;
+                box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+              }
+            }
+          }
+
+          .user {
+            @media #{$min_768} {
+              &:not(:last-of-type) {
+                border-bottom: 1px solid $borderColor;
+              }
+
+              th,
+              td {
+                @include appDir(
+                  text-transform,
+                  capitalize,
+                  text-transform,
+                  unset
+                );
+                text-align: start;
+
+                &:not(:first-of-type) {
+                  @include appDir(padding-left, 15px, padding-right, 15px);
+                }
+              }
+            }
+
+            @media #{$max_767} {
+              display: block;
+              background-color: #fff;
+              padding: 20px;
+              border-radius: $borderRadius;
+              box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+
+              &:not(:last-of-type) {
+                margin-bottom: 20px;
+              }
+            }
+
+            &.users-header {
+              @media #{$max_767} {
+                display: none;
+              }
+
+              th {
+                h5 {
+                  color: $color-three;
+                  padding-bottom: 14px;
+                  margin: 0;
+                }
+              }
+            }
+
+            td {
+              @media #{$min_768} {
+                padding: 14px 0;
+              }
+
+              @media #{$max_767} {
+                &:not(.img-and-name) {
+                  display: block;
+                }
+
+                &:not(.actions-col) {
+                  margin-bottom: 20px;
+                }
+
+                &:not(.img-and-name):not(.actions-col) {
+                  &:before {
+                    content: attr(data-title);
+                    display: inline-block;
+                    min-width: 100px;
+                    color: $color-three;
+                    font-weight: bold;
+                  }
+                }
+
+                &.actions-col {
+                  width: fit-content;
+                  margin: auto;
+                }
+              }
+
+              &.img-and-name {
+                @include flexbox(flex, "", center, "", "", "");
+                @include appDir(
+                  text-transform,
+                  capitalize,
+                  text-transform,
+                  unset
+                );
+
+                @media #{$max_767} {
+                  @include flexbox("", "", "", "", "", wrap);
+                  text-align: center;
+                  margin-bottom: 30px;
+                }
+
+                img {
+                  display: block;
+                  object-fit: contain;
+
+                  @media #{$min_768} {
+                    width: 32px;
+                    height: 32px;
+                    @include appDir(margin-right, 20px, margin-left, 20px);
+                  }
+
+                  @media #{$max_767} {
+                    width: 80px;
+                    height: 80px;
+                    margin: {
+                      left: auto;
+                      right: auto;
+                      bottom: 15px;
+                    }
+                  }
+                }
+
+                a {
+                  display: block;
+
+                  @media #{$max_767} {
+                    width: 100%;
+                  }
+
+                  &:hover {
+                    color: $color-one;
+                    text-decoration: underline;
+                  }
+                }
+              }
+
+              .flex-box {
+                @include flexbox(flex, "", center, "", "", "");
+              }
+
+              &.email {
+                span {
+                  display: inline-block;
+
+                  @media #{$max_767} {
+                    display: block;
+                    margin-top: 10px;
+                  }
+
+                  &:not(.infinity) {
+                    direction: ltr;
+                    word-break: break-all;
+
+                    @media #{$max_767} {
+                      white-space: nowrap;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                    }
+                  }
+
+                  &.infinity {
+                    height: 2px;
+                    width: 6px;
+                    background-color: $color-four;
+                  }
+                }
+              }
+
+              &.actions-col {
+                position: relative;
+                text-align: end;
+
+                .actions-btn {
+                  position: relative;
+                  @include flexbox(inline-flex, "", center, center, "", "");
+                  width: fit-content;
+                  background-color: $backgroundColor;
+                  padding: 10px;
+                  border: 0;
+                  border-radius: 12px;
+                  box-shadow: $insetShadow;
+                  cursor: pointer;
+                  @include transition(0.3s);
+
+                  span {
+                    display: block;
+                    height: 4px;
+                    width: 4px;
+                    background-color: $color-four;
+                    border-radius: 50%;
+                    @include transition(0.3s);
+
+                    &:not(:last-of-type) {
+                      @include appDir(margin-right, 2px, margin-left, 2px);
+                    }
+                  }
+
+                  &:hover {
+                    background-color: darken($backgroundColor, 5);
+
+                    span {
+                      background-color: $color-three;
+                    }
+                  }
+
+                  &:after {
+                    content: "";
+                    position: absolute;
+                    z-index: 2;
+                    @include ltr_rotate(45);
+                    top: calc(100% + 10px);
+                    @include appDir(right, 13px, left, 13px);
+                    height: 10px;
+                    width: 10px;
+                    background-color: #fff;
+                    @include appDir(
+                      border-color,
+                      $borderColor transparent transparent $borderColor,
+                      border-color,
+                      $borderColor $borderColor transparent transparent
+                    );
+                    border-style: solid;
+                    border-width: 1px;
+                    animation: fadeInUp 0.4s ease-in-out both;
+                    display: none;
+                  }
+
+                  &.open {
+                    &:after {
+                      display: unset;
+                    }
+                  }
+                }
+
+                .dropdown-list {
+                  position: absolute;
+                  z-index: 1;
+                  top: calc(50% + 27px);
+                  width: fit-content;
+                  background-color: #fff;
+                  border: 1px solid $borderColor;
+                  border-radius: 10px;
+                  box-shadow: 0 1px 20px rgba($color-three, 0.1);
+                  animation: fadeInUp 0.4s ease-in-out both;
+                  display: none;
+
+                  &.open {
+                    display: unset;
+                  }
+
+                  @media #{$min_768} {
+                    @include appDir(right, 0, left, 0);
+                  }
+
+                  @media #{$max_767} {
+                    @include appDir(left, 50%, right, 50%);
+                    @include ltr_translateX(-50%);
+                  }
+
+                  li {
+                    a {
+                      @include flexbox(flex, "", center, "", "", "");
+                      color: $color-three;
+                      padding: 10px 14px;
+                      white-space: nowrap;
+
+                      img {
+                        width: 16px;
+                        @include appDir(margin-right, 12px, margin-left, 12px);
+                      }
+
+                      &:hover {
+                        color: $color-one;
+                      }
+                    }
+
+                    &:first-of-type {
+                      a {
+                        padding-top: 14px;
+                        border-radius: 10px 10px 0 0;
+                      }
+                    }
+
+                    &:last-of-type {
+                      a {
+                        padding-bottom: 13px;
+                        border-radius: 0 0 10px 10px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+<div class="content">
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/admin/fire-offer.png" alt="main-offer">
+          <h3 class="title">{{ 'main-offer-page.box-title' | translate }}</h3>
+        </div>
+        <form class="form-styled" *ngIf="newGoodForm" [formGroup]="newGoodForm"  (ngSubmit)="saveNewGood(newGoodForm)">
+          <div class="form-group">
+            <label for="good-id">
+              {{ 'main-offer-page.good-id-label' | translate }}
+            </label>
+            <div class="form-control">
+              <input formControlName="goodId"
+                id="good-id"
+                type="text"
+                [placeholder]="'main-offer-page.good-id-placeholder' | translate">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-control two-radio-buttons">
+              <label>{{ 'main-offer-page.discount-type-label' | translate }}</label>
+              <div class="radio-buttons-container">
+                <div class="radio-button">
+                  <input id="percent" class="radio" type="radio" formControlName="type" name="type" value="percent">
+                  <label for="percent"></label>
+                </div>
+                <label for="percent">{{ 'main-offer-page.percent-discount-label' | translate }}</label>
+              </div>
+              <div class="radio-buttons-container">
+                <div class="radio-button">
+                  <input id="fixed" class="radio" type="radio" formControlName="type" name="type" value="fixed">
+                  <label for="fixed"></label>
+                </div>
+                <label for="fixed">{{ 'main-offer-page.fixed-discount-label' | translate }}</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'main-offer-page.discount-amount-label' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="amount?.value || 0" (valueChange)="updateDiscountAmount(newGoodForm, $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="buttons-container">
+            <button class="rounded-btn color-one solid reverse shadow" [disabled]="newGoodForm.invalid || !newGoodFormChanged">
+              {{ 'main-offer-page.save' | translate }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <div class="the-main-box">
+    <section class="box offer-item">
+      <div class="box-content">
+        <table class="goods">
+          <tr class="good goods-header">
+            <th class="img-and-name"><h5>{{ 'main-offer-page.header-titles.item' | translate }}</h5></th>
+            <th><h5>{{ 'main-offer-page.header-titles.date-added' | translate }}</h5></th>
+            <th><h5>{{ 'main-offer-page.header-titles.original-price' | translate }}</h5></th>
+            <th colspan="2"><h5>{{ 'main-offer-page.header-titles.offer-price' | translate }}</h5></th>
+          </tr>
+          <tr class="no-items-msg" *ngIf="!mainOfferGood">
+            <td colspan="5">
+              {{ 'main-offer-page.no-items-msg' | translate }}
+            </td>
+          </tr>
+          <tr class="good" *ngIf="mainOfferGood">
+            <td class="img-and-name">
+              <a [routerLink]="['/good', mainOfferGood?.id]"><img [src]="mainOfferGood?.images[0]" [alt]="mainOfferGood?.name[currentLang]"></a>
+              <a [routerLink]="['/good', mainOfferGood?.id]"><span>{{ mainOfferGood?.name[currentLang] | titlecase }}</span></a>
+            </td>
+            <td [attr.data-title]="'main-offer-page.header-titles.date-added' | translate">
+              {{ mainOfferGood?.dateAdded }}
+            </td>
+            <td [attr.data-title]="'main-offer-page.header-titles.original-price' | translate">
+              {{ mainOfferGood?.price | currencyExchange : currencyExchangeSer?.exchangeRates }}
+            </td>
+            <td *ngIf="type.value === 'percent'" [attr.data-title]="'main-offer-page.header-titles.offer-price' | translate">
+              {{ mainOfferGood?.price - (mainOfferGood?.price * (amount?.value / 100)) | currencyExchange : currencyExchangeSer?.exchangeRates }}
+            </td>
+            <td *ngIf="type.value === 'fixed'" [attr.data-title]="'main-offer-page.header-titles.offer-price' | translate">
+              {{ mainOfferGood?.price - amount?.value | currencyExchange : currencyExchangeSer?.exchangeRates }}
+            </td>
+            <td class="actions-col">
+              <button class="actions-btn" [appMenuToggleButton]="actionsMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <ul class="dropdown-list" #actionsMenu>
+                <li>
+                  <a [routerLink]="['/good', mainOfferGood?.id]">
+                    <img src="../../../assets/images/icons/zoom.png" alt="view">
+                    {{ 'main-offer-page.actions-btns.view' | translate }}
+                  </a>
+                </li>
+                <li>
+                  <a [routerLink]="['/admin-dashboard/admin/products/edit', mainOfferGood?.id]">
+                    <img src="../../../assets/images/icons/edit-tool.png" alt="edit">
+                    {{ 'main-offer-page.actions-btns.edit' | translate }}
+                  </a>
+                </li>
+                <li>
+                  <a href="#" (click)="$event.preventDefault(); deleteGood(mainOfferGood?.id)">
+                    <img src="../../../assets/images/icons/cancel-delete.png" alt="delete">
+                    {{ 'main-offer-page.actions-btns.delete' | translate }}
+                  </a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<aside @fadeInUp>
+
+  <!-- user info card -->
+  <div class="user-card">
+    <div class="user-img">
+      <a routerLink="/user-dashboard/user/profile">
+        <img *ngIf="profilePicture" [src]="profilePicture" [alt]="displayName" [appFixOrientation]="exifOrientation">
+      </a>
+    </div>
+    <div class="card-text">
+      <strong class="welcome-msg">
+        {{ 'user-dashboard-page.welcome-msg' | translate }}
+      </strong>
+      <h3 *ngIf="displayName" class="user-name">
+        <a routerLink="/user-dashboard/user/profile">{{ displayName }}</a>
+      </h3>
+    </div>
+  </div>
+
+  <!-- list of dashboard links -->
+  <div #dashboardLinks class="dashboard-links" [class.open]="isOpen">
+    <ul>
+      <li *ngIf="isAdmin">
+        <a routerLink="/admin-dashboard" routerLinkActive="active">
+          <img src="../../../assets/images/icons/admin/admin-dashboard.png" alt="admin-dashboard">
+          {{ 'user-dashboard-page.admin-dashboard' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="profile" routerLinkActive="active">
+          <img src="../../../assets/images/icons/user/profile-user.png" alt="user-profile">
+          {{ 'user-dashboard-page.user-profile' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="my-orders" routerLinkActive="active">
+          <img src="../../../assets/images/icons/user/orders-user.png" alt="user-orders">
+          {{ 'user-dashboard-page.user-orders' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="addresses" routerLinkActive="active">
+          <img src="../../../assets/images/icons/user/address.png" alt="user-address">
+          {{ 'user-dashboard-page.user-address' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="payments" routerLinkActive="active">
+          <img src="../../../assets/images/icons/user/credit-card-linear.png" alt="user-payments">
+          {{ 'user-dashboard-page.user-payments' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="return" routerLinkActive="active">
+          <img src="../../../assets/images/icons/user/return.png" alt="user-returns">
+          {{ 'user-dashboard-page.user-returns' | translate }}
+        </a>
+      </li>
+      <li>
+        <a href="#" (click)="logOut(); $event.preventDefault();">
+          <img src="../../../assets/images/icons/user/exit.png" alt="logout">
+          {{ 'user-dashboard-page.logout' | translate }}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- slide toggle button for links -->
+  <button class="slide-toggle-btn" [class.active]="isOpen" (click)="toggleSidebarLinks(dashboardLinks)">
+    <i class="fa fa-angle-down" aria-hidden="true"></i>
+  </button>
+</aside>

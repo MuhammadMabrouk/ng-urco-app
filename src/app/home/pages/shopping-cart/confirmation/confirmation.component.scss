@@ -1,0 +1,51 @@
+@import "../../../../../styles/helpers/variables";
+@import "../../../../../styles/helpers/mixins";
+@import "../../../../../styles/components/components";
+
+.confirmation {
+  width: 90%;
+  text-align: center;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  background-color: #fff;
+  border-radius: $borderRadius;
+  box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+
+  @media #{$min_768} {
+    max-width: 500px;
+    padding: 30px 40px;
+  }
+
+  @media #{$max_767} {
+    padding: 25px;
+  }
+
+  .img {
+    margin-bottom: 25px;
+
+    img {
+      width: 112px;
+    }
+  }
+
+  .text {
+    .title {
+      color: $color-one;
+    }
+
+    .title,
+    .sub-title {
+      margin-bottom: 25px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .buttons-container {
+    margin-top: 25px;
+  }
+}

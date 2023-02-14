@@ -1,0 +1,44 @@
+@import "../../../../styles/helpers/mixins";
+
+.rating {
+  @include flexbox(flex, "", "", "", "", "");
+
+  li {
+    color: #ccc;
+
+    &:not(:last-child) {
+      @include appDir(margin-right, 5px, margin-left, 5px);
+    }
+  }
+
+  &.rating-5 {
+    li:nth-of-type(-1n + 5) {
+      color: #fdeb5e;
+      text-shadow: 0 0 20px rgba(#fdeb5e, 0.1);
+    }
+  }
+
+  &.rating-4 {
+    li:nth-of-type(-1n + 4) {
+      color: #fd4;
+    }
+  }
+
+  &.rating-3 {
+    li:nth-of-type(-1n + 3) {
+      color: #fd4;
+    }
+  }
+
+  &.rating-2 {
+    li:nth-of-type(-1n + 2) {
+      color: #fd4;
+    }
+  }
+
+  &.rating-1 {
+    li:nth-of-type(1) {
+      color: #f62;
+    }
+  }
+}

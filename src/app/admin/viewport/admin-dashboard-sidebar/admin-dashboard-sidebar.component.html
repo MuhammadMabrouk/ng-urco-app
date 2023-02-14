@@ -1,0 +1,127 @@
+<aside @fadeInUp>
+
+  <!-- user info card -->
+  <div class="user-card">
+    <div class="user-img">
+      <a routerLink="/user-dashboard/user/profile">
+        <img *ngIf="profilePicture" [src]="profilePicture" [alt]="displayName" [appFixOrientation]="exifOrientation">
+      </a>
+    </div>
+    <div class="card-text">
+      <strong class="welcome-msg">{{ 'admin-dashboard-page.welcome-msg' | translate }}</strong>
+      <h3 *ngIf="displayName" class="user-name">
+        <a routerLink="/user-dashboard/user/profile">{{ displayName }}</a>
+      </h3>
+    </div>
+  </div>
+
+  <!-- list of dashboard links -->
+  <div #dashboardLinks class="dashboard-links" [class.open]="isOpen">
+    <ul>
+      <li>
+        <a routerLink="/user-dashboard" routerLinkActive="active">
+          <img src="../../../assets/images/icons/user/profile-user.png" alt="user-dashboard">
+          {{ 'admin-dashboard-page.user-dashboard' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="requests" routerLinkActive="active">
+          <img src="../../../assets/images/icons/admin/requests.png" alt="requests">
+          {{ 'admin-dashboard-page.requests' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="returns" routerLinkActive="active">
+          <img src="../../../assets/images/icons/user/return.png" alt="returns">
+          {{ 'admin-dashboard-page.returns' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="categories" routerLinkActive="active">
+          <img src="../../../assets/images/icons/admin/categories.png" alt="categories">
+          {{ 'admin-dashboard-page.categories' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="products" routerLinkActive="active">
+          <img src="../../../assets/images/icons/admin/products.png" alt="products">
+          {{ 'admin-dashboard-page.products' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="main-slider" routerLinkActive="active">
+          <img src="../../../assets/images/icons/admin/slider.png" alt="main-slider">
+          {{ 'admin-dashboard-page.main-slider' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="main-offer" routerLinkActive="active">
+          <img src="../../../assets/images/icons/admin/fire-offer.png" alt="main-offer">
+          {{ 'admin-dashboard-page.main-offer' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="users" routerLinkActive="active">
+          <img src="../../../assets/images/icons/admin/users.png" alt="users">
+          {{ 'admin-dashboard-page.users' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="coupons" routerLinkActive="active">
+          <img src="../../../assets/images/icons/admin/coupon.png" alt="coupons">
+          {{ 'admin-dashboard-page.coupons' | translate }}
+        </a>
+      </li>
+      <li class="has-children">
+        <i class="fa fa-angle-down" aria-hidden="true" (click)="showSubMenu($event, subMenu)"></i>
+        <a routerLink="contact-form" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <img src="../../../assets/images/icons/admin/inbox.png" alt="contact-form">
+          {{ 'admin-dashboard-page.contact-form.title' | translate }}
+        </a>
+        <ul #subMenu class="sub-menu">
+          <li>
+            <a routerLink="contact-form/view/messages" routerLinkActive="active">
+              <img src="../../../assets/images/icons/categories/dot-inside-a-circle.png" alt="messages">
+              {{ 'admin-dashboard-page.contact-form.messages' | translate }}
+            </a>
+          </li>
+          <li>
+            <a routerLink="contact-form/view/blacklist" routerLinkActive="active">
+              <img src="../../../assets/images/icons/categories/dot-inside-a-circle.png" alt="blacklist">
+              {{ 'admin-dashboard-page.contact-form.blacklist' | translate }}
+            </a>
+          </li>
+          <li>
+            <a routerLink="contact-form/view/settings" routerLinkActive="active">
+              <img src="../../../assets/images/icons/categories/dot-inside-a-circle.png" alt="settings">
+              {{ 'admin-dashboard-page.contact-form.settings' | translate }}
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a routerLink="newsletter" routerLinkActive="active">
+          <img src="../../../assets/images/icons/admin/newsletter.png" alt="newsletter">
+          {{ 'admin-dashboard-page.newsletter' | translate }}
+        </a>
+      </li>
+      <li>
+        <a routerLink="general-settings" routerLinkActive="active">
+          <img src="../../../assets/images/icons/admin/general-settings.png" alt="general-settings">
+          {{ 'admin-dashboard-page.general-settings' | translate }}
+        </a>
+      </li>
+      <li>
+        <a (click)="logOut(); $event.preventDefault();">
+          <img src="../../../assets/images/icons/user/exit.png" alt="">
+          {{ 'admin-dashboard-page.logout' | translate }}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- slide toggle button for links -->
+  <button class="slide-toggle-btn" [class.active]="isOpen" (click)="toggleSidebarLinks(dashboardLinks)">
+    <i class="fa fa-angle-down" aria-hidden="true"></i>
+  </button>
+</aside>

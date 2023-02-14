@@ -1,0 +1,1173 @@
+{
+  "languages": {
+    "en": "English",
+    "ar": "Arabic"
+  },
+  "home-page": {
+    "home": "Home",
+    "page-title": "Urco - Angular eCommerce App",
+    "nav": {
+      "logo": "URCO",
+      "search": "What you're looking for",
+      "account": "My Account",
+      "create-account": "Create an Account",
+      "sign-in": "Sign In",
+      "admin-dashboard": "Admin Dashboard",
+      "user-dashboard": "User Dashboard",
+      "my-orders": "My Orders",
+      "logout": "Logout"
+    },
+    "side-menu": {
+      "all-categories": "All Categories",
+      "all-products": "All Products",
+      "wishlist": "Wishlist"
+    },
+    "main-slider": {
+      "details": "Details",
+      "buy-now": "Buy Now",
+      "slider-control": {
+        "prev": "Prev",
+        "next": "Next"
+      }
+    },
+    "collections": {
+      "shop-now": "Shop Now"
+    },
+    "new-arrivals": {
+      "section-title": "New Arrivals",
+      "section-sub-title": "Maecenas vel odio faucibus, ultrices mauris quis, sollicitudin magna"
+    },
+    "featured-goods": {
+      "section-title": "Featured Products",
+      "section-sub-title": "Maecenas vel odio faucibus, ultrices mauris quis, sollicitudin magna"
+    },
+    "good-element": {
+      "labels": {
+        "new-label": "New",
+        "best-label": "Best",
+        "oos-label": "Out of Stock"
+      },
+      "icons": {
+        "add-to-wishlist": "Add to Wishlist",
+        "add-to-cart": "Add to Cart"
+      }
+    },
+    "offer-panner": {
+      "off": "OFF",
+      "shop-now": "Shop Now"
+    },
+    "sign-up-panner": {
+      "title": "Sign Up now and choose from thousands of best products",
+      "sign-up": "Sign Up"
+    },
+    "contact-us-panner": {
+      "title": "If you need any help, please feel free to contact us immediately",
+      "contact-us": "Contact Us"
+    },
+    "footer": {
+      "about-widget": {
+        "title": "We Are Awesome",
+        "text": "This is due to their excellent service, competitive pricing and customer support. It's thoroughly refreshing to get such a personal touch."
+      },
+      "links-widget": {
+        "title": "Useful Links",
+        "about-us": "About us",
+        "contact-us": "Contact us",
+        "terms&conditions": "Terms & Conditions",
+        "sign-up": "Create an Account",
+        "sign-in": "Sign In",
+        "logout": "Logout"
+      },
+      "contact-widget": {
+        "title": "Contact Info",
+        "address": "Egypt, Cairo, 24 El Salam Street, 240",
+        "email": "support@urco.com",
+        "phone": "+ 38 (067) 113-00-35",
+        "fax": "+ 39 (068) 114-00-36"
+      },
+      "newsletter-widget": {
+        "title": "Newsletter",
+        "text": "Subscribe to get the latest news, update and offer information. Don't worry, we won't send spam!",
+        "subscribe": "Subscribe",
+        "email": "Email",
+        "enter-your-email": "Enter your email"
+      },
+      "copyright": {
+        "app-name": "Urco - Angular eCommerce App",
+        "text": "2020 Urco is Proudly Powered by",
+        "webrouk": "Webrouk"
+      }
+    }
+  },
+  "sign-up-page": {
+    "page-title": "Sign Up - Urco",
+    "create-account": "Create New Account",
+    "sign-up-using-social": "Sign up using social networks",
+    "or": "OR",
+    "sign-up-form": {
+      "first-name-label": "First Name",
+      "first-name-placeholder": "e.g. John",
+      "last-name-label": "Last Name",
+      "last-name-placeholder": "e.g. Doe",
+      "email-label": "Email",
+      "email-placeholder": "e.g. john.doe@gmail.com",
+      "country-label": "Country",
+      "country-placeholder": "Select the Country",
+      "password-label": "Password",
+      "confirm-password-label": "Confirm Password",
+      "have-read": "I have read the",
+      "terms&conditions": "Term & Conditions",
+      "sign-up": "Sign Up"
+    }
+  },
+  "sign-in-page": {
+    "page-title": "Sign In - Urco",
+    "sign-in-to-account": "Sign In to Your Account",
+    "or": "OR",
+    "sign-in-using-social": "Sign In using social networks",
+    "sign-in-form": {
+      "email-label": "Email",
+      "email-placeholder": "e.g. john.doe@gmail.com",
+      "password-label": "Password",
+      "forgot-password": "Forgot your password?",
+      "create-account": "Create an Account",
+      "sign-in": "Sign In"
+    }
+  },
+  "about-page": {
+    "page-title": "About us - Urco",
+    "features": {
+      "feature1": "Verified Sellers",
+      "feature1-desc": "In our vision this product would only be offered by verified sellers",
+      "feature2": "Payment Protection",
+      "feature2-desc": "We guarantee safety for both retailers and online buyers",
+      "feature3": "Fast Delivery",
+      "feature3-desc": "Fast delivery on millions of best sellers and everyday essentials"
+    },
+    "main-area": {
+      "title1": "History of the Company",
+      "text-block1": "Nulla et mattis sem. Sed leo turpis, tincidunt eu metus quis, ultricies sollicitudin sem. Ut porta sit amet augue ut imperdiet. Pellentesque at sagittis est. Sed hendrerit vestibulum lorem vel aliquam. Cras luctus risus ut tortor finibus, ut maximus enim lacinia. Quisque varius tincidunt diam, et dignissim felis ullamcorper vel. Suspendisse sit amet felis a sem aliquam dictum. Praesent in nibh justo. Integer ac diam lacus. Donec ultrices turpis in mauris viverra venenatis. Suspendisse ac justo quis purus fringilla faucibus. Aliquam vehicula feugiat dictum. Mauris et metus vitae lacus ornare semper vitae cursus libero. Ut ultrices ut felis vitae sagittis. Pellentesque semper ultrices eleifend. Nunc mollis mi vel nunc consequat malesuada. Sed id diam nec est ultrices tincidunt at ut eros. Nam sodales ut lectus vitae porta. Pellentesque nec laoreet nunc, porta lobortis elit. Duis gravida faucibus lacus et cursus. Ut suscipit lectus vitae efficitur rhoncus. Praesent finibus commodo dolor a consequat. Duis quis pharetra mi. Mauris et lobortis turpis. Proin rutrum et metus vitae tincidunt. Phasellus turpis sapien, sagittis id ipsum ac, malesuada bibendum mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras semper aliquet velit, vel malesuada metus lacinia eget. Sed auctor id massa vel ornare. Duis posuere egestas ligula fermentum elementum. Vivamus risus velit, aliquet quis pellentesque non, pulvinar non nulla. Duis sagittis facilisis quam et dignissim. Nam sit amet elementum mauris, ut aliquet mauris. Donec a convallis erat. Sed ut urna velit. Donec luctus elementum augue, id pulvinar sem venenatis in. Suspendisse neque orci, mattis ac rutrum in, malesuada quis velit. Sed pulvinar odio elit, vitae ultricies libero pretium ut. Nulla ac mollis arcu. Sed non sapien at tortor auctor condimentum. In ultrices, sapien sed varius suscipit, urna erat porttitor mi, eu consectetur est mauris vel erat. Nam eget lorem vel orci hendrerit semper.",
+      "title2": "Our Goal and Idea",
+      "text-block2": "Suspendisse nec congue ligula, sit amet porta ante. Nullam congue dui arcu, sed mattis nibh ornare quis. Sed non mollis ipsum. Donec in pretium orci. Suspendisse pretium lacus quis dolor vulputate facilisis. Nulla finibus, nisl et semper ultricies, augue mauris porta libero, at ornare nisi ipsum et sem. Etiam consequat felis magna, at auctor ipsum commodo eu. Integer odio nunc, tempus vitae sodales sit amet, malesuada eget nibh. Nam quis interdum purus. Curabitur non ex nec odio rhoncus blandit. Donec quis mi felis. Cras sed mauris tellus. Praesent venenatis odio sed bibendum consectetur. Sed sem diam, placerat quis suscipit eu, maximus sit amet ex. Cras ornare elementum risus, id accumsan purus posuere non. Nam non eros nisi. Sed condimentum dui aliquet odio aliquet interdum. Nullam pretium nulla non est porta, id sollicitudin turpis efficitur. Nulla congue lacinia varius. Ut quis nunc ut urna mattis egestas. Quisque facilisis gravida lacinia. Integer nibh magna, gravida et malesuada in, accumsan lobortis nisl. Duis aliquam eros vitae magna ullamcorper ullamcorper."
+    },
+    "FAQs": {
+      "00": {
+        "title": "What is Urco?",
+        "content": "Established in 2020, Urco is the leading e-commerce destination in the Middle East & North Africa region. Urco offers more than 400,000 products across multiple categories including consumer electronics, fashion, health & beauty, household goods, books and much more. New categories are constantly evaluated and launched all the time."
+      },
+      "01": {
+        "title": "How do I register?",
+        "content": "Click “Create an Account” on the upper right corner of any page on urco.com"
+      },
+      "02": {
+        "title": "How do I login?",
+        "content": "Click “Sign in” on the upper right corner of any page of urco.com"
+      },
+      "03": {
+        "title": "I forgot my password, what do I do?",
+        "content": "Click 'Sign in' on upper right corner of any urco.com page, then click 'Forgot your password?' and enter the email address you used to register. We will send you an email with instructions for resetting your password."
+      },
+      "04": {
+        "title": "How can I track my order history?",
+        "content": "To view your orders, login into your account. There you will see your history broken down by New Sales Order, Confirmed Sales Order, Cancelled Sales Order and Returned order."
+      },
+      "05": {
+        "title": "Who should I contact if I have questions?",
+        "content": "You can refer to the seller support documents and if you still feel your queries are not answered, please feel free to call us (+2) 12345"
+      }
+    }
+  },
+  "contact-us-page": {
+    "page-title": "Contact us - Urco",
+    "contact-info": {
+      "address-title": "Address",
+      "address-details": "Egypt, Cairo, 24 El Salam Street, 240",
+      "telephone-title": "Telephone",
+      "phone": "+ 38 (067) 113-00-35",
+      "fax": "+ 39 (068) 114-00-36",
+      "email-title": "E-mail",
+      "email-details": "support@urco.com"
+    },
+    "contact-form": {
+      "title": "Get In Touch",
+      "full-name-label": "Full name",
+      "full-name-placeholder": "e.g. John Doe",
+      "email-label": "Your email",
+      "email-placeholder": "e.g. john.doe@gmail.com",
+      "phone-label": "Your phone",
+      "phone-placeholder": "Phone Number",
+      "subject-label": "Subject",
+      "subject-placeholder": "Select the subject",
+      "message-label": "Message",
+      "message-placeholder-part1": "Left your message in at least",
+      "message-placeholder-part2": "characters...",
+      "optional": "optional",
+      "submit-btn": "Send Message"
+    }
+  },
+  "terms&conditions-page": {
+    "page-title": "Terms & Conditions - Urco",
+    "title1": "Intellectual Property",
+    "list1": {
+      "0": "Cras nec nisl nec ante luctus accumsan.",
+      "1": "Duis sit amet nunc tempus, rutrum neque eget, finibus justo.",
+      "2": "Ut eget tortor sit amet diam vehicula dignissim iaculis in erat.",
+      "3": "Sed at eros in quam tristique bibendum.",
+      "4": "In vel ligula eget nisl vestibulum condimentum et ac arcu."
+    },
+    "title2": "Termination",
+    "list2": {
+      "0": "Etiam sed dolor non ligula feugiat egestas quis id turpis.",
+      "1": "Ut sodales arcu in finibus varius.",
+      "2": "Duis feugiat diam eu ultrices tempor.",
+      "3": "Quisque sodales nibh et volutpat interdum.",
+      "4": "Vestibulum sed est in dui fringilla pulvinar quis et lacus."
+    },
+    "title3": "Changes to this Agreement",
+    "text-block1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "title4": "Contact us",
+    "text-block2": "If you have any questions about this agreement, please contact us by filling this",
+    "contact": "contact form"
+  },
+  "categories-page": {
+    "page-title": "Categories - Urco",
+    "shop-now": "Shop Now"
+  },
+  "shop-page": {
+    "page-title": "Shop - Urco",
+    "sidebar": {
+      "categories": {
+        "title": "Product Categories"
+      },
+      "price": {
+        "title": "Filter by Price"
+      },
+      "colors": {
+        "title": "Filter by Color",
+        "white": "White",
+        "silver": "Silver",
+        "yellow": "Yellow",
+        "orange": "Orange",
+        "red": "Red",
+        "purple": "Purple",
+        "blue": "Blue",
+        "skyblue": "Sky Blue",
+        "green": "Green",
+        "lemon": "lime Green",
+        "brown": "Brown",
+        "black": "Black"
+      },
+      "rating": {
+        "title": "Filter by Rating",
+        "5": "5 stars",
+        "4": "4 stars",
+        "3": "3 stars",
+        "2": "2 stars",
+        "1": "1 star"
+      },
+      "clear": "Clear",
+      "apply-filter": "Apply Filter"
+    },
+    "selection-bar": {
+      "filter-toggle": "Filter",
+      "layout": {
+        "multi-columns": "Multi Columns",
+        "one-column": "One Column"
+      },
+      "goods-title": {
+        "title": "All Products"
+      },
+      "goods-length": {
+        "show": "Show:"
+      },
+      "goods-sorting": {
+        "sort-by": "Sort by:",
+        "methods": {
+          "default": "Default",
+          "most-rated": "Most Rated",
+          "price-low-to-high": "Price, low to high",
+          "price-high-to-low": "Price, high to low"
+        }
+      }
+    },
+    "no-results": "No products were found matching your selection"
+  },
+  "single-good-page": {
+    "urco": "Urco",
+    "product-overview": "Product Overview",
+    "edit-product": "Edit this product",
+    "sizes": "sizes",
+    "add-to-wishlist": "Add to Wishlist",
+    "add-to-cart": "Add to Cart",
+    "description": "Description",
+    "reviews": "Reviews",
+    "no-items-msg": "There are no reviews for this product.",
+    "edit-review": "Edit review",
+    "see-more-reviews": "See More Reviews",
+    "leave-feedback": "Leave feedback"
+  },
+  "wishlist-page": {
+    "page-title": "Wishlist - Urco",
+    "header": {
+      "wishlist-items": "Wishlist Items"
+    },
+    "footer": {
+      "continue-shopping": "Continue Shopping",
+      "add-all-to-cart": "Add All To Cart"
+    },
+    "no-items-msg": "You have no items in your wishlist.",
+    "add-to-cart": "Add To Cart",
+    "delete-item": "Delete this item"
+  },
+  "shopping-cart-page": {
+    "page-title": "Shopping Cart - Urco",
+    "main-box": {
+      "header": {
+        "cart-items": "Cart Items"
+      },
+      "footer": {
+        "continue-shopping": "Continue Shopping"
+      },
+      "no-items-msg": "You have no items in your shopping cart.",
+      "delete-item": "Delete this item"
+    },
+    "side-box": {
+      "header": {
+        "summary": "Summary"
+      },
+      "footer": {
+        "checkout": "Checkout",
+        "continue-buying": "Continue buying"
+      },
+      "subtotal": "Subtotal:",
+      "shipping": "Shipping:",
+      "total": "Total:"
+    }
+  },
+  "checkout-page": {
+    "page-title": "Checkout - Urco",
+    "main-area": {
+      "address-box": {
+        "header": {
+          "shipping-address": "Shipping Address"
+        },
+        "footer": {
+          "edit-addresses": "Edit Your Addresses",
+          "new-address": "Add New Address"
+        },
+        "select-address": "Select your shipping address",
+        "shipping-address": "Shipping Address",
+        "no-address-msg": {
+          "title": "You have no saved addresses!",
+          "text": "Add an address now so we can deliver your orders."
+        }
+      },
+      "payment-box": {
+        "header": {
+          "payment-method": "Payment Method"
+        },
+        "footer": {
+          "edit-payments": "Edit Payments Methods"
+        },
+        "payment-tabs": {
+          "credit-card": "Credit Card",
+          "paypal": "PayPal",
+          "cash": "Cash"
+        },
+        "payment-methods": {
+          "saved-credit-card": {
+            "or": "OR",
+            "select-label": "Select from saved cards",
+            "select-placeholder": "Credit Cards"
+          },
+          "new-credit-card": {
+            "card-number-label": "Card Number",
+            "card-number-placeholder": "Long set of numbers displayed on your card",
+            "card-type": "card-type",
+            "exp-date-label": "Expiration",
+            "exp-date-placeholder": "MM / YY",
+            "confirm-btn": "CONFIRM ORDER"
+          },
+          "paypal": {
+            "title": "Express Checkout using PayPal",
+            "text": "Make quick and safe payments using PayPal Express Checkout.",
+            "checkout-btn": "Checkout",
+            "checkout-btn-tagline": "The safer, easier way to pay"
+          },
+          "cash": {
+            "title": "Cash on Delivery",
+            "text": "Pay cash when the product is delivered to you.",
+            "checkout-btn": "CONFIRM ORDER"
+          }
+        }
+      }
+    },
+    "side-box": {
+      "header": {
+        "summary": "Summary"
+      },
+      "footer": {
+        "edit-shopping-cart": "Edit Shopping Cart"
+      },
+      "promotion-form": {
+        "promo-label": "Apply Discount",
+        "promo-placeholder": "Promo code",
+        "apply-btn": "Apply Discount"
+      },
+      "subtotal": "Subtotal",
+      "promo": "Promo",
+      "total": "Total"
+    }
+  },
+  "confirmation-page": {
+    "page-title": "Confirmation - Urco",
+    "thank-you": "Thank You!",
+    "sub-title": "Your order is successfully placed and paid!",
+    "text": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    "orders-link": "View Your Order"
+  },
+  "not-found-page": {
+    "page-title": "Page Not Found - Urco",
+    "page-not-found": "Oops! Page Not Found",
+    "back-to-home": "Back to Home"
+  },
+
+
+  "user-dashboard-page": {
+    "page-title": "User Dashboard - Urco",
+    "admin-dashboard": "Admin Dashboard",
+    "user-profile": "My Profile",
+    "user-orders": "My Orders",
+    "user-address": "Addresses",
+    "user-payments": "Payments",
+    "user-returns": "Returns",
+    "logout": "Logout",
+    "welcome-msg": "Welcome back!"
+  },
+  "profile-page": {
+    "page-title": "My Profile - Urco",
+    "basic-info": {
+      "title": "Basic Info",
+      "first-name-label": "First Name",
+      "first-name-placeholder": "e.g. John",
+      "last-name-label": "Last Name",
+      "last-name-placeholder": "e.g. Doe",
+      "email-label": "Email",
+      "email-placeholder": "e.g. john.doe@gmail.com",
+      "country-label": "Country",
+      "country-placeholder": "Select a Country"
+    },
+    "additional-info": {
+      "title": "Additional Info",
+      "birth-date-label": "Date of birth",
+      "birth-date-placeholder": "DD/MM/YYYY",
+      "gender": "Gender:",
+      "male": "Male",
+      "female": "Female"
+    },
+    "security": {
+      "title": "Security",
+      "password": "Password",
+      "new-password": "New Password",
+      "confirm-password": "Confirm Password"
+    },
+    "profile-picture": {
+      "title": "Picture",
+      "field-title": "Profile Picture",
+      "remove": "Remove"
+    },
+    "save-btn": "Save Changes"
+  },
+  "my-orders-page": {
+    "page-title": "My Orders - Urco",
+    "header-titles": {
+      "order": "Order",
+      "date": "Date",
+      "address": "Address",
+      "status": "Status",
+      "total": "Total"
+    },
+    "no-items-msg": "You have no orders yet.",
+    "actions-btns": {
+      "view": "View",
+      "cancel": "Cancel"
+    }
+  },
+  "single-order-page": {
+    "page-title": "Order Details - Urco",
+    "header-titles": {
+      "item": "Item",
+      "price": "Price",
+      "qty": "Qty",
+      "total": "Total"
+    },
+    "no-items-msg": "All products have been deleted by the user.",
+    "returned": "Returned",
+    "actions-btns": {
+      "no-actions": "No Actions",
+      "remove": "Remove",
+      "rating": "Rating",
+      "return": "Return"
+    },
+    "leave-feedback": "Leave feedback",
+    "return-modal": {
+      "reason-for-return": "Reason for Return",
+      "reasons": {
+        "accidental-order": "Accidental order",
+        "better-price-available": "Better price available",
+        "poor-quality-or-faulty": "Poor quality / Faulty",
+        "arrived-too-late": "Arrived too late",
+        "wrong-item-was-sent": "Wrong item was sent",
+        "looks-different-from-images": "Looks different from images",
+        "description-was-not-accurate": "Description wasn't accurate",
+        "no-longer-needed": "No longer needed"
+      },
+      "comments": {
+        "your-comment": "Your Comment",
+        "comments-label": "Comments",
+        "optional": "optional",
+        "comments-placeholder-part1": "More details in at least",
+        "comments-placeholder-part2": "characters..."
+      },
+      "submit-btn": "Submit"
+    }
+  },
+  "addresses-page": {
+    "page-title": "My Addresses - Urco",
+    "no-items-msg": {
+      "title": "You have no saved addresses!",
+      "text": "Add an address now so we can deliver your orders."
+    },
+    "address-details": {
+      "address": "Address",
+      "region": "Region",
+      "city": "City",
+      "street": "Street",
+      "building&floor": "Building / Floor",
+      "phone-number": "Address Phone Number",
+      "additional-info": "Additional Information"
+    },
+    "edit": "Edit",
+    "delete": "Delete",
+    "add-new": "Add New"
+  },
+  "add-address-page": {
+    "page-title": "Add New Address - Urco",
+    "box-title": "Add New Address",
+    "address-label": "Address",
+    "address-placeholder": "Name of the building and the residential area",
+    "region-label": "State / Province / Region",
+    "region-placeholder": "e.g. Cairo",
+    "city-label": "City",
+    "city-placeholder": "e.g. Maadi",
+    "street-label": "Street",
+    "street-placeholder": "e.g. Al Nasr St",
+    "building-label": "Building",
+    "building-placeholder": "e.g. 47",
+    "floor-label": "Floor",
+    "floor-placeholder": "e.g. 5",
+    "address-title-label": "Address Title",
+    "address-title-placeholder": "e.g. Home, Work..",
+    "address-phone-number-label": "Address Phone Number",
+    "address-phone-number-placeholder": "Phone Number",
+    "additional-info-label": "Additional Information",
+    "additional-info-placeholder": "Provide details such as building description, a nearby landmark, or other navigation instructions",
+    "optional": "optional",
+    "cancel": "Cancel",
+    "save-new-address": "Save New Address"
+  },
+  "edit-address-page": {
+    "page-title": "Edit Address - Urco",
+    "edit": "Edit",
+    "address": "Address",
+    "save-changes": "Save Changes"
+  },
+  "payments-page": {
+    "page-title": "My Payments - Urco",
+    "header-titles": {
+      "method": "Method",
+      "type": "Type",
+      "expires": "Expires"
+    },
+    "no-items-msg": "You have no payment methods yet.",
+    "actions-btns": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "add-new": "Add New"
+  },
+  "add-payments-page": {
+    "page-title": "Add New Method - Urco",
+    "box-title": "Add New Method",
+    "card-number-label": "Card Number",
+    "card-number-placeholder": "Long set of numbers displayed on your card",
+    "card-type": "card-type",
+    "security-code": "Security Code",
+    "exp-date-label": "Expiration",
+    "exp-date-placeholder": "MM / YY",
+    "cancel-btn": "Cancel",
+    "save-new-method": "Save New Method"
+  },
+  "edit-payments-page": {
+    "page-title": "Edit Method - Urco",
+    "box-title": "Edit Method",
+    "save-changes": "Save Changes"
+  },
+  "user-returns-page": {
+    "page-title": "My Returns - Urco",
+    "header-titles": {
+      "item": "Item",
+      "date": "Date",
+      "total": "Total"
+    },
+    "no-items-msg": "You have no returned goods.",
+    "dates": {
+      "ordered": "Ordered:",
+      "delivered": "Delivered:",
+      "returned": "Returned:"
+    },
+    "totals": {
+      "price": "Price:",
+      "qty": "Qty:",
+      "total": "Total:"
+    },
+    "actions-btns": {
+      "rating": "Rating"
+    },
+    "leave-feedback": "Leave feedback"
+  },
+
+
+  "admin-dashboard-page": {
+    "page-title": "Admin Dashboard - Urco",
+    "user-dashboard": "User Dashboard",
+    "requests": "Requests",
+    "returns": "Returns",
+    "categories": "Categories",
+    "products": "Products",
+    "main-slider": "Main Slider",
+    "main-offer": "Main Offer",
+    "users": "Users",
+    "coupons": "Coupons",
+    "contact-form": {
+      "title": "Contact Form",
+      "messages": "Messages",
+      "blacklist": "Blacklist",
+      "settings": "Settings"
+    },
+    "newsletter": "Newsletter",
+    "general-settings": "General Settings",
+    "logout": "Logout",
+    "welcome-msg": "Welcome back!"
+  },
+  "requests-page": {
+    "page-title": "All Requests - Urco",
+    "header-titles": {
+      "request": "Request",
+      "date": "Date",
+      "time": "Time",
+      "status": "Status",
+      "amount": "Amount"
+    },
+    "no-items-msg": "You have no requests yet.",
+    "actions-btns": {
+      "view": "View"
+    }
+  },
+  "single-request-page": {
+    "page-title": "Request Details - Urco",
+    "request-details": {
+      "title": "Request Details",
+      "date": "Date:",
+      "time": "Time:",
+      "amount": "Amount:"
+    },
+    "change-status": {
+      "title": "Change Status:",
+      "statuses": {
+        "ordered": "Ordered",
+        "confirmed": "Confirmed",
+        "shipped": "Shipped",
+        "delivered": "Delivered",
+        "returned": "Returned",
+        "canceled": "Canceled"
+      }
+    },
+    "customer-info": {
+      "title": "Customer Info",
+      "name": "Name:",
+      "email": "Email:",
+      "country": "Country:",
+      "gender": "Gender:"
+    },
+    "request-goods": {
+      "header-titles": {
+        "item": "Item",
+        "size": "Size",
+        "price": "Price",
+        "qty": "Qty",
+        "total": "Total",
+        "status": "Status"
+      },
+      "no-items-msg": "All products have been deleted by the user.",
+      "delivered": "Delivered",
+      "returned": "Returned"
+    }
+  },
+  "returns-page": {
+    "page-title": "Returns - Urco",
+    "header-titles": {
+      "item": "Item",
+      "date": "Date",
+      "total": "Total"
+    },
+    "no-items-msg": "There are no returns.",
+    "dates": {
+      "ordered": "Ordered:",
+      "delivered": "Delivered:",
+      "returned": "Returned:"
+    },
+    "totals": {
+      "price": "Price:",
+      "qty": "Qty:",
+      "total": "Total:"
+    },
+    "actions-btns": {
+      "details": "Details"
+    }
+  },
+  "single-return-page": {
+    "page-title": "Return details - Urco",
+    "box-title": "Item",
+    "ordered": "Ordered:",
+    "delivered": "Delivered:",
+    "returned": "Returned:",
+    "user": "User:",
+    "reasons": "reasons:",
+    "comment": "Comment:"
+  },
+  "admin-categories-page": {
+    "page-title": "Categories - Urco",
+    "header-titles": {
+      "category": "Category",
+      "slug": "Slug",
+      "children": "Children"
+    },
+    "no-items-msg": "There are no categories yet.",
+    "actions-btns": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "add-new": "Add New"
+  },
+  "add-admin-categories-page": {
+    "page-title": "Add New Category - Urco",
+    "box-title": "Add New Category",
+    "name-label": "Name",
+    "name-placeholder": "e.g. Men's Fashion",
+    "child-name-placeholder": "e.g. Clothes",
+    "slug-label": "Slug",
+    "slug-placeholder": "e.g. men-fashion",
+    "child-slug-placeholder": "e.g. clothes",
+    "brief-label": "Brief",
+    "brief-placeholder": "e.g. Visit our shop to see amazing products",
+    "icon-label": "Icon",
+    "img-label": "Image",
+    "optional":"optional",
+    "remove": "Remove",
+    "remove-child": "Remove Child",
+    "add-child": "Add Child",
+    "cancel": "Cancel",
+    "save-new-category": "Save New Category"
+  },
+  "edit-admin-categories-page": {
+    "page-title": "Edit Category - Urco",
+    "edit": "Edit",
+    "category": "Category",
+    "save-changes": "Save Changes"
+  },
+  "products-page": {
+    "page-title": "Products - Urco",
+    "header-titles": {
+      "product": "Product",
+      "date-added": "Date Added",
+      "selling-price": "Selling Price"
+    },
+    "no-items-msg": "There are no products yet.",
+    "actions-btns": {
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "add-new": "Add New"
+  },
+  "add-admin-products-page": {
+    "page-title": "Add New Product - Urco",
+    "box-title": "Add New Product",
+    "category-label": "Category",
+    "category-placeholder": "Select...",
+    "sub-category-label": "Sub Category",
+    "name-label": "Name",
+    "name-placeholder": "e.g. Blue Nike Shoes",
+    "price-label": "Price",
+    "discount-label": "Discount",
+    "desc-label": "Description",
+    "desc-placeholder": "The product description should provide critical product information",
+    "sizes-label": "Sizes",
+    "colors": {
+      "title": "Color:",
+      "white": "White",
+      "silver": "Silver",
+      "yellow": "Yellow",
+      "orange": "Orange",
+      "red": "Red",
+      "purple": "Purple",
+      "blue": "Blue",
+      "skyblue": "Sky Blue",
+      "green": "Green",
+      "lemon": "lime Green",
+      "brown": "Brown",
+      "black": "Black"
+    },
+    "product-image-field-title": "Product Image",
+    "images-label": "Images",
+    "new-label": "Show New Label",
+    "best-label": "Show Best Label",
+    "optional": "Optional",
+    "remove": "Remove",
+    "cancel": "Cancel",
+    "save-new-product": "Save New Product"
+  },
+  "edit-admin-products-page": {
+    "page-title": "Edit Product - Urco",
+    "box-title": "Edit Product",
+    "oos-label": "Out of Stock Label",
+    "save-changes": "Save Changes"
+  },
+  "main-slider-page": {
+    "page-title": "Main Slider - Urco",
+    "box-title": "Main Slider",
+    "good-id-field-title": "ID",
+    "good-id-label": "Add the ID of the target product",
+    "good-id-placeholder": "e.g. 0YhQtWPWfXQ2C3VY7O02",
+    "save": "Save",
+    "header-titles": {
+      "item": "Item",
+      "date-added": "Date Added",
+      "selling-price": "Selling Price"
+    },
+    "no-items-msg": "There are no products.",
+    "actions-btns": {
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+  "main-offer-page": {
+    "page-title": "Main Offer - Urco",
+    "box-title": "Main Offer",
+    "good-id-field-title": "ID",
+    "good-id-label": "Add the ID of the target product",
+    "good-id-placeholder": "e.g. 0YhQtWPWfXQ2C3VY7O02",
+    "discount-type-label": "Discount Type:",
+    "percent-discount-label": "Percent Discount",
+    "fixed-discount-label": "Fixed Discount",
+    "discount-amount-label": "Discount Amount",
+    "save": "Save",
+    "header-titles": {
+      "item": "Item",
+      "date-added": "Date Added",
+      "original-price": "Original Price",
+      "offer-price": "Offer Price"
+    },
+    "no-items-msg": "There are no products.",
+    "actions-btns": {
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+  "users-page": {
+    "page-title": "All Users - Urco",
+    "header-titles": {
+      "name": "Name",
+      "email": "Email",
+      "date": "Date"
+    },
+    "no-items-msg": "There are no users yet.",
+    "actions-btns": {
+      "view": "View",
+      "make-admin": "Make Admin",
+      "remove-admin": "Remove Admin"
+    }
+  },
+  "user-page": {
+    "page-title": "User Info - Urco",
+    "admin": "Admin",
+    "date": "Date:",
+    "name": "Name:",
+    "email": "Email:",
+    "registration-date": "Registration Date:",
+    "country": "Country:",
+    "birth-date": "Birth Date:",
+    "gender": "Gender:",
+    "register-by": "Register by:"
+  },
+  "coupons-page": {
+    "page-title": "Coupons - Urco",
+    "header-titles": {
+      "coupon-code": "Code",
+      "amount": "Amount",
+      "expires": "Expires",
+      "uses-number": "No. Uses",
+      "enabled": "Enabled"
+    },
+    "no-items-msg": "There are no coupons yet.",
+    "actions-btns": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "add-new": "Add New"
+  },
+  "add-coupons-page": {
+    "page-title": "Add New Coupon - Urco",
+    "box-title": "Generate New Coupon",
+    "coupon-type-label": "Coupon Type:",
+    "percent-label": "Percent Discount",
+    "fixed-label": "Fixed Discount",
+    "amount-label": "Coupon Amount",
+    "uses-limit-label": "Uses Limit",
+    "ExpDate-label": "Expiry Date",
+    "ExpDate-placeholder": "DD/MM/YYYY",
+    "cancel": "Cancel",
+    "save-new-coupon": "Save New Coupon"
+  },
+  "edit-coupons-page": {
+    "page-title": "Edit Coupon - Urco",
+    "box-title": "Edit Coupon",
+    "save-changes": "Save Changes"
+  },
+  "contact-form-page": {
+    "page-title": "Contact Form - Urco",
+    "messages": "Messages",
+    "blacklist": "Blacklist",
+    "settings": "Settings"
+  },
+  "messages-page": {
+    "page-title": "Messages - Urco",
+    "header-titles": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "date": "Date"
+    },
+    "no-items-msg": "There are no messages yet.",
+    "actions-btns": {
+      "view": "View",
+      "block": "Block",
+      "delete": "Delete"
+    }
+  },
+  "single-message-page": {
+    "page-title": "Message Details - Urco",
+    "box-title": "Message",
+    "name": "Name:",
+    "received-on": "Received On:",
+    "read-on": "Read On:",
+    "email": "Email:",
+    "phone": "Phone:",
+    "subject": "Subject:",
+    "message": "Message:"
+  },
+  "contact-form-blacklist-page": {
+    "page-title": "Blacklist - Urco",
+    "email": "Email Address",
+    "no-items-msg": "There are no emails yet.",
+    "delete": "Delete"
+  },
+  "contact-form-settings-page": {
+    "page-title": "Contact Form Settings - Urco",
+    "box-title": "Contact Form Settings",
+    "name-length": "Name field length",
+    "message-length": "Message field length",
+    "subject-label": "Type a subject name",
+    "subject-placeholder": "e.g. Where's my stuff?",
+    "add-subject": "Add Subject",
+    "remove-subject": "Remove Subject",
+    "save-changes": "Save Changes"
+  },
+  "newsletter-page": {
+    "page-title": "Newsletter - Urco",
+    "header-titles": {
+      "email-address": "Email Address",
+      "join-date": "Join Date"
+    },
+    "no-items-msg": "There are no emails yet.",
+    "delete": "Delete",
+    "new-message": "New Message"
+  },
+  "general-settings-page": {
+    "page-title": "General Settings - Urco",
+    "general-settings-form": {
+      "box-title": "General Settings",
+      "shop-goods-limit": "Shop page show at most",
+      "shipping-cost": "Shipping Cost",
+      "return-period": "Products Return Period",
+      "time-zone": "Timezone",
+      "select-time-zone": "Select..."
+    },
+    "admin-settings-form": {
+      "box-title": "Admin Settings",
+      "requests-limit": "Requests page show at most",
+      "returns-limit": "Returns page show at most",
+      "categories-limit": "Categories page show at most",
+      "goods-limit": "Products page show at most",
+      "users-limit": "Users page show at most",
+      "coupons-limit": "Coupons page show at most",
+      "messages-limit": "Contact messages page show at most",
+      "blacklist-emails-limit": "Blacklist emails page show at most",
+      "newsletter-emails-limit": "Newsletter page show at most"
+    },
+    "user-settings-form": {
+      "box-title": "User Settings",
+      "orders-limit": "Orders page show at most",
+      "addresses-limit": "Addresses page show at most",
+      "payment-methods-limit": "Payment page show at most",
+      "returned-goods-limit": "Return page show at most"
+    },
+    "save-changes":"Save Changes"
+  },
+
+
+  "custom-elements": {
+    "file-upload": {
+      "upload-text1": "Drag & drop or",
+      "browse": "browse",
+      "upload-text2": "files to upload!",
+      "choose-file": "Choose File",
+      "of": "of"
+    },
+    "select-menu": {
+      "search": "Search...",
+      "no-results-msg": "No results found..."
+    },
+    "modal": {
+      "cancel": "Cancel"
+    },
+    "review-model": {
+      "rating-values": {
+        "excellent": "excellent",
+        "very-good": "very good",
+        "good": "good",
+        "fair": "fair",
+        "poor": "poor",
+        "rate-this-product": "rate this product"
+      },
+      "comment": {
+        "your-comment": "Brief Comment",
+        "comment-label": "Brief Comment",
+        "optional": "optional",
+        "comment-placeholder": "Write your comments here..."
+        },
+      "footer": {
+        "cancel": "Cancel",
+        "submit": "Submit"
+      }
+    },
+    "star-rating": {
+      "5": "5 stars",
+      "4": "4 stars",
+      "3": "3 stars",
+      "2": "2 stars",
+      "1": "1 star"
+    },
+    "product-light-box": {
+      "close": "Close",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "simple-pagination": {
+      "of": "of",
+      "items": "Items",
+      "prev": "Previous Page",
+      "next": "Next Page"
+    }
+  },
+
+
+  "toast-notifications": {
+    "item-deleted": "Item deleted successfully!",
+    "changes-saved": "Changes saved successfully!",
+    "oops-something-wrong": "Oops! something went wrong, please try again.",
+    "message-sent": "Message sent successfully!",
+    "message-deleted": "Message deleted successfully!",
+    "email-blocked": "Email blocked successfully!",
+    "this-email-blocked": "This email has been blocked.",
+    "this-email-already-blocked": "This email has already been blocked.",
+    "email-deleted": "Email deleted successfully!",
+    "thanks-for-feedback": "Thanks for your feedback!",
+    "enter-cat-slug-first": "Please enter category 'Slug' first",
+    "failed-category-exist": "FAILED! Maybe category already exist.",
+    "category-deleted": "Category deleted successfully!",
+    "category-saved": "Category saved successfully!",
+    "coupon-deleted": "Coupon deleted successfully!",
+    "coupon-saved": "Coupon saved successfully!",
+    "product-exist": "Product already exist",
+    "product-deleted": "Product deleted successfully!",
+    "product-removed": "Product removed successfully!",
+    "product-saved": "Product saved successfully!",
+    "applied": "Applied successfully!",
+    "failed-address-exist": "FAILED! Maybe address already exist.",
+    "address-deleted": "Address deleted successfully!",
+    "address-saved": "Address saved successfully!",
+    "returning-in-progress": "Returning your product in progress!",
+    "failed-card-exist": "FAILED! Maybe the card already exist.",
+    "card-deleted": "Card deleted successfully!",
+    "card-saved": "Card saved successfully!",
+    "cannot-sort-by-newest-in-price-filter": "Cannot sort by newest while applying the price filter.",
+    "cannot-sort-by-rating-in-price-filter": "Cannot sort by rating while applying the price filter.",
+    "invalid-sort-method": "Invalid sort method!",
+    "sign-in-to-complete-order": "Please sign in to complete your order.",
+    "coupon-code": "Coupon code",
+    "is-invalid": "is invalid",
+    "add-shipping-address": "Please add your shipping address.",
+    "verify-email-address": "Please verify your email address. Kindly check your inbox.",
+    "password-reset-email-should-arrive-shortly": "Password reset email should arrive shortly",
+    "type-email-to-receive-password-reset-link": "Type your email to receive the password reset link",
+    "successfully-registered": "Great! successfully registered!",
+    "no-more-reviews": "There are no more reviews.",
+    "already-subscribed": "You're Already Subscribed!",
+    "subscribed-successfully": "Subscribed successfully!",
+    "not-allowed-here": "Sorry, You are not allowed to access this page",
+    "sign-in-to-go-to-this-page": "Please sign in first to go to this page",
+    "is-required": "is required",
+    "must-be-at-least": "must be at least",
+    "must-be-at-most": "must be at most",
+    "characters": "characters",
+    "enter-valid-email": "Please enter a valid email address",
+    "enter-valid-phone": "Please enter a valid Phone Number",
+    "enter-valid-date": "Please enter a valid Date",
+    "card-number-not-valid": "Card number is not valid",
+    "cannot-contain-spaces": "cannot contain spaces",
+    "passwords-must-match": "Passwords must match",
+    "enter-password-first": "Please enter your password first",
+    "confirm-your-password": "Please confirm your password",
+    "not-valid-file-format": "Not a valid file format, we only support",
+    "for": "for"
+  },
+
+
+  "confirm-msg": {
+    "sure-to-remove-item": "Are you sure to remove this item?",
+    "sure-to-delete-image": "Are you sure to delete this image?",
+    "sure-to-delete-picture": "Are you sure to delete this picture?",
+    "sure-to-delete-email": "Are you sure to delete this email?",
+    "sure-to-delete-address": "Are you sure to delete this address?",
+    "sure-to-delete-payment-method": "Are you sure to delete this payment method?",
+    "sure-to-delete-message": "Are you sure to delete this message?",
+    "sure-to-delete-category": "Are you sure to delete this category?",
+    "sure-to-delete-coupon": "Are you sure to delete this coupon?",
+    "sure-to-delete-product": "Are you sure to delete this product?"
+  }
+}

@@ -1,0 +1,10 @@
+<div class="custom-number">
+  <input class="number"
+    #number
+    type="text"
+    [value]="value"
+    [appMask]="'^([1-9]\\d*)$'"
+    (change)="sendValue(number.value)">
+  <i class="fa fa-minus" aria-hidden="true" (click)="valueDecrease(number.value)"></i>
+  <i class="fa fa-plus" aria-hidden="true" (click)="valueIncrease(number.value)"></i>
+</div>

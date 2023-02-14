@@ -1,0 +1,182 @@
+@import "../../../../../styles/helpers/variables";
+@import "../../../../../styles/helpers/mixins";
+@import "../../../../../styles/components/components";
+
+.content {
+  .the-main-box {
+    .box {
+      &:not(.info-table) {
+        padding: 20px;
+      }
+
+      &.info-table {
+        padding: {
+          top: 5px;
+          bottom: 5px;
+        }
+
+        .box-content {
+          margin-bottom: unset;
+        }
+      }
+
+      .user-card {
+        @media #{$min_768} {
+          @include flexbox(flex, "", center, "", "", "");
+        }
+
+        .user-img {
+          position: relative;
+          background-color: #fff;
+          padding: 4px;
+          border-radius: 50%;
+          box-shadow: 0 0 10px 0px rgba(40, 47, 58, 0.1);
+
+          @media #{$min_768} {
+            width: 120px;
+            height: 120px;
+            @include appDir(margin-right, 22px, margin-left, 22px);
+          }
+
+          @media #{$max_767} {
+            width: 100px;
+            height: 100px;
+            margin: {
+              left: auto;
+              right: auto;
+              bottom: 20px;
+            }
+          }
+
+          > img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+
+          .admin-badge {
+            position: absolute;
+            bottom: -8px;
+            @include appDir(left, 50%, right, 50%);
+            @include ltr_translateX(-50%);
+
+            img {
+              display: block;
+              width: 32px;
+              height: 32px;
+            }
+          }
+        }
+
+        .card-text {
+          @media #{$min_768} {
+            width: calc(100% - 150px);
+          }
+
+          @media #{$max_767} {
+            text-align: center;
+          }
+
+          .user-name {
+            font-size: 18px;
+            margin: 0 0 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .registration-date {
+            color: $color-four;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            span {
+              @include appDir(margin-right, 8px, margin-left, 8px);
+            }
+          }
+        }
+      }
+
+      .box-content {
+        .loading {
+          @include flexbox(flex, "", center, center, "", "");
+          width: 100%;
+          min-height: 100px;
+
+          .spinner {
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: $color-four;
+            border-radius: 50%;
+            animation: scaleOut 1s infinite ease-in-out;
+          }
+        }
+
+        .user {
+          width: 100%;
+          border-collapse: collapse;
+
+          tr {
+            &:not(:last-of-type) {
+              border-bottom: 1px solid $borderColor;
+            }
+
+            th {
+              color: $color-three;
+              @include appDir(
+                text-transform,
+                capitalize,
+                text-transform,
+                unset
+              );
+              white-space: nowrap;
+            }
+
+            th,
+            td {
+              text-align: start;
+              padding: 14px 0;
+            }
+
+            td {
+              word-break: break-all;
+              @include appDir(padding-left, 20px, padding-right, 20px);
+
+              &.country {
+                @include flexbox(flex, "", center, "", "", "");
+                @include appDir(
+                  text-transform,
+                  capitalize,
+                  text-transform,
+                  unset
+                );
+
+                img {
+                  width: 22px;
+                  @include appDir(margin-right, 14px, margin-left, 14px);
+                }
+
+                img,
+                span {
+                  display: block;
+                }
+              }
+
+              .infinity {
+                display: block;
+                height: 2px;
+                width: 6px;
+                background-color: $color-four;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

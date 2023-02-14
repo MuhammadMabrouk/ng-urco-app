@@ -1,0 +1,46 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.terms-conditions {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: $borderRadius;
+  box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+
+  @media #{$max_767} {
+    width: 90%;
+    margin: {
+      left: auto;
+      right: auto;
+    };
+  }
+
+  h3 {
+    &:not(:first-child) {
+      margin-top: 40px;
+    }
+  }
+
+  p {
+    margin: 0;
+
+    a {
+      color: $color-one;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+    @include appDir('padding-left', 40px, 'padding-right', 40px);
+
+    li {
+      line-height: 1.8em;
+      @include appDir('padding-left', 8px, 'padding-right', 8px);
+    }
+  }
+}

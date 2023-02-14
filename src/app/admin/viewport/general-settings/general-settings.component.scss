@@ -1,0 +1,25 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.content {
+  .the-main-box {
+    .box {
+      .box-content {
+        .box-text {
+          font-weight: 500;
+          line-height: 1.6;
+          margin-bottom: 20px;
+        }
+
+        ::ng-deep app-input-number {
+          width: 100%;
+        }
+
+        .buttons-container {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

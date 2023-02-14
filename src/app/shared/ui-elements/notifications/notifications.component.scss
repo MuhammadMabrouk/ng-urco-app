@@ -1,0 +1,53 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.notifications-container {
+  position: fixed;
+  top: 100px;
+  @include appDir(right, 25px, left, 25px);
+  z-index: 8000;
+
+  .notification {
+    position: relative;
+    width: 250px;
+    line-height: 1.5;
+    color: #fff;
+    @include appDir(padding, 10px 28px 10px 14px, padding, 10px 14px 10px 28px);
+    border-radius: 10px;
+
+    &.success {
+      background-color: $success-color;
+    }
+
+    &.danger {
+      background-color: $danger-color;
+    }
+
+    &.warning {
+      background-color: $warning-color;
+    }
+
+    &.info {
+      background-color: $info-color;
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 10px;
+    }
+
+    .fa {
+      position: absolute;
+      top: 50%;
+      @include translateY(-50%);
+      @include appDir(right, 12px, left, 12px);
+      cursor: pointer;
+      opacity: .7;
+      @include transition(0.3s);
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

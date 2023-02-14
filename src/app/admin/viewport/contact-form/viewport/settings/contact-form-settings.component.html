@@ -1,0 +1,71 @@
+<div class="content" @fadeInUpStaggerEnter>
+  <form class="the-main-box form-styled fadeInUpStagger"
+    *ngIf="contactSettingsForm"
+    [formGroup]="contactSettingsForm"
+    (ngSubmit)="updateContactFormSettings(contactSettingsForm)">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/settings.png" alt="contact-form-settings">
+          <h3 class="title">
+            {{ 'contact-form-settings-page.box-title' | translate }}
+          </h3>
+        </div>
+        <div class="small-fields">
+          <div class="form-group">
+            <label>{{ 'contact-form-settings-page.name-length' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="nameLength?.value"
+              (valueChange)="updateValue(contactSettingsForm, 'nameLength', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'contact-form-settings-page.message-length' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="messageLength?.value"
+              (valueChange)="updateValue(contactSettingsForm, 'messageLength', $event)"></app-input-number>
+            </div>
+          </div>
+        </div>
+        <div class="small-fields two-to-one">
+          <div class="form-group">
+            <label for="subject">{{ 'contact-form-settings-page.subject-label' | translate }}</label>
+            <div class="form-control">
+              <input id="subject"
+                #subject
+                type="text"
+                [placeholder]="'contact-form-settings-page.subject-placeholder' | translate">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-control pull-down">
+              <button type="button"
+                class="rounded-btn color-one solid reverse shadow"
+                [disabled]="subject.value === ''"
+                [title]="'contact-form-settings-page.add-subject' | translate"
+                (click)="addNewSubject(subject.value); subject.value = ''">
+                {{ 'contact-form-settings-page.add-subject' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul class="subjects-list" formArrayName="subjects">
+          <li *ngFor="let subject of subjects?.controls; index as i" [formGroupName]="i" @slideFadeRedHighlight>
+            <strong>{{ subject?.value }}</strong>
+            <i class="fa fa-times"
+              aria-hidden="true"
+              [title]="'contact-form-settings-page.remove-subject' | translate"
+              (click)="removeSubject(i)"></i>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <div class="buttons-container" *ngIf="contactSettingsFormChanged" @slideToggle>
+      <button type="submit"
+        class="rounded-btn color-one solid reverse shadow"
+        [disabled]="contactSettingsForm.invalid">
+        {{ 'contact-form-settings-page.save-changes' | translate }}
+      </button>
+    </div>
+  </form>
+</div>

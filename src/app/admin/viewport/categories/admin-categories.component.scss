@@ -1,0 +1,210 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+::ng-deep {
+  .content {
+    .the-main-box {
+      .box {
+        .box-content {
+          .category {
+            .parent,
+            .children .child,
+            .add-child {
+              position: relative;
+
+              .lines-dots {
+                display: block;
+                position: absolute;
+                top: 0;
+                @include appDir(left, 0, right, 0);
+                bottom: 0;
+                height: 100%;
+
+                span {
+                  display: block;
+                  position: absolute;
+                  opacity: 0.5;
+
+                  &.vertical-line {
+                    top: 2px;
+                    @include appDir(right, 0, left, 0);
+                    bottom: 22px;
+                    height: calc(100% - 24px);
+                    width: 2px;
+                    background-color: $color-four;
+                    border-radius: 2px;
+                  }
+
+                  &.horizontal-dots {
+                    top: calc(50% - 11px);
+                    @include translateY(-50%);
+                    @include appDir(left, 2px, right, 2px);
+                    @include appDir(right, 0, left, 0);
+                    height: 0;
+                    width: calc(100% - 2px);
+                    border-top: 2px dashed $color-four;
+                  }
+
+                  &.first-vertical-dots,
+                  &.second-vertical-dots {
+                    @include appDir(left, 0, right, 0);
+                    height: calc(50% - 1px);
+                    width: 0;
+                    border-right: 2px dashed $color-four;
+                  }
+
+                  &.second-vertical-dots {
+                    top: calc(50% - 12px);
+                  }
+                }
+              }
+
+              &.parent {
+                @include flexbox("", "", start, "", "", "");
+                @include appDir(padding-left, 40px, padding-right, 40px);
+
+                .lines-dots {
+                  width: 21px;
+
+                  span {
+                    &.first-vertical-dots {
+                      top: calc(50% - 12px);
+                    }
+                  }
+                }
+
+                > .small-fields {
+                  @include flexbox("", "", start, "", "", "");
+                }
+
+                .form-group {
+                  ::ng-deep app-file-upload {
+                    width: 100%;
+                  }
+                }
+              }
+
+              &.child {
+                @include appDir(padding-left, 80px, padding-right, 80px);
+                @include appDir(padding-right, 38px, padding-left, 38px);
+
+                .lines-dots {
+                  width: 61px;
+
+                  span {
+                    &.first-vertical-dots {
+                      top: -9px;
+                    }
+                  }
+                }
+
+                .remove-child {
+                  display: block;
+                  position: absolute;
+                  top: 50%;
+                  @include translateY(-50%);
+                  @include appDir(right, 0, left, 0);
+                  height: 22px;
+                  width: 22px;
+                  background-color: $color-three;
+                  border: 0;
+                  outline: 0;
+                  border-radius: 50%;
+
+                  &:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    @include ltr_translate(-50%, -50%);
+                    @include appDir(left, 50%, right, 50%);
+                    width: 12px;
+                    height: 2px;
+                    background-color: #fff;
+                    border-radius: 4px;
+                    @include transition(0.3s);
+                  }
+
+                  &:hover {
+                    background-color: $color-one;
+                  }
+                }
+              }
+
+              &.add-child {
+                @include appDir(padding-left, 40px, padding-right, 40px);
+                padding-bottom: 20px;
+
+                .lines-dots {
+                  width: 40px;
+
+                  span {
+                    &.first-vertical-dots {
+                      top: -9px;
+                    }
+                  }
+                }
+
+                button {
+                  display: block;
+                  position: relative;
+                  height: 22px;
+                  width: 22px;
+                  background-color: $color-three;
+                  border: 0;
+                  outline: 0;
+                  border-radius: 50%;
+
+                  &:before,
+                  &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    @include appDir(left, 50%, right, 50%);
+                    width: 12px;
+                    height: 2px;
+                    background-color: #fff;
+                    border-radius: 4px;
+                    @include transition(0.3s);
+                  }
+
+                  &:before {
+                    @include ltr_translate(-50%, -50%);
+                  }
+
+                  &:after {
+                    @include ltr_translate_and_rotate(-50%, -50%, -90);
+                  }
+
+                  &:hover {
+                    background-color: $color-one;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+:host ::ng-deep {
+  .content {
+    .the-main-box {
+      .buttons-container {
+        &:last-child {
+          margin-bottom: -20px;
+
+          .form-group {
+            &:only-child {
+              margin-bottom: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

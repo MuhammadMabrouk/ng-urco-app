@@ -1,0 +1,76 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.accordion {
+  .card {
+    .title,
+    .content {
+      background-color: #fff;
+      border-radius: $borderRadius;
+      box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+    }
+
+    .title {
+      position: relative;
+      @include flexbox(flex, "", center, "", "", "");
+      line-height: 1.8;
+      @include appDir(
+        padding,
+        15px 40px 15px 25px,
+        padding,
+        15px 25px 15px 40px
+      );
+      margin: 0;
+      @include transition(0.3s);
+      cursor: pointer;
+
+      &:after {
+        content: "\f107";
+        font-family: FontAwesome;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        @include translateY(-50%);
+        @include appDir(right, 20px, left, 20px);
+        @include appDir(margin-left, 8px, margin-right, 8px);
+        @include A_transition(transform, 0.3s, ease-in-out);
+      }
+    }
+
+    &.active {
+      .title {
+        &:after {
+          @include ltr_translateY_and_rotate(-50%, -180);
+        }
+      }
+    }
+
+    .content {
+      padding: 15px 25px;
+      margin-top: 12px;
+
+      p {
+        margin: 1.8em 0 0.4em;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &:not(:first-of-type) {
+      .content {
+        display: none;
+      }
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+  }
+}

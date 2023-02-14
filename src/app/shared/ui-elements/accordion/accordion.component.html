@@ -1,0 +1,8 @@
+<div class="accordion">
+  <div class="card" *ngFor="let item of accordionItems; first as isFirst" [class.active]="isFirst">
+    <h5 class="title" (click)="showAccordionContent($event)">{{ item.title }}</h5>
+    <div class="content">
+      <p>{{ item.content }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="section">
+  <!-- page title and breadcrumbs -->
+  <app-title-and-breadcrumbs></app-title-and-breadcrumbs>
+
+  <!-- view page content -->
+  <div class="section-content" @fadeInUp>
+    <div class="container">
+      <div class="not-found">
+        <div class="img404">
+          <img src="../../../assets/images/404.jpg" alt="404">
+        </div>
+        <h2 class="main-title">
+          {{ 'not-found-page.page-not-found' | translate }}
+        </h2>
+        <div class="buttons-container">
+          <a routerLink="" class="rounded-btn color-one solid shadow">
+            {{ 'not-found-page.back-to-home' | translate }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

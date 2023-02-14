@@ -1,0 +1,93 @@
+<div class="content">
+
+  <!-- add new good form -->
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/admin/slider.png" alt="main-slider">
+          <h3 class="title">
+            {{ 'main-slider-page.box-title' | translate }}
+          </h3>
+        </div>
+        <form class="form-styled" *ngIf="newGoodForm" [formGroup]="newGoodForm"  (ngSubmit)="saveNewGood(newGoodForm)">
+          <div class="form-group">
+            <label for="good-id">
+              {{ 'main-slider-page.good-id-label' | translate }}
+            </label>
+            <div class="form-control">
+              <input formControlName="goodId"
+                id="good-id"
+                type="text"
+                [placeholder]="'main-slider-page.good-id-placeholder' | translate">
+            </div>
+          </div>
+          <div class="buttons-container">
+            <button class="rounded-btn color-one solid reverse shadow" [disabled]="newGoodForm.invalid">
+              {{ 'main-slider-page.save' | translate }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- slider items -->
+  <div class="the-main-box">
+    <section class="box slider-items">
+      <div class="box-content">
+        <table class="goods">
+          <tr class="good goods-header">
+            <th class="img-and-name"><h5>{{ 'main-slider-page.header-titles.item' | translate }}</h5></th>
+            <th><h5>{{ 'main-slider-page.header-titles.date-added' | translate }}</h5></th>
+            <th colspan="2"><h5>{{ 'main-slider-page.header-titles.selling-price' | translate }}</h5></th>
+          </tr>
+          <tr class="no-items-msg" *ngIf="!goods?.length">
+            <td colspan="4">
+              {{ 'main-slider-page.no-items-msg' | translate }}
+            </td>
+          </tr>
+          <tr class="good" *ngFor="let good of goods; trackBy: track">
+            <td class="img-and-name">
+              <a [routerLink]="['/good', good.id]"><img [src]="good?.images[0]" [alt]="good?.name[currentLang]"></a>
+              <a [routerLink]="['/good', good.id]"><span>{{ good?.name[currentLang] | titlecase }}</span></a>
+            </td>
+            <td [attr.data-title]="'main-slider-page.header-titles.date-added' | translate">
+              {{ good?.dateAdded }}
+            </td>
+            <td [attr.data-title]="'main-slider-page.header-titles.selling-price' | translate">
+              {{ good?.priceAfterDiscount | currencyExchange : currencyExchangeSer?.exchangeRates }}
+            </td>
+            <td class="actions-col">
+              <button class="actions-btn" [appMenuToggleButton]="actionsMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <ul class="dropdown-list" #actionsMenu>
+                <li>
+                  <a [routerLink]="['/good', good.id]">
+                    <img src="../../../assets/images/icons/zoom.png" alt="view">
+                    {{ 'main-slider-page.actions-btns.view' | translate }}
+                  </a>
+                </li>
+                <li>
+                  <a [routerLink]="['/admin-dashboard/admin/products/edit', good.id]">
+                    <img src="../../../assets/images/icons/edit-tool.png" alt="edit">
+                    {{ 'main-slider-page.actions-btns.edit' | translate }}
+                  </a>
+                </li>
+                <li>
+                  <a href="#" (click)="$event.preventDefault(); deleteGood(good.id)">
+                    <img src="../../../assets/images/icons/cancel-delete.png" alt="delete">
+                    {{ 'main-slider-page.actions-btns.delete' | translate }}
+                  </a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>

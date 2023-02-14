@@ -1,0 +1,129 @@
+<div class="content" @fadeInUpStaggerEnter>
+  <div class="the-main-box fadeInUpStagger">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/admin/requests.png" alt="request">
+          <h3 class="title">{{ 'single-request-page.request-details.title' | translate }}</h3>
+        </div>
+        <table class="loading" *ngIf="!thisRequest">
+          <span class="spinner"></span>
+        </table>
+        <table class="request" *ngIf="thisRequest">
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-request-page.request-details.date' | translate }}</th>
+            <td [attr.data-title]="'single-request-page.request-details.date' | translate">
+              {{ thisRequest?.placedDate }}
+            </td>
+            <th>{{ 'single-request-page.request-details.time' | translate }}</th>
+            <td [attr.data-title]="'single-request-page.request-details.time' | translate">
+              {{ thisRequest?.placedTime }}
+            </td>
+            <th>{{ 'single-request-page.request-details.amount' | translate }}</th>
+            <td [attr.data-title]="'single-request-page.request-details.amount' | translate">
+              {{ thisRequest?.total | currencyExchange : currencyExchangeSer?.exchangeRates }}
+            </td>
+          </tr>
+        </table>
+        <div class="change-status">
+          <strong class="title">
+            {{ 'single-request-page.change-status.title' | translate }}
+          </strong>
+          <ul class="status">
+            <li *ngFor="let status of 'single-request-page.change-status.statuses' | translate | objectKeys"
+              [class]="status"
+              [class.active]="thisRequest?.status === status"
+              (click)="changeRequestStatus(requestId, thisRequest.customerId, status)"
+            >{{ ('single-request-page.change-status.statuses.' + status) | translate }}</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="the-main-box fadeInUpStagger">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/user/profile-user.png" alt="customer">
+          <h3 class="title">
+            {{ 'single-request-page.customer-info.title' | translate }}
+          </h3>
+        </div>
+        <table class="loading" *ngIf="!thisRequest">
+          <span class="spinner"></span>
+        </table>
+        <table class="customer" *ngIf="thisRequest">
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-request-page.customer-info.name' | translate }}</th>
+            <td [attr.data-title]="'single-request-page.customer-info.name' | translate">
+              {{ thisRequest?.customerName }}
+            </td>
+            <th>{{ 'single-request-page.customer-info.email' | translate }}</th>
+            <td class="customer-email" [attr.data-title]="'single-request-page.customer-info.email' | translate">
+              <span>{{ thisRequest?.customerEmail }}</span>
+            </td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-request-page.customer-info.country' | translate }}</th>
+            <td [attr.data-title]="'single-request-page.customer-info.country' | translate">
+              {{ $any(thisRequest?.customerCountry)?.label || thisRequest?.customerCountry }}
+            </td>
+            <th>{{ 'single-request-page.customer-info.gender' | translate }}</th>
+            <td [attr.data-title]="'single-request-page.customer-info.gender' | translate">
+              {{ thisRequest?.customerGender }}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <div class="the-main-box fadeInUpStagger">
+    <section class="box goods-box">
+      <div class="box-content">
+        <table class="goods" [@fadeInUpStaggerBind]="requestGoods?.length">
+          <tr class="good goods-header">
+            <th class="img-and-name"><h5>{{ 'single-request-page.request-goods.header-titles.item' | translate }}</h5></th>
+            <th><h5>{{ 'single-request-page.request-goods.header-titles.size' | translate }}</h5></th>
+            <th><h5>{{ 'single-request-page.request-goods.header-titles.price' | translate }}</h5></th>
+            <th><h5>{{ 'single-request-page.request-goods.header-titles.qty' | translate }}</h5></th>
+            <th><h5>{{ 'single-request-page.request-goods.header-titles.total' | translate }}</h5></th>
+            <th><h5>{{ 'single-request-page.request-goods.header-titles.status' | translate }}</h5></th>
+          </tr>
+          <tr class="no-items-msg" *ngIf="!requestGoods?.length">
+            <td colspan="6">
+              {{ 'single-request-page.request-goods.no-items-msg' | translate }}
+            </td>
+          </tr>
+          <tr class="good" *ngFor="let good of requestGoods">
+            <td class="img-and-name">
+              <a [routerLink]="['/good', good.id]"><img [src]="good?.images[0]" [alt]="good?.name[currentLang]"></a>
+              <a [routerLink]="['/good', good.id]"><span>{{ good?.name[currentLang] | titlecase }}</span></a>
+            </td>
+            <td [attr.data-title]="'single-request-page.request-goods.header-titles.size' | translate">
+              {{ good?.size }}
+            </td>
+            <td [attr.data-title]="'single-request-page.request-goods.header-titles.price' | translate">
+              {{ good?.price | currencyExchange : currencyExchangeSer?.exchangeRates }}
+            </td>
+            <td [attr.data-title]="'single-request-page.request-goods.header-titles.qty' | translate">
+              {{ good?.qty }}
+            </td>
+            <td [attr.data-title]="'single-request-page.request-goods.header-titles.total' | translate">
+              {{ good?.total | currencyExchange : currencyExchangeSer?.exchangeRates }}
+            </td>
+            <td class="status" [attr.data-title]="'single-request-page.request-goods.header-titles.status' | translate">
+              <span class="delivered" *ngIf="!good?.returned">
+                {{ 'single-request-page.request-goods.delivered' | translate }}
+              </span>
+              <span class="returned" *ngIf="good?.returned">
+                {{ 'single-request-page.request-goods.returned' | translate }}
+              </span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>

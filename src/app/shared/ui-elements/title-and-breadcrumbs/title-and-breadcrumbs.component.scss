@@ -1,0 +1,52 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+
+  .breadcrumbs {
+    @include flexbox(flex, "", center, center, "", "");
+    font-weight: 500;
+    padding: 0 15px;
+    margin-top: 20px;
+
+    li {
+      display: inline-block;
+      flex-shrink: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      @include transition(0.3s);
+
+      // first & last Breadcrumb
+      &:first-child,
+      &:last-child,
+      &:hover {
+        flex-shrink: 0;
+      }
+
+      a {
+        color: $color-one;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &:not(:last-of-type) {
+        position: relative;
+        @include appDir(padding-right, 25px, padding-left, 25px);
+
+        &:after {
+          @include appDir(content, "\f105", content, "\f104");
+          font-family: FontAwesome;
+          position: absolute;
+          top: 50%;
+          @include translateY(-50%);
+          @include appDir(right, 10px, left, 10px);
+        }
+      }
+    }
+  }
+}

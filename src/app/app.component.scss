@@ -1,0 +1,36 @@
+@import "../styles/helpers/variables";
+@import "../styles/helpers/mixins";
+@import "../styles/components/components";
+
+// scroll to top button
+.scroll-to-top {
+  @include flexbox(flex, "", center, center, "", "");
+  position: fixed;
+  z-index: 5000;
+  @include appDir(right, -50px, left, -50px);
+  bottom: 30px;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  color: $color-three;
+  font-size: 20px;
+  border-radius: $borderRadius;
+  @include appDir(
+    box-shadow,
+    -2px 5px 12px -2px rgba($color-three, 0.4),
+    box-shadow,
+    2px 5px 12px -2px rgba($color-three, 0.4)
+  );
+  @include transition(0.4s);
+  cursor: pointer;
+  opacity: 0.8;
+
+  &.show-scrollTop {
+    @include appDir(right, 25px, left, 25px);
+  }
+
+  &:hover {
+    color: $color-one;
+    opacity: 1;
+  }
+}

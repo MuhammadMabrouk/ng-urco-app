@@ -1,0 +1,81 @@
+<div class="main-slider" (appOnSwipe)="swipeToNavigate($event)">
+  <div class="container">
+    <div class="slider"
+      *ngFor="let slide of mainSliderGoods; index as i"
+      [class.active]="currentSlideIndex === i">
+
+      <div class="good-details">
+        <div class="text">
+          <h2 class="title">{{ slide?.name[translateSer.currentLang] }}</h2>
+          <p>{{ slide?.desc[translateSer.currentLang] | truncate:150 }}</p>
+          <div class="buttons-container">
+            <a [routerLink]="['/good', slide?.id]" class="rounded-btn color-three solid reverse shadow">
+              {{ 'home-page.main-slider.details' | translate}}
+            </a>
+            <button class="rounded-btn white-three solid shadow" (click)="buyNow(slide)">
+              {{ 'home-page.main-slider.buy-now' | translate}}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="good-img">
+        <img [src]="slide?.images[0]"
+          [alt]="slide?.name[translateSer.currentLang]"
+          appLoader>
+      </div>
+    </div>
+  </div>
+
+  <!-- the main slider control -->
+  <div class="slider-control">
+
+    <!-- current slide index & all slides count -->
+    <div class="slides-count">
+      <!-- current slide index -->
+      <strong *ngIf="mainSliderGoods; else noSlides">
+        <ul [class]="'index' + currentSlideIndex">
+          <li *ngFor="let item of slidesCountNumbers">
+            <span *ngIf="currentSlideIndex < 9">0</span>{{ item }}
+          </li>
+        </ul>
+      </strong>
+      <ng-template #noSlides>
+        <strong>00</strong>
+      </ng-template>
+
+      <!-- all slides count -->
+      <strong>{{ slidesCount }}</strong>
+    </div>
+
+    <!-- navigation buttons -->
+    <div class="navigation-btns">
+      <button class="prev"
+        title="{{ 'home-page.main-slider.slider-control.prev' | translate}}"
+        [class.disabled]="!mainSliderGoods?.length"
+        [disabled]="!mainSliderGoods?.length"
+        (click)="getPrevSlide()"
+      >
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+      </button>
+      <button class="next"
+        title="{{ 'home-page.main-slider.slider-control.next' | translate}}"
+        [class.disabled]="!mainSliderGoods?.length"
+        [disabled]="!mainSliderGoods?.length"
+        (click)="getNextSlide()"
+      >
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- slider pagers -->
+    <ul class="pagers">
+      <li *ngFor="let slide of mainSliderGoods; index as i"
+        [class.active]="currentSlideIndex === i"
+        (click)="getClickedDotSlide(i)"
+      >
+        <span></span>
+      </li>
+    </ul>
+  </div>
+</div>

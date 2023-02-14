@@ -1,0 +1,61 @@
+<!-- user dashboard content -->
+<div class="dashboard">
+  <ul class="main-boxes" @fadeInUpStaggerEnter>
+    <li *ngIf="userInfo?.isAdmin" class="fadeInUpStagger">
+      <a routerLink="/admin-dashboard">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/admin/admin-dashboard.png" alt="admin-dashboard">
+        </div>
+        <h2 class="box-title">{{ 'user-dashboard-page.admin-dashboard' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../user/profile">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/user/profile-user.png" alt="user-profile">
+        </div>
+        <h2 class="box-title">{{ 'user-dashboard-page.user-profile' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../user/my-orders">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/user/orders-user.png" alt="user-orders">
+        </div>
+        <h2 class="box-title">{{ 'user-dashboard-page.user-orders' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../user/addresses">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/user/address.png" alt="user-address">
+        </div>
+        <h2 class="box-title">{{ 'user-dashboard-page.user-address' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../user/payments">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/user/credit-card-linear.png" alt="user-payments">
+        </div>
+        <h2 class="box-title">{{ 'user-dashboard-page.user-payments' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../user/return">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/user/return.png" alt="user-returns">
+        </div>
+        <h2 class="box-title">{{ 'user-dashboard-page.user-returns' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a href="#" (click)="logOut(); $event.preventDefault();">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/user/exit.png" alt="logout">
+        </div>
+        <h2 class="box-title">{{ 'user-dashboard-page.logout' | translate }}</h2>
+      </a>
+    </li>
+  </ul>
+</div>

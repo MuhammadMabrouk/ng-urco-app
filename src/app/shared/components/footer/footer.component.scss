@@ -1,0 +1,163 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.footer {
+  background-color: #fff;
+  border-top: 1px solid $borderColor;
+  box-shadow: 0 -2px 10px -5px rgba(40, 47, 58, 0.1);
+
+  .footer-top {
+    .container {
+      @include flexbox(flex, "", "", "", "", wrap);
+      padding: 50px 0;
+
+      .widget {
+        width: calc((100% / 4) - 30px);
+        line-height: 1.4;
+
+        @media #{$min_992} {
+          &:not(:last-of-type) {
+            @include appDir(margin-right, 40px, margin-left, 40px);
+          }
+        }
+
+        @media #{$max_991} {
+          width: 100%;
+          margin: {
+            left: auto;
+            right: auto;
+          }
+
+          &:not(:last-of-type) {
+            margin-bottom: 30px;
+          }
+        }
+
+        @media #{$max_767} {
+          width: 90%;
+        }
+
+        .widget-title {
+          font-size: 18px;
+          margin: 0 0 22px;
+        }
+
+        .widget-content {
+          p:only-child {
+            margin: 0;
+          }
+
+          p:first-child {
+            margin-top: 0;
+          }
+
+          p:last-child {
+            margin-bottom: 0;
+          }
+
+          a {
+            &:hover {
+              color: $color-one;
+            }
+          }
+
+          ul:not(.social-icons) {
+            li {
+              &:not(:last-of-type) {
+                margin-bottom: 10px;
+              }
+            }
+          }
+        }
+
+        &.about {
+          .social-icons {
+            @include flexbox(flex, "", center, "", "", "");
+            margin-top: 22px;
+
+            .icon {
+              &:not(:last-child) {
+                @include appDir(margin-right, 12px, margin-left, 12px);
+              }
+            }
+          }
+        }
+
+        &.contact {
+          ul {
+            li {
+              @include flexbox(flex, "", start, start, "", "");
+
+              .fa {
+                width: 20px;
+                text-align: center;
+                @include appDir(margin-right, 5px, margin-left, 5px);
+
+                &.fa-phone {
+                  @include appDir(transform, unset, transform, rotateY(180deg));
+                }
+              }
+            }
+          }
+        }
+
+        &.newsletter {
+          form {
+            .form-control {
+              .fa {
+                @include appDir(right, 5px, left, 5px);
+                @include flexbox(flex, "", center, center, "", "");
+                height: calc(100% - 10px);
+                width: 42px;
+                background-color: $color-one;
+                color: #fff;
+                border-radius: 10px;
+                @include transition(0.3s);
+                @include appDir(transform, translateY(-50%), transform, translateY(-50%) rotateY(180deg));
+
+                &:hover {
+                  background-color: $color-three;
+                }
+              }
+            }
+
+            .rounded-btn {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    .container {
+      @include flexbox(flex, "", center, between, "", wrap);
+      font-size: 12px;
+      padding: 25px 0;
+      border-top: 1px solid $borderColor;
+
+      @media #{$max_767} {
+        @include flexbox("", "", "", center, "", "");
+        text-align: center;
+        line-height: 1.4;
+      }
+
+      > div {
+        @media #{$max_767} {
+          width: 90%;
+          margin: auto;
+
+          &:first-of-type {
+            margin-bottom: 8px;
+          }
+        }
+      }
+
+      a:hover {
+        color: $color-one;
+      }
+    }
+  }
+}

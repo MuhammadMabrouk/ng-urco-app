@@ -1,0 +1,169 @@
+//------------------------------------------------------------------------------------------/
+// Animations
+//------------------------------------------------------------------------------------------/
+
+
+//------------------------------------------------------------------------------------------/
+// 1. Zoom Effects
+//------------------------------------------------------------------------------------------/
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(.3, .3);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+
+//------------------------------------------------------------------------------------------/
+// 2. Fade Effects
+//------------------------------------------------------------------------------------------/
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    margin-top: 20px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes bigFadeInUp {
+  0% {
+    opacity: 0;
+    margin-top: 40px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    margin-top: -20px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    margin-right: -20px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    margin-left: -20px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0;
+  }
+}
+
+
+//------------------------------------------------------------------------------------------/
+// 3. Pulse Effect
+//------------------------------------------------------------------------------------------/
+
+@keyframes pulse1 {
+  0% {
+    box-shadow: 0 0 0 0 rgba($color-one, .5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+}
+
+.pulse1-animation {
+  animation: pulse1 1s ease-out;
+}
+
+@keyframes pulse2 {
+  0% {
+    box-shadow: 0 0 0 0 rgba($color-two, .5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+}
+
+.pulse2-animation {
+  animation: pulse2 1s ease-out;
+}
+
+
+//------------------------------------------------------------------------------------------/
+// 4. Spinner Effect
+//------------------------------------------------------------------------------------------/
+
+@keyframes spinner-left {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-right {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+
+//------------------------------------------------------------------------------------------/
+// 5. scale Effect
+//------------------------------------------------------------------------------------------/
+
+@keyframes scaleOut {
+  0% {
+    transform: scale(0);
+  } 100% {
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}

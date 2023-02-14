@@ -1,0 +1,31 @@
+<div #dropdown class="dropdown" [class.open]="isOpen">
+  <div class="menu-trigger" [class.focus]="isOpen" (click)="toggleMenu()">
+    <div *ngIf="!isOpen; else searchBar" @fadeIn>
+      <img *ngIf="modelIcon" class="icon" [src]="modelIcon">
+      <span>{{ modelLabel }}</span>
+    </div>
+
+    <ng-template #searchBar>
+      <input #search
+        type="text"
+        [placeholder]="'custom-elements.select-menu.search' | translate"
+        (click)="$event.stopPropagation()"
+        (keyup)="filterValue = search.value"
+        @fadeIn>
+
+      {{ search.focus() }}
+    </ng-template>
+  </div>
+  <ul #menuOptions class="menu-options" [class.ltr]="ltrOnly">
+    <li class="no-results-msg" *ngIf="!(options | selectMenuFilter:filterValue)?.length">
+      {{ 'custom-elements.select-menu.no-results-msg' | translate }}
+    </li>
+    <li *ngFor="let option of options | selectMenuFilter:filterValue; index as i"
+      [id]="(option.id) ? option.id : i"
+      [class.active]="option.label === modelLabel"
+      (click)="select(i, option)">
+      <img *ngIf="option.icon" class="icon" [src]="option.icon">
+      {{ option.label }}
+    </li>
+  </ul>
+</div>

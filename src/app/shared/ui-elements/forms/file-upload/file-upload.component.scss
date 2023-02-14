@@ -1,0 +1,159 @@
+@import "../../../../../styles/helpers/variables";
+@import "../../../../../styles/helpers/mixins";
+
+.file-upload {
+  .file-drop-area {
+    @include flexbox(flex, "", center, center, "", wrap);
+    position: relative;
+    background-color: $backgroundColor;
+    border: 2px dashed mix($color-four, #fff, 40%);
+    border-radius: $borderRadius;
+    box-shadow: $insetShadow;
+    @include transition(0.3s);
+
+    &.active {
+      background-color: #fff;
+    }
+
+    .upload-icon {
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .upload-text {
+      margin: 0;
+
+      strong {
+        color: $color-one;
+        font-weight: 500;
+      }
+    }
+
+    &.big-drop-area {
+      padding: 35px 30px 25px;
+
+      .upload-icon {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+    }
+
+    &:not(.big-drop-area) {
+      padding: 10px 18px;
+
+      .upload-icon {
+        width: auto;
+        @include appDir(margin-right, 12px, margin-left, 12px);
+
+        img {
+          width: 26px;
+        }
+      }
+    }
+
+    .other-field-required,
+    .file-input {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      outline: 0;
+      border-radius: $borderRadius;
+      cursor: pointer;
+      opacity: 0;
+
+      &.other-field-required {
+        z-index: 2;
+      }
+
+      &.file-input {
+        z-index: 1;
+      }
+    }
+  }
+
+  .files-area {
+    margin-top: 25px;
+
+    li {
+      @include flexbox(flex, "", center, "", "", "");
+
+      &:not(:last-of-type) {
+        margin-bottom: 20px;
+      }
+
+      > div:not(:last-of-type) {
+        @include appDir(margin-right, 16px, margin-left, 16px);
+      }
+
+      .file-icon {
+        img {
+          display: block;
+          width: 48px;
+        }
+      }
+
+      .file-info {
+        width: calc(100% - 64px);
+        font-size: 13px;
+
+        .header {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .progress {
+          position: relative;
+          height: 20px;
+
+          span {
+            display: block;
+            position: absolute;
+            top: 50%;
+            @include translateY(-50%);
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: 4px;
+
+            &.empty-bar {
+              width: 100%;
+              background-color: $backgroundColor-darker;
+            }
+
+            &.filled-bar {
+              @include transition(0.3s);
+
+              &.uploading {
+                background-color: $info-color;
+              }
+
+              &.completed {
+                background-color: $success-color;
+              }
+            }
+          }
+        }
+
+        .footer {
+          @include flexbox(flex, "", center, between, "", "");
+
+          .file-size {
+            span {
+              &:not(:last-of-type) {
+                @include appDir(margin-right, 6px, margin-left, 6px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

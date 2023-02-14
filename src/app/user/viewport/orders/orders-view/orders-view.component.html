@@ -1,0 +1,72 @@
+<div class="content">
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <ul class="orders" [@fadeInUpStaggerBind]="animationStates">
+          <li class="order orders-header">
+            <div class="order-id"><h5 class="title">{{ 'my-orders-page.header-titles.order' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'my-orders-page.header-titles.date' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'my-orders-page.header-titles.address' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'my-orders-page.header-titles.status' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'my-orders-page.header-titles.total' | translate }}</h5></div>
+            <div class="actions-col">
+              <label class="actions-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+          </li>
+          <li class="no-items-msg" *ngIf="!orders?.length">
+            {{ 'my-orders-page.no-items-msg' | translate }}
+          </li>
+          <li class="order" *ngFor="let order of orders; trackBy: track">
+            <div class="order-id" [attr.data-title]="'my-orders-page.header-titles.order' | translate">
+              <a [routerLink]="['/user-dashboard/user/my-orders/order', order.id]">
+                {{ order?.id }}
+              </a>
+            </div>
+            <div [attr.data-title]="'my-orders-page.header-titles.date' | translate">
+              {{ order?.placedDate }}
+            </div>
+            <div [attr.data-title]="'my-orders-page.header-titles.address' | translate">
+              {{ order?.address }}
+            </div>
+            <div class="status" [attr.data-title]="'my-orders-page.header-titles.status' | translate">
+              <span [class]="order?.status">
+                {{ ('single-request-page.change-status.statuses.' + order?.status) | translate }}
+              </span>
+            </div>
+            <div [attr.data-title]="'my-orders-page.header-titles.total' | translate">
+              {{ order.total | currencyExchange : currencyExchangeSer?.exchangeRates }}
+            </div>
+            <div class="actions-col">
+              <button class="actions-btn" [appMenuToggleButton]="actionsMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <ul class="dropdown-list" #actionsMenu>
+                <li>
+                  <a [routerLink]="['/user-dashboard/user/my-orders/order', order.id]">
+                    <img src="../../../assets/images/icons/zoom.png" alt="view">
+                    {{ 'my-orders-page.actions-btns.view' | translate }}
+                  </a>
+                </li>
+                <li *ngIf="order?.status === 'ordered'">
+                  <a href="#" (click)="$event.preventDefault(); cancelOrder(order.id)">
+                    <img src="../../../assets/images/icons/cancel-delete.png" alt="cancel">
+                    {{ 'my-orders-page.actions-btns.cancel' | translate }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- simple pagination with items count -->
+    <app-simple-pagination *ngIf="orders?.length" (callPrev)="getPrevPage()" (callNext)="getNextPage()"></app-simple-pagination>
+  </div>
+</div>

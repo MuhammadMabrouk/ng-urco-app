@@ -1,0 +1,99 @@
+<div class="content">
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <ul class="returned-goods" [@fadeInUpStaggerBind]="animationStates">
+          <li class="good goods-header">
+            <div><h5 class="title">{{ 'user-returns-page.header-titles.item' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'user-returns-page.header-titles.date' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'user-returns-page.header-titles.total' | translate }}</h5></div>
+            <div class="actions-col">
+              <label class="actions-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+          </li>
+          <li class="no-items-msg" *ngIf="!returnedGoods?.length">
+            {{ 'user-returns-page.no-items-msg' | translate }}
+          </li>
+          <li class="good" *ngFor="let item of returnedGoods; trackBy: track">
+            <div class="img-and-name">
+              <div class="item-img">
+                <a [routerLink]="['/good', item?.good?.id]">
+                  <img [src]="item?.good?.images[0]" [alt]="item?.good?.name[currentLang]" appLoader>
+                </a>
+              </div>
+              <div class="item-name">
+                <h4 class="name">
+                  <a [routerLink]="['/good', item?.good?.id]">
+                    {{ item?.good?.name[currentLang] | titlecase }}
+                  </a>
+                </h4>
+              </div>
+            </div>
+            <div class="dates">
+              <table>
+                <tr>
+                  <th>{{ 'user-returns-page.dates.ordered' | translate }}</th>
+                  <th>{{ item?.placedDate }}</th>
+                </tr>
+                <tr>
+                  <th>{{ 'user-returns-page.dates.delivered' | translate }}</th>
+                  <th>{{ item?.deliveredDate }}</th>
+                </tr>
+                <tr>
+                  <th>{{ 'user-returns-page.dates.returned' | translate }}</th>
+                  <th>{{ item?.returnedDate }}</th>
+                </tr>
+              </table>
+            </div>
+            <div class="totals">
+              <table>
+                <tr>
+                  <th>{{ 'user-returns-page.totals.price' | translate }}</th>
+                  <th>{{ item?.good?.price | currencyExchange : currencyExchangeSer?.exchangeRates }}</th>
+                </tr>
+                <tr>
+                  <th>{{ 'user-returns-page.totals.qty' | translate }}</th>
+                  <th>{{ item?.good?.qty }}</th>
+                </tr>
+                <tr>
+                  <th>{{ 'user-returns-page.totals.total' | translate }}</th>
+                  <th>{{ item?.good?.total | currencyExchange : currencyExchangeSer?.exchangeRates }}</th>
+                </tr>
+              </table>
+            </div>
+            <div class="actions-col">
+              <button class="actions-btn" [appMenuToggleButton]="actionsMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <ul class="dropdown-list" #actionsMenu>
+                <li>
+                  <a (click)="$event.preventDefault(); productReview(); reviewModalComRef.productReview(item?.good?.id)">
+                    <img src="../../../../../../../assets/images/icons/stars.png" alt="rating">
+                    {{ 'user-returns-page.actions-btns.rating' | translate }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- simple pagination with items count -->
+    <app-simple-pagination *ngIf="returnedGoods?.length" (callPrev)="getPrevPage()" (callNext)="getNextPage()"></app-simple-pagination>
+  </div>
+
+  <!-- review modal -->
+  <app-review-model
+    #reviewModalComRef
+    [isOpen]="reviewModal"
+    (cancelEvent)="cancelReview()"
+    [modalTitle]="'user-returns-page.leave-feedback' | translate">
+  </app-review-model>
+</div>

@@ -1,0 +1,68 @@
+<div class="content">
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <table class="categories" [@fadeInUpStaggerBind]="animationStates">
+          <tr class="category categories-header">
+            <th class="img-and-name"><h5>{{ 'admin-categories-page.header-titles.category' | translate }}</h5></th>
+            <th class="slug"><h5>{{ 'admin-categories-page.header-titles.slug' | translate }}</h5></th>
+            <th class="children" colspan="2"><h5>{{ 'admin-categories-page.header-titles.children' | translate }}</h5></th>
+          </tr>
+          <tr class="no-items-msg" *ngIf="!categories?.length">
+            <td colspan="4">
+              {{ 'admin-categories-page.no-items-msg' | translate }}
+            </td>
+          </tr>
+          <tr class="category" *ngFor="let category of categories; trackBy: track">
+            <td class="img-and-name" [attr.data-title]="'admin-categories-page.header-titles.category' | translate">
+              <img [src]="category?.catIcon" [alt]="category?.catSlug">
+              <a [routerLink]="['../../edit', category.catSlug]">
+                {{ category?.catName[currentLang] || null }}
+              </a>
+            </td>
+            <td class="slug" [attr.data-title]="'admin-categories-page.header-titles.slug' | translate">
+              {{ category?.catSlug }}
+            </td>
+            <td class="children" [attr.data-title]="'admin-categories-page.header-titles.children' | translate">
+              {{ category?.children?.length || 0 }}
+            </td>
+            <td class="actions-col">
+              <button class="actions-btn" [appMenuToggleButton]="actionsMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <ul class="dropdown-list" #actionsMenu>
+                <li>
+                  <a [routerLink]="['../../edit', category.catSlug]">
+                    <img src="../../../assets/images/icons/edit-tool.png" alt="edit">
+                    {{ 'admin-categories-page.actions-btns.edit' | translate }}
+                  </a>
+                </li>
+                <li>
+                  <a href="#" (click)="$event.preventDefault(); deleteCategory(category.catSlug, [category.catIcon, category.catImg])">
+                    <img src="../../../assets/images/icons/cancel-delete.png" alt="delete">
+                    {{ 'admin-categories-page.actions-btns.delete' | translate }}
+                  </a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <div class="the-main-box-footer">
+
+      <!-- simple pagination with items count -->
+      <app-simple-pagination *ngIf="categories?.length" (callPrev)="getPrevPage()" (callNext)="getNextPage()"></app-simple-pagination>
+
+      <a routerLink="../../add" [ngClass]="{
+        'add-new': categories?.length,
+        'rounded-btn color-one solid reverse shadow': !categories?.length
+      }">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        {{ 'admin-categories-page.add-new' | translate }}
+      </a>
+    </div>
+  </div>
+</div>

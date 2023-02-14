@@ -1,0 +1,17 @@
+<div class="section-title" @fadeInDown>
+  <div class="container">
+    <h1>{{ title.getTitle().split(' - ')[0] }}</h1>
+
+    <ul class="breadcrumbs">
+      <li><a routerLink="">{{ 'home-page.home' | translate }}</a></li>
+
+      <li *ngFor="let route of breadcrumbs">
+        <a (click)="$event.preventDefault(); goToRoute(route)">
+          {{ (route + '-page.page-title' | translate).split(' - ')[0] }}
+        </a>
+      </li>
+
+      <li>{{ title.getTitle().split(' - ')[0] }}</li>
+    </ul>
+  </div>
+</div>

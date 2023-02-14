@@ -1,0 +1,133 @@
+<div class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="widget about">
+        <h3 class="widget-title">
+          {{ 'home-page.footer.about-widget.title' | translate }}
+        </h3>
+        <div class="widget-content">
+          <p>{{ 'home-page.footer.about-widget.text' | translate }}</p>
+          <ul class="social-icons">
+            <li class="icon">
+              <a href="#" class="icon-btn small" title="Facebook">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="icon">
+              <a href="#" class="icon-btn small" title="Twitter">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="icon">
+              <a href="#" class="icon-btn small" title="Instagram">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="icon">
+              <a href="#" class="icon-btn small" title="YouTube">
+                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="widget links">
+        <h3 class="widget-title">
+          {{ 'home-page.footer.links-widget.title' | translate }}
+        </h3>
+        <div class="widget-content">
+          <ul>
+            <li>
+              <a routerLink="/about-us">
+                {{ 'home-page.footer.links-widget.about-us' | translate }}
+              </a>
+            </li>
+            <li>
+              <a routerLink="/contact-us">
+                {{ 'home-page.footer.links-widget.contact-us' | translate }}
+              </a>
+            </li>
+            <li>
+              <a routerLink="/terms&conditions">
+                {{ 'home-page.footer.links-widget.terms&conditions' | translate }}
+              </a>
+            </li>
+            <li *ngIf="!authSer?.isLoggedIn">
+              <a routerLink="/sign-up">
+                {{ 'home-page.footer.links-widget.sign-up' | translate }}
+              </a>
+            </li>
+            <li *ngIf="!authSer?.isLoggedIn">
+              <a href="#" (click)="navigateToSignIn(); $event.preventDefault();">
+                {{ 'home-page.footer.links-widget.sign-in' | translate }}
+              </a>
+            </li>
+            <li *ngIf="authSer?.isLoggedIn">
+              <a href="#" (click)="logOut(); $event.preventDefault();">
+                {{ 'home-page.footer.links-widget.logout' | translate }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="widget contact">
+        <h3 class="widget-title">
+          {{ 'home-page.footer.contact-widget.title' | translate }}
+        </h3>
+        <div class="widget-content">
+          <ul>
+            <li>
+              <i class="fa fa-map" aria-hidden="true"></i>
+              <span>{{ 'home-page.footer.contact-widget.address' | translate }}</span>
+            </li>
+            <li>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>{{ 'home-page.footer.contact-widget.email' | translate }}</span>
+            </li>
+            <li>
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span class="ltr-dir">{{ 'home-page.footer.contact-widget.phone' | translate }}</span>
+            </li>
+            <li>
+              <i class="fa fa-fax" aria-hidden="true"></i>
+              <span class="ltr-dir">{{ 'home-page.footer.contact-widget.fax' | translate }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="widget newsletter">
+        <h3 class="widget-title">
+          {{ 'home-page.footer.newsletter-widget.title' | translate }}
+        </h3>
+        <div class="widget-content">
+          <form class="form-styled" [formGroup]="newsletterForm" (ngSubmit)="newsletterSubscribe(newsletterForm)">
+            <div class="form-group">
+              <p>{{ 'home-page.footer.newsletter-widget.text' | translate }}</p>
+              <div class="form-control">
+                <i class="fa fa-angle-right"
+                aria-hidden="true"
+                title="{{ 'home-page.footer.newsletter-widget.subscribe' | translate }}"
+                (click)="newsletterForm.invalid ? '' : newsletterSubscribe(newsletterForm)"></i>
+                <input formControlName="email"
+                type="email"
+                name="email"
+                placeholder="{{ 'home-page.footer.newsletter-widget.enter-your-email' | translate }}">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div>{{ 'home-page.footer.copyright.app-name' | translate }}</div>
+      <div>
+        &copy; {{ 'home-page.footer.copyright.text' | translate }}
+        <a href="https://themeforest.net/user/webrouk">
+          {{ 'home-page.footer.copyright.webrouk' | translate }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

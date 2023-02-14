@@ -1,0 +1,80 @@
+@import "../../../../../../styles/helpers/variables";
+@import "../../../../../../styles/helpers/mixins";
+@import "../../../../../../styles/components/components";
+
+.content {
+  .the-main-box {
+    .box {
+      .no-items-msg {
+        .title {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: 16px;
+          margin: 0;
+        }
+      }
+
+      .box-content {
+        .black-list {
+          width: 100%;
+          border-collapse: collapse;
+
+          .no-items-msg {
+            td {
+              text-align: center;
+              font-size: 16px;
+              font-weight: 500;
+              padding: 40px 0;
+            }
+          }
+
+          .email {
+            &.black-list-header {
+              th {
+                @include appDir(
+                  text-transform,
+                  capitalize,
+                  text-transform,
+                  unset
+                );
+
+                h5 {
+                  color: $color-three;
+                  padding-bottom: 14px;
+                  margin: 0;
+                }
+              }
+            }
+
+            &:not(:last-of-type) {
+              border-bottom: 1px solid $borderColor;
+            }
+
+            th,
+            td:not(.del-btn) {
+              text-align: start;
+
+              @media #{$max_767} {
+                @include appDir(padding-right, 20px, padding-left, 20px);
+                word-break: break-word;
+              }
+            }
+
+            td {
+              padding: 14px 0;
+
+              &.del-btn {
+                .icon-btn {
+                  @include appDir(margin-left, auto, margin-right, auto);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

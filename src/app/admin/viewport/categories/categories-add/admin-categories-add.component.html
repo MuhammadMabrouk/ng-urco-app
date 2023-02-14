@@ -1,0 +1,173 @@
+<div class="content" @fadeInUpStaggerEnter>
+  <div class="the-main-box fadeInUpStagger">
+    <form class="form-styled" *ngIf="categoryForm" [formGroup]="categoryForm" (ngSubmit)="saveNewCategory(categoryForm)">
+      <section class="box">
+        <div class="box-content">
+          <div class="box-title">
+            <img src="../../../../assets/images/icons/admin/categories.png" alt="categories">
+            <h3 class="title">
+              {{ 'add-admin-categories-page.box-title' | translate }}
+            </h3>
+          </div>
+          <div class="category">
+            <div class="parent">
+              <span class="lines-dots">
+                <span class="vertical-line"></span>
+                <span class="horizontal-dots"></span>
+                <span class="first-vertical-dots"></span>
+              </span>
+              <div class="small-fields">
+                <div class="form-group">
+                  <label for="cat-name">
+                    {{ 'add-admin-categories-page.name-label' | translate }}
+                  </label>
+                  <div class="form-control">
+                    <input formControlName="catName"
+                      id="cat-name"
+                      type="text"
+                      [placeholder]="'add-admin-categories-page.name-placeholder' | translate">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cat-slug">
+                    {{ 'add-admin-categories-page.slug-label' | translate }}
+                  </label>
+                  <div class="form-control">
+                    <input formControlName="catSlug"
+                      id="cat-slug"
+                      type="text"
+                      [placeholder]="'add-admin-categories-page.slug-placeholder' | translate">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="cat-brief">
+                  {{ 'add-admin-categories-page.brief-label' | translate }}
+                  <span class="optional">({{ 'add-admin-categories-page.optional' | translate }})</span>
+                </label>
+                <div class="form-control">
+                  <input formControlName="catBrief"
+                    id="cat-brief"
+                    type="text"
+                    [placeholder]="'add-admin-categories-page.brief-placeholder' | translate">
+                </div>
+              </div>
+              <div class="small-fields">
+                <div class="form-group">
+                  <label for="cat-icon">
+                    {{ 'add-admin-categories-page.icon-label' | translate }}
+                  </label>
+                  <div class="form-control">
+                    <app-file-upload
+                      (fileChange)="getUploadFile($event, 'catIcon')"
+                      (invalidUntil)="getUploadFile()"
+                      [otherFieldRequired]="catSlug?.invalid"
+                      [progressPercent]="catIconProgressPercent"
+                      [progressComplete]="catIconProgressComplete">
+                    </app-file-upload>
+                    <ul class="file-upload-images">
+                      <li *ngIf="catIcon?.value" @slideFade>
+                        <img [src]="catIcon?.value" alt="cat-icon">
+                        <div class="del-img"
+                          [title]="'add-admin-categories-page.remove' | translate"
+                          (click)="removeImage('catIcon')">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cat-img">
+                    {{ 'add-admin-categories-page.img-label' | translate }}
+                  </label>
+                  <div class="form-control">
+                    <app-file-upload
+                      (fileChange)="getUploadFile($event, 'catImg')"
+                      (invalidUntil)="getUploadFile()"
+                      [otherFieldRequired]="catSlug?.invalid"
+                      [progressPercent]="catImgProgressPercent"
+                      [progressComplete]="catImgProgressComplete">
+                    </app-file-upload>
+                    <ul class="file-upload-images">
+                      <li *ngIf="catImg?.value" @slideFade>
+                        <img [src]="catImg?.value" alt="cat-img">
+                        <div class="del-img"
+                          [title]="'add-admin-categories-page.remove' | translate"
+                          (click)="removeImage('catImg')">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="children" formArrayName="children">
+              <div class="child small-fields"
+                *ngFor="let child of children?.controls; index as i"
+                [formGroupName]="i"
+                @slideFadeRedHighlight>
+                <span class="lines-dots">
+                  <span class="vertical-line"></span>
+                  <span class="horizontal-dots"></span>
+                  <span class="first-vertical-dots"></span>
+                  <span class="second-vertical-dots"></span>
+                </span>
+                <div class="form-group">
+                  <label [for]="'cat-name' + i">
+                    {{ 'add-admin-categories-page.name-label' | translate }}
+                  </label>
+                  <div class="form-control">
+                    <input [formControlName]="'catName' + i"
+                      [id]="'cat-name' + i"
+                      type="text"
+                      [placeholder]="'add-admin-categories-page.child-name-placeholder' | translate">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label [for]="'cat-slug' + i">
+                    {{ 'add-admin-categories-page.slug-label' | translate }}
+                  </label>
+                  <div class="form-control">
+                    <input [formControlName]="'catSlug' + i"
+                      [id]="'cat-slug' + i"
+                      type="text"
+                      [placeholder]="'add-admin-categories-page.child-slug-placeholder' | translate">
+                  </div>
+                </div>
+                <button class="remove-child"
+                  type="button"
+                  [title]="'add-admin-categories-page.remove-child' | translate"
+                  (click)="removeChildForm(i)">
+                </button>
+              </div>
+            </div>
+            <div class="add-child">
+              <span class="lines-dots">
+                <span class="horizontal-dots"></span>
+                <span class="first-vertical-dots"></span>
+              </span>
+              <button type="button"
+                [title]="'add-admin-categories-page.add-child' | translate"
+                (click)="addChildForm()">
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="buttons-container small-fields">
+        <div class="form-group">
+          <button type="reset" class="rounded-btn white-one solid reverse shadow" (click)="redirectToParent()">
+            {{ 'add-admin-categories-page.cancel' | translate }}
+          </button>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="rounded-btn color-one solid reverse shadow" [disabled]="categoryForm.invalid">
+            {{ 'add-admin-categories-page.save-new-category' | translate }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

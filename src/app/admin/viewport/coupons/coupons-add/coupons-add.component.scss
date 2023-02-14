@@ -1,0 +1,15 @@
+@import "../../../../../styles/helpers/variables";
+@import "../../../../../styles/helpers/mixins";
+@import "../../../../../styles/components/components";
+
+.content {
+  .the-main-box {
+    .box {
+      .box-content {
+        ::ng-deep app-input-number {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

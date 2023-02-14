@@ -1,0 +1,76 @@
+@import "../../../../../../styles/helpers/variables";
+@import "../../../../../../styles/helpers/mixins";
+@import "../../../../../../styles/components/components";
+
+.content {
+  .the-main-box {
+    .box {
+      .box-content {
+        .box-text {
+          font-weight: 500;
+          line-height: 1.6;
+          margin-bottom: 20px;
+        }
+
+        ::ng-deep app-input-number {
+          width: 100%;
+        }
+
+        .two-to-one {
+          @media #{$max_767} {
+            .form-group {
+              width: 100%;
+
+              button {
+                width: 100%;
+              }
+            }
+          }
+        }
+
+        .subjects-list {
+          li {
+            @include flexbox(flex, "", center, between, "", "");
+            padding: {
+              left: 12px;
+              right: 12px;
+            }
+            margin-bottom: 20px;
+
+            &:first-of-type {
+              margin-top: 10px;
+            }
+
+            strong {
+              font-weight: 500;
+              @include appDir(
+                text-transform,
+                capitalize,
+                text-transform,
+                unset
+              );
+            }
+
+            .fa {
+              @include flexbox(flex, "", center, center, "", "");
+              height: 16px;
+              width: 16px;
+              font-size: 12px;
+              cursor: pointer;
+              opacity: 0.6;
+              @include transition(0.3s);
+
+              &:hover {
+                opacity: 1;
+              }
+            }
+          }
+        }
+
+        .buttons-container {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

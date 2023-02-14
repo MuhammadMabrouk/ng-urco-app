@@ -1,0 +1,26 @@
+<!-- categories -->
+<div class="categories section">
+  <!-- page title and breadcrumbs -->
+  <app-title-and-breadcrumbs></app-title-and-breadcrumbs>
+
+  <div class="section-content">
+    <div class="container">
+      <div class="items" [@fadeInUpStaggerBind]="categories?.length">
+        <div class="item" *ngFor="let category of categories; trackBy: track">
+          <div class="item-text">
+            <h3 class="title">{{ category?.catName[currentLang] }}</h3>
+            <p *ngIf="category?.catBrief[currentLang]">{{ category?.catBrief[currentLang] }}</p>
+            <a routerLink="/shop"
+              [queryParams]="{'cat': category?.catSlug}"
+              class="rounded-btn white-three solid reverse shadow">
+              {{ 'categories-page.shop-now' | translate }}
+            </a>
+          </div>
+          <div class="item-img">
+            <img [src]="category?.catImg" [alt]="category?.catSlug" appLoader>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

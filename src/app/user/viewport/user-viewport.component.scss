@@ -1,0 +1,135 @@
+@import "../../../styles/helpers/variables";
+@import "../../../styles/helpers/mixins";
+@import "../../../styles/components/components";
+
+.content-goes-here {
+  @media #{$min_992} {
+    @include flexbox(flex, "", "", "", "", "");
+  }
+
+  .view-content {
+    @media #{$min_992} {
+      width: calc(100% - 400px);
+      @include appDir(margin-left, 50px, margin-right, 50px);
+    }
+
+    @media #{$max_991} {
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    @media #{$max_767} {
+      width: 90%;
+      margin: {
+        left: auto;
+        right: auto;
+      };
+    }
+  }
+}
+
+:host ::ng-deep {
+  .the-main-box {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    .box {
+      background-color: #fff;
+      border-radius: $borderRadius;
+      box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+
+      @media #{$min_768} {
+        padding: 25px;
+      }
+
+      @media #{$max_767} {
+        padding: 20px;
+      }
+
+      .box-content {
+        margin-bottom: -20px;
+
+        .box-title {
+          @include flexbox(flex, "", center, "", "", "");
+          margin: 0 0 35px;
+
+          img {
+            display: block;
+            width: 22px;
+            margin-top: -1px;
+          }
+
+          .title {
+            font-size: 20px;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .buttons-container {
+      margin-top: 20px;
+
+      .rounded-btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .the-main-box {
+    .box-title {
+      img {
+        @include appDir(margin-right, 16px, margin-left, 16px);
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .the-main-box-footer {
+    @include flexbox(flex, "", center, end, "", "");
+    margin-top: 20px;
+
+    ::ng-deep app-simple-pagination {
+      flex-grow: 1;
+
+      .simple-pagination {
+        margin-top: 0;
+      }
+    }
+
+    .add-new {
+      @include flexbox(flex, "", center, center, "", "");
+      height: 36px;
+      background-color: $color-one;
+      color: #fff;
+      font-weight: bold;
+      padding: 0 15px;
+      border: 0;
+      border-radius: 10px;
+      box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+
+      &:not(:only-child) {
+        @include appDir(margin-left, 10px, margin-right, 10px);
+      }
+
+      .fa {
+        @include appDir(margin-right, 12px, margin-left, 12px);
+      }
+
+      &:hover {
+        background-color: #fff;
+        color: unset;
+      }
+    }
+
+    .rounded-btn {
+      .fa {
+        @include appDir(margin-right, 12px, margin-left, 12px);
+      }
+    }
+  }
+}

@@ -1,0 +1,191 @@
+<div class="content">
+  <form class="the-main-box form-styled"
+    *ngIf="basicInfoForm"
+    [formGroup]="basicInfoForm"
+    (ngSubmit)="updateUserData(basicInfoForm, 'basicInfoForm')">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/info.png" alt="basic-info">
+          <h3 class="title">{{ 'profile-page.basic-info.title' | translate }}</h3>
+        </div>
+        <div class="small-fields">
+          <div class="form-group">
+            <label for="first-name">{{ 'profile-page.basic-info.first-name-label' | translate }}</label>
+            <div class="form-control">
+              <input formControlName="firstName"
+                id="first-name"
+                type="text"
+                [placeholder]="'profile-page.basic-info.first-name-placeholder' | translate">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="last-name">{{ 'profile-page.basic-info.last-name-label' | translate }}</label>
+            <div class="form-control">
+              <input formControlName="lastName"
+                id="last-name"
+                type="text"
+                [placeholder]="'profile-page.basic-info.last-name-placeholder' | translate">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">{{ 'profile-page.basic-info.email-label' | translate }}</label>
+            <div class="form-control">
+              <input formControlName="email"
+                id="email"
+                type="email"
+                [placeholder]="'profile-page.basic-info.email-placeholder' | translate">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="country">{{ 'profile-page.basic-info.country-label' | translate }}</label>
+            <div class="form-control">
+              <app-select-menu
+                [modelLabel]="country.value?.label ? country.value?.label : 'profile-page.basic-info.country-placeholder' | translate"
+                [modelIcon]="country.value?.icon ? country.value?.icon : ''"
+                [options]="countries"
+                (selectChange)="countryChanged($event)">
+              </app-select-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="buttons-container" *ngIf="basicInfoFormChanged" @slideToggle>
+      <button type="submit"
+        class="rounded-btn color-one solid reverse shadow"
+        [disabled]="basicInfoForm.invalid">
+        {{ 'profile-page.save-btn' | translate }}
+      </button>
+    </div>
+  </form>
+
+  <form class="the-main-box form-styled"
+    *ngIf="additionalInfoForm"
+    [formGroup]="additionalInfoForm"
+    (ngSubmit)="updateUserData(additionalInfoForm, 'additionalInfoForm')">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/additional-info.png" alt="additional-info">
+          <h3 class="title">{{ 'profile-page.additional-info.title' | translate }}</h3>
+        </div>
+        <div class="small-fields">
+          <div class="form-group">
+            <label for="birth-date">{{ 'profile-page.additional-info.birth-date-label' | translate }}</label>
+            <div class="form-control">
+              <i class="fa fa-calendar-o" aria-hidden="true" (click)="dp.toggleCalendar()"></i>
+              <input formControlName="birthDate"
+              id="birth-date"
+              name="birthDate"
+              [placeholder]="'profile-page.additional-info.birth-date-placeholder' | translate"
+              [options]="birthDateOptions"
+              angular-mydatepicker
+              #dp="angular-mydatepicker">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-control two-radio-buttons pull-down">
+              <label>{{ 'profile-page.additional-info.gender' | translate }}</label>
+              <div class="radio-buttons-container">
+                <div class="radio-button">
+                  <input id="male" class="radio" type="radio" formControlName="gender" name="gender" value="male">
+                  <label for="male"></label>
+                </div>
+                <label for="male">{{ 'profile-page.additional-info.male' | translate }}</label>
+              </div>
+              <div class="radio-buttons-container">
+                <div class="radio-button">
+                  <input id="female" class="radio" type="radio" formControlName="gender" name="gender" value="female">
+                  <label for="female"></label>
+                </div>
+                <label for="female">{{ 'profile-page.additional-info.female' | translate }}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="buttons-container" *ngIf="additionalInfoFormChanged" @slideToggle>
+      <button type="submit"
+        class="rounded-btn color-one solid reverse shadow"
+        [disabled]="additionalInfoForm.invalid">
+        {{ 'profile-page.save-btn' | translate }}
+      </button>
+    </div>
+  </form>
+
+  <form class="the-main-box form-styled"
+    *ngIf="securityForm"
+    [formGroup]="securityForm"
+    (ngSubmit)="updateUserData(securityForm, 'securityForm')">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/security.png" alt="security">
+          <h3 class="title">{{ 'profile-page.security.title' | translate }}</h3>
+        </div>
+        <div class="small-fields">
+          <div class="form-group">
+            <label for="new-password">{{ 'profile-page.security.new-password' | translate }}</label>
+            <div class="form-control">
+              <i class="fa fa-eye" aria-hidden="true" (click)="togglePasswordVisibility($event)"></i>
+              <input formControlName="newPassword" id="new-password" type="password" placeholder="********">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirm-new-password">{{ 'profile-page.security.confirm-password' | translate }}</label>
+            <div class="form-control">
+              <i class="fa fa-eye" aria-hidden="true" (click)="togglePasswordVisibility($event)"></i>
+              <input formControlName="confirmNewPassword" id="confirm-new-password" type="password" placeholder="********">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="buttons-container" *ngIf="securityFormChanged" @slideToggle>
+      <button type="submit"
+        class="rounded-btn color-one solid reverse shadow"
+        [disabled]="securityForm.invalid">
+        {{ 'profile-page.save-btn' | translate }}
+      </button>
+    </div>
+  </form>
+
+  <form class="the-main-box form-styled"
+    *ngIf="profilePictureForm"
+    [formGroup]="profilePictureForm"
+    (ngSubmit)="updateUserData(profilePictureForm, 'profilePictureForm')">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/profile-picture.png" alt="profile-picture">
+          <h3 class="title">{{ 'profile-page.profile-picture.title' | translate }}</h3>
+        </div>
+        <div class="form-group">
+          <app-file-upload
+            (fileChange)="getProfilePicture($event)"
+            [isBigArea]="true"
+            [progressPercent]="progressPercent"
+            [progressComplete]="progressComplete">
+          </app-file-upload>
+          <ul class="file-upload-images big">
+            <li *ngIf="photoUrl?.value" @slideFade>
+              <img [src]="photoUrl?.value" alt="profile-picture">
+              <div class="del-img"
+                [title]="'profile-page.profile-picture.remove' | translate"
+                (click)="deleteProfilePicture(photoUrl?.value)">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div class="buttons-container" *ngIf="profilePictureFormChanged" @slideToggle>
+      <button type="submit" class="rounded-btn color-one solid reverse shadow">
+        {{ 'profile-page.save-btn' | translate }}
+      </button>
+    </div>
+  </form>
+</div>

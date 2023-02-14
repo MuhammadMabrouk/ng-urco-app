@@ -1,0 +1,67 @@
+<div class="section">
+  <!-- page title and breadcrumbs -->
+  <app-title-and-breadcrumbs></app-title-and-breadcrumbs>
+
+  <div class="section-content" @fadeInUp>
+    <div class="container">
+      <div class="wishlist">
+        <div class="main-box">
+          <ul class="box-header">
+            <li>{{ 'wishlist-page.header.wishlist-items' | translate }}</li>
+          </ul>
+
+          <ul class="wishlist-items" [@fadeInUpStaggerBind]="wishlistGoods?.length">
+            <li class="no-items-msg" *ngIf="wishlistGoods?.length === 0">
+              {{ 'wishlist-page.no-items-msg' | translate }}
+            </li>
+            <li *ngFor="let good of wishlistGoods; trackBy: track; index as i;"
+              [@slideFadeUpRedHighlightState]="animationStates[i]">
+              <div class="img-and-name">
+                <div class="item-img">
+                  <a [routerLink]="['/good', good.id]" [title]="good?.name[currentLang] | titlecase">
+                    <img [src]="good?.images[0]" [alt]="good?.name[currentLang]" appLoader>
+                  </a>
+                </div>
+                <div class="item-name">
+                  <h4 class="name" [title]="good?.name[currentLang] | titlecase">
+                    <a [routerLink]="['/good', good.id]">{{ good?.name[currentLang] | titlecase | truncate:30 }}</a>
+                  </h4>
+                </div>
+              </div>
+              <div class="other-fields">
+                <div class="price">
+                  <strong>{{ good.priceAfterDiscount | currencyExchange : currencyExchangeSer?.exchangeRates }}</strong>
+                </div>
+                <div class="icons">
+                  <button class="shopping-cart icon-btn"
+                    [title]="'wishlist-page.add-to-cart' | translate"
+                    (click)="addToCartFromWishlist(good, i)">
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                  </button>
+                  <button class="delete icon-btn"
+                    [title]="'wishlist-page.delete-item' | translate"
+                    (click)="deleteWishlistItem(good.id, i)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="box-footer">
+            <li class="step-back">
+              <a routerLink="/">
+                {{ 'wishlist-page.footer.continue-shopping' | translate }}
+              </a>
+            </li>
+            <li class="add-all-to-cart" *ngIf="wishlistGoods?.length !== 0">
+              <a (click)="$event.preventDefault(); addAllToCartFromWishlist()">
+                {{ 'wishlist-page.footer.add-all-to-cart' | translate }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

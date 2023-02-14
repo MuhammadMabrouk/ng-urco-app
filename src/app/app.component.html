@@ -1,0 +1,16 @@
+<app-header (langChanged)="onLangChange($event)"></app-header>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
+
+<!-- loading spinner -->
+<app-main-loading></app-main-loading>
+
+<!-- scroll to top button -->
+<div class="scroll-to-top" title="Back To Top" [class.show-scrollTop]="showScrollTop" (click)="scrollToTop()">
+  <i class="fa fa-angle-up" aria-hidden="true"></i>
+</div>
+
+<!-- Notifications system to show messages -->
+<app-notifications></app-notifications>

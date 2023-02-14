@@ -1,0 +1,60 @@
+<div class="content">
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <table class="payments" [@fadeInUpStaggerBind]="animationStates">
+          <tr class="method payments-header">
+            <th class="img-and-number"><h5>{{ 'payments-page.header-titles.method' | translate }}</h5></th>
+            <th class="type"><h5>{{ 'payments-page.header-titles.type' | translate }}</h5></th>
+            <th class="expires" colspan="2"><h5>{{ 'payments-page.header-titles.expires' | translate }}</h5></th>
+          </tr>
+          <tr class="no-items-msg" *ngIf="!paymentMethods?.length">
+            <td colspan="4">{{ 'payments-page.no-items-msg' | translate }}</td>
+          </tr>
+          <tr class="method" *ngFor="let method of paymentMethods; trackBy: track">
+            <td class="img-and-number" [attr.data-title]="'payments-page.header-titles.method' | translate">
+              <img [src]="'../../../assets/images/icons/checkout/card-type/' + method.type + '.png'" [alt]="method.type">
+              <span>{{ maskingCreditCardNumber(method?.cardNumber, 4) }}</span>
+            </td>
+            <td class="type" [attr.data-title]="'payments-page.header-titles.type' | translate">{{ method.niceType }}</td>
+            <td class="expires" [attr.data-title]="'payments-page.header-titles.expires' | translate">{{ method.ExpDate }}</td>
+            <td class="actions-col">
+              <button class="actions-btn" [appMenuToggleButton]="actionsMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <ul class="dropdown-list" #actionsMenu>
+                <li>
+                  <a [routerLink]="['../../edit', method.id]">
+                    <img src="../../../assets/images/icons/edit-tool.png" alt="edit">
+                    {{ 'payments-page.actions-btns.edit' | translate }}
+                  </a>
+                </li>
+                <li>
+                  <a href="#" (click)="$event.preventDefault(); deleteMethod(method.id)">
+                    <img src="../../../assets/images/icons/cancel-delete.png" alt="delete">
+                    {{ 'payments-page.actions-btns.delete' | translate }}
+                  </a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <div class="the-main-box-footer">
+
+      <!-- simple pagination with items count -->
+      <app-simple-pagination *ngIf="paymentMethods?.length" (callPrev)="getPrevPage()" (callNext)="getNextPage()"></app-simple-pagination>
+
+      <a routerLink="../../add" [ngClass]="{
+        'add-new': paymentMethods?.length,
+        'rounded-btn color-one solid reverse shadow': !paymentMethods?.length
+      }">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        {{ 'payments-page.add-new' | translate }}
+      </a>
+    </div>
+  </div>
+</div>

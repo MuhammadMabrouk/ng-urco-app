@@ -1,0 +1,51 @@
+<div class="file-upload">
+  <div #dropArea class="file-drop-area" [class.big-drop-area]="isBigArea">
+    <div class="upload-icon">
+      <img src="../../../../assets/images/icons/files/upload-file.png" alt="upload-icon">
+    </div>
+    <p class="upload-text" *ngIf="isBigArea">
+      {{ 'custom-elements.file-upload.upload-text1' | translate }}
+      <strong>{{ 'custom-elements.file-upload.browse' | translate }}</strong>
+      {{ 'custom-elements.file-upload.upload-text2' | translate }}
+    </p>
+    <p class="upload-text" *ngIf="!isBigArea">
+      {{ 'custom-elements.file-upload.choose-file' | translate }}
+    </p>
+    <span class="other-field-required" *ngIf="otherFieldRequired" (click)="invalidUntilLayerClicked()"></span>
+    <input #inputFile
+      class="file-input"
+      type="file"
+      [attr.multiple]="multiple"
+      (change)="getFiles()">
+  </div>
+  <ul class="files-area" *ngIf="files.length > 0">
+    <li *ngFor="let file of files; index as i" @slideFade>
+      <div class="file-icon" [ngSwitch]="true">
+        <img *ngSwitchCase="file?.type.includes('image')" src="../../../../assets/images/icons/files/picture-file.png" alt="picture-file">
+        <img *ngSwitchCase="file?.type.includes('audio')" src="../../../../assets/images/icons/files/audio-file.png" alt="audio-file">
+        <img *ngSwitchCase="file?.type.includes('video')" src="../../../../assets/images/icons/files/video-file.png" alt="video-file">
+        <img *ngSwitchCase="file?.type.includes('plain')" src="../../../../assets/images/icons/files/txt-file.png" alt="txt-file">
+        <img *ngSwitchCase="file?.type.includes('pdf')" src="../../../../assets/images/icons/files/pdf-file.png" alt="pdf-file">
+        <img *ngSwitchDefault src="../../../../assets/images/icons/files/unknown-file.png" alt="unknown-file">
+      </div>
+      <div class="file-info">
+        <div class="header">{{ file?.name }}</div>
+        <div class="progress">
+          <span class="empty-bar"></span>
+          <span class="filled-bar" [style.width]="progressPercent[i] + '%'" [ngClass]="{
+            'uploading': !progressComplete[i],
+            'completed': progressComplete[i]
+          }"></span>
+        </div>
+        <div class="footer">
+          <div class="file-size">
+            <span>{{ formatBytes(file?.size * (progressPercent[i] / 100)) }}</span>
+            <span>{{ 'custom-elements.file-upload.of' | translate }}</span>
+            <span>{{ formatBytes(file?.size) }}</span>
+          </div>
+          <div class="upload-percentage">{{ progressPercent[i] / 100 | percent : '1.0-1' }}</div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,258 @@
+<!-- Start Nav Bar -->
+<nav class="fixed">
+  <div class="nav-container">
+
+    <div class="menu-btn-and-logo">
+      <div class="logo">
+        <h2 class="title">
+          <a routerLink="" translate="home-page.nav.logo"></a>
+        </h2>
+      </div>
+      <div class="menu-btn"
+        [appMenuToggleButton]="sideMenu"
+        bodyClass="side-menu-open"
+        closeOnNavigate="true"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div #searchBar class="search-bar">
+      <form action="#">
+        <input
+          #searchInput
+          class="search"
+          type="search"
+          [placeholder]="'home-page.nav.search' | translate">
+        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </form>
+    </div>
+
+    <div class="lists-and-icons">
+      <div class="lists">
+        <ul>
+          <li class="switcher language-switcher">
+            <a (click)="$event.preventDefault()">{{ currentLang | uppercase }}</a>
+            <ul class="dropdown-list">
+              <ng-container *ngFor="let lang of langs">
+                <li *ngIf="currentLang !== lang">
+                  <a (click)="$event.preventDefault(); useThisLang(lang)">
+                    {{ lang | uppercase }}
+                  </a>
+                </li>
+              </ng-container>
+            </ul>
+          </li>
+        </ul>
+        <ul>
+          <li class="switcher currency-switcher">
+            <a (click)="$event.preventDefault()">{{ currentCurrency | uppercase }}</a>
+            <ul class="dropdown-list">
+              <ng-container *ngFor="let currency of currenciesArr">
+                <li *ngIf="currentCurrency !== currency">
+                  <a (click)="$event.preventDefault(); useThisCurrency(currency)">
+                    {{ currency | uppercase }}
+                  </a>
+                </li>
+              </ng-container>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="icons">
+        <button class="search icon-btn small" [appMenuToggleButton]="searchBar" (click)="searchInput.focus()">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+        <a routerLink="/wishlist" class="wishlist icon-btn small">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+          <span [class.pulse2-animation]="navWishlistIconClass">{{ wishlistGoodsLength }}</span>
+        </a>
+        <a routerLink="/shopping-cart" class="shopping-cart icon-btn small">
+          <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+          <span [class.pulse2-animation]="navCartIconClass">{{ cartGoodsLength }}</span>
+        </a>
+      </div>
+
+      <div class="user-container">
+        <div class="user-content">
+          <div class="user-img">
+            <img *ngIf="isLoggedIn && userInfo?.profilePicture?.url"
+              [src]="userInfo?.profilePicture?.url"
+              [alt]="userInfo?.displayName"
+              [appFixOrientation]="userInfo?.profilePicture?.exifOrientation"
+            >
+            <i *ngIf="!isLoggedIn || !userInfo?.profilePicture?.url" class="fa fa-user" aria-hidden="true"></i>
+          </div>
+          <strong *ngIf="isLoggedIn">{{ userInfo?.displayName }}</strong>
+          <strong *ngIf="!isLoggedIn">{{ 'home-page.nav.account' | translate}}</strong>
+          <ul class="dropdown-list">
+            <li>
+              <a routerLink="/sign-up" *ngIf="!isLoggedIn">
+                <img src="../../../assets/images/icons/user/new-user.png" [alt]="'home-page.nav.create-account' | translate">
+                {{ 'home-page.nav.create-account' | translate}}
+              </a>
+            </li>
+            <li>
+              <a href="#" *ngIf="!isLoggedIn" (click)="navigateToSignIn(); $event.preventDefault();">
+                <img src="../../../assets/images/icons/user/login-user.png" [alt]="'home-page.nav.sign-in' | translate">
+                {{ 'home-page.nav.sign-in' | translate}}
+              </a>
+            </li>
+            <li>
+              <a routerLink="/admin-dashboard" *ngIf="isLoggedIn && userInfo?.isAdmin">
+                <img src="../../../assets/images/icons/admin/admin-dashboard.png" [alt]="'home-page.nav.admin-dashboard' | translate">
+                {{ 'home-page.nav.admin-dashboard' | translate}}
+              </a>
+            </li>
+            <li>
+              <a routerLink="/user-dashboard" *ngIf="isLoggedIn">
+                <img src="../../../assets/images/icons/user/profile-user.png" [alt]="'home-page.nav.user-dashboard' | translate">
+                {{ 'home-page.nav.user-dashboard' | translate}}
+              </a>
+            </li>
+            <li>
+              <a routerLink="/user-dashboard/user/my-orders" *ngIf="isLoggedIn">
+                <img src="../../../assets/images/icons/user/orders-user.png" [alt]="'home-page.nav.my-orders' | translate">
+                {{ 'home-page.nav.my-orders' | translate}}
+              </a>
+            </li>
+            <li>
+              <a href="#" *ngIf="isLoggedIn" (click)="logOut(); $event.preventDefault();">
+                <img src="../../../assets/images/icons/user/logout-user.png" [alt]="'home-page.nav.logout' | translate">
+                {{ 'home-page.nav.logout' | translate}}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+<!-- End Nav Bar -->
+
+<!-- Start Side Menu -->
+<div class="side-menu-container" #sideMenu>
+
+  <!-- user card area -->
+  <div class="user-container" *ngIf="isLoggedIn">
+    <a routerLink="/user-dashboard/user/profile" class="user-img">
+      <img *ngIf="userInfo?.profilePicture?.url"
+        [src]="userInfo?.profilePicture?.url"
+        [alt]="userInfo?.displayName"
+        [appFixOrientation]="userInfo?.profilePicture?.exifOrientation"
+      >
+      <img *ngIf="!userInfo?.profilePicture?.url"
+        src="../../../assets/images/icons/user/user-avatar.png"
+        [alt]="userInfo?.displayName"
+      >
+    </a>
+    <div class="user-text" *ngIf="isLoggedIn">
+      <h3 class="name" *ngIf="isLoggedIn">
+        <a routerLink="/user-dashboard/user/profile">
+          {{ userInfo?.displayName }}
+        </a>
+      </h3>
+      <strong class="email">
+        {{ userInfo?.email }}
+      </strong>
+    </div>
+  </div>
+
+  <!-- links area -->
+  <ul class="menu">
+    <li *ngFor="let category of categories" [class.has-children]="category?.children?.length">
+      <i class="fa fa-angle-down"
+        aria-hidden="true"
+        *ngIf="category?.children?.length"
+        (click)="category?.children ? showSubMenu($event, subMenu) : ''">
+      </i>
+      <a routerLink="/shop" [queryParams]="{'cat': category?.catSlug}"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+      >
+        <img [src]="category?.catIcon" [alt]="category?.catSlug">
+        {{ category?.catName[currentLang] | titlecase }}
+      </a>
+      <ul #subMenu class="sub-menu">
+        <li *ngFor="let child of category.children">
+          <a routerLink="/shop" [queryParams]="{ 'cat': category?.catSlug, 'subCat': child?.catSlug }" routerLinkActive="active">
+            <img src="../../../assets/images/icons/categories/dot-inside-a-circle.png" [alt]="child?.catSlug">
+            {{ child?.catName[currentLang] | titlecase }}
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a routerLink="/categories" routerLinkActive="active">
+        <img src="../../../assets/images/icons/admin/categories.png" [alt]="'home-page.side-menu.all-categories' | translate">
+        {{ 'home-page.side-menu.all-categories' | translate}}
+      </a>
+    </li>
+    <li>
+      <a routerLink="/shop" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <img src="../../../assets/images/icons/categories/all-goods.png" [alt]="'home-page.side-menu.all-products' | translate">
+        {{ 'home-page.side-menu.all-products' | translate}}
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin-dashboard" routerLinkActive="active" *ngIf="isLoggedIn && userInfo?.isAdmin">
+        <img src="../../../assets/images/icons/admin/admin-dashboard.png" [alt]="'home-page.nav.admin-dashboard' | translate">
+        {{ 'home-page.nav.admin-dashboard' | translate}}
+      </a>
+    </li>
+    <li>
+      <a routerLink="/user-dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="isLoggedIn">
+        <img src="../../../assets/images/icons/user/profile-user.png" [alt]="'home-page.nav.user-dashboard' | translate">
+        {{ 'home-page.nav.user-dashboard' | translate}}
+      </a>
+    </li>
+    <li>
+      <a routerLink="/user-dashboard/user/my-orders" routerLinkActive="active" *ngIf="isLoggedIn">
+        <img src="../../../assets/images/icons/user/orders-user.png" [alt]="'home-page.nav.my-orders' | translate">
+        {{ 'home-page.nav.my-orders' | translate}}
+      </a>
+    </li>
+    <li>
+      <a routerLink="/wishlist" routerLinkActive="active">
+        <img src="../../../assets/images/icons/heart.png" [alt]="'home-page.side-menu.wishlist' | translate">
+        {{ 'home-page.side-menu.wishlist' | translate}}
+      </a>
+    </li>
+    <li>
+      <a routerLink="/sign-up" routerLinkActive="active" *ngIf="!isLoggedIn">
+        <img src="../../../assets/images/icons/user/new-user.png" [alt]="'home-page.nav.create-account' | translate">
+        {{ 'home-page.nav.create-account' | translate}}
+      </a>
+    </li>
+    <li>
+      <a [class.active]="router.isActive('/sign-in', false)"
+        routerLinkActive="active"
+        *ngIf="!isLoggedIn"
+        (click)="navigateToSignIn(); $event.preventDefault();">
+        <img src="../../../assets/images/icons/user/login-user.png" [alt]="'home-page.nav.sign-in' | translate">
+        {{ 'home-page.nav.sign-in' | translate}}
+      </a>
+    </li>
+    <li>
+      <a *ngIf="isLoggedIn" (click)="logOut(); $event.preventDefault();">
+        <img src="../../../assets/images/icons/user/logout-user.png" [alt]="'home-page.nav.logout' | translate">
+        {{ 'home-page.nav.logout' | translate}}
+      </a>
+    </li>
+  </ul>
+
+  <!-- languages area -->
+  <ul class="langs">
+    <li *ngFor="let lang of langs">
+      <button (click)="useThisLang(lang)">
+        {{ 'languages.' + lang | translate }}
+      </button>
+    </li>
+  </ul>
+</div>
+<div class="overlay"></div>
+<!-- End Side Menu -->

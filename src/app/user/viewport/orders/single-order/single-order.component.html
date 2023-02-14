@@ -1,0 +1,201 @@
+<div class="content">
+  <!-- review modal -->
+  <app-review-model
+    #reviewModalComRef
+    [isOpen]="reviewModal"
+    (cancelEvent)="cancelReview()"
+    [modalTitle]="'single-order-page.leave-feedback' | translate">
+  </app-review-model>
+
+  <!-- return good modal -->
+  <app-modal [isOpen]="returnModal"
+    (cancelEvent)="cancelReturning()"
+    [modalTitle]="'single-order-page.return-modal.reason-for-return' | translate">
+    <div class="modal-body">
+      <form class="form-styled"
+        *ngIf="returnReasonForm"
+        [formGroup]="returnReasonForm"
+        (ngSubmit)="submitReturnRequest(returnReasonForm)">
+        <div class="small-fields" formGroupName="reasons">
+          <div class="checkbox-container">
+            <div class="checkbox">
+              <input id="accidental-order" class="checkbox" formControlName="accidentalOrder" type="checkbox" name="checkbox">
+              <label for="accidental-order"></label>
+            </div>
+            <label for="accidental-order">
+              {{ 'single-order-page.return-modal.reasons.accidental-order' | translate }}
+            </label>
+          </div>
+          <div class="checkbox-container">
+            <div class="checkbox">
+              <input id="better-price-available" class="checkbox" formControlName="betterPriceAvailable" type="checkbox" name="checkbox">
+              <label for="better-price-available"></label>
+            </div>
+            <label for="better-price-available">
+              {{ 'single-order-page.return-modal.reasons.better-price-available' | translate }}
+            </label>
+          </div>
+          <div class="checkbox-container">
+            <div class="checkbox">
+              <input id="poor-quality-or-faulty" class="checkbox" formControlName="poorQualityOrFaulty" type="checkbox" name="checkbox">
+              <label for="poor-quality-or-faulty"></label>
+            </div>
+            <label for="poor-quality-or-faulty">
+              {{ 'single-order-page.return-modal.reasons.poor-quality-or-faulty' | translate }}
+            </label>
+          </div>
+          <div class="checkbox-container">
+            <div class="checkbox">
+              <input id="arrived-too-late" class="checkbox" formControlName="arrivedTooLate" type="checkbox" name="checkbox">
+              <label for="arrived-too-late"></label>
+            </div>
+            <label for="arrived-too-late">
+              {{ 'single-order-page.return-modal.reasons.arrived-too-late' | translate }}
+            </label>
+          </div>
+          <div class="checkbox-container">
+            <div class="checkbox">
+              <input id="wrong-item-was-sent" class="checkbox" formControlName="wrongItemWasSent" type="checkbox" name="checkbox">
+              <label for="wrong-item-was-sent"></label>
+            </div>
+            <label for="wrong-item-was-sent">
+              {{ 'single-order-page.return-modal.reasons.wrong-item-was-sent' | translate }}
+            </label>
+          </div>
+          <div class="checkbox-container">
+            <div class="checkbox">
+              <input id="looks-different-from-images" class="checkbox" formControlName="looksDifferentFromImages" type="checkbox" name="checkbox">
+              <label for="looks-different-from-images"></label>
+            </div>
+            <label for="looks-different-from-images">
+              {{ 'single-order-page.return-modal.reasons.looks-different-from-images' | translate }}
+            </label>
+          </div>
+          <div class="checkbox-container">
+            <div class="checkbox">
+              <input id="description-was-not-accurate" class="checkbox" formControlName="descriptionWasNotAccurate" type="checkbox" name="checkbox">
+              <label for="description-was-not-accurate"></label>
+            </div>
+            <label for="description-was-not-accurate">
+              {{ 'single-order-page.return-modal.reasons.description-was-not-accurate' | translate }}
+            </label>
+          </div>
+          <div class="checkbox-container">
+            <div class="checkbox">
+              <input id="no-longer-needed" class="checkbox" formControlName="noLongerNeeded" type="checkbox" name="checkbox">
+              <label for="no-longer-needed"></label>
+            </div>
+            <label for="no-longer-needed">
+              {{ 'single-order-page.return-modal.reasons.no-longer-needed' | translate }}
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="comments">
+            {{ 'single-order-page.return-modal.comments.comments-label' | translate }}
+            <span class="optional">({{ 'single-order-page.return-modal.comments.optional' | translate }})</span>
+          </label>
+          <div class="form-control">
+            <textarea formControlName="comments"
+              id="comments"
+              placeholder="{{ 'single-order-page.return-modal.comments.comments-placeholder-part1' | translate }}
+                {{ commentsMinLength }}
+                {{ 'single-order-page.return-modal.comments.comments-placeholder-part2' | translate }}"
+              [appCharRemaining]="charCountView"></textarea>
+          </div>
+          <div class="char-count">
+            <span #charCountView>0</span> / <span>{{ commentsMinLength }}</span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <button class="rounded-btn color-one solid shadow"
+      [disabled]="returnReasonForm.invalid"
+      (click)="submitReturnRequest(returnReasonForm)">
+      {{ 'single-order-page.return-modal.submit-btn' | translate }}
+    </button>
+  </app-modal>
+
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <ul class="order-goods" [@fadeInUpStaggerBind]="orderGoods?.length">
+          <li class="good goods-header">
+            <div><h5 class="title">{{ 'single-order-page.header-titles.item' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'single-order-page.header-titles.price' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'single-order-page.header-titles.qty' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'single-order-page.header-titles.total' | translate }}</h5></div>
+            <div class="actions-col">
+              <label class="actions-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+          </li>
+          <li class="no-items-msg" *ngIf="!orderGoods?.length">
+            {{ 'single-order-page.no-items-msg' | translate }}
+          </li>
+          <li class="good" *ngFor="let good of orderGoods; trackBy: track">
+            <div class="img-and-name">
+              <div class="item-img">
+                <a [routerLink]="['/good', good?.id]">
+                  <img [src]="good?.images[0]" [alt]="good?.name[currentLang]" appLoader>
+                </a>
+              </div>
+              <div class="item-name">
+                <h4 class="name">
+                  <a [routerLink]="['/good', good?.id]">
+                    {{ good?.name[currentLang] | titlecase }}
+                  </a>
+                </h4>
+              </div>
+            </div>
+            <div class="other-fields">
+              <div><strong>{{ good?.price | currencyExchange : currencyExchangeSer?.exchangeRates }}</strong></div>
+              <div><strong>{{ good?.qty }}</strong></div>
+              <div><strong>{{ good?.total | currencyExchange : currencyExchangeSer?.exchangeRates }}</strong></div>
+              <div class="actions-col">
+                <button class="actions-btn" *ngIf="orderGoods?.length"
+                  [class.disabled]="!actionsMenu?.children?.length"
+                  [disabled]="!actionsMenu?.children?.length"
+                  [title]="(!actionsMenu?.children?.length) ? ('single-order-page.actions-btns.no-actions' | translate) : ''"
+                  [appMenuToggleButton]="actionsMenu"
+                >
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </button>
+                <ul class="dropdown-list" #actionsMenu>
+                  <li *ngIf="thisOrder?.status === 'ordered'">
+                    <a href="#" (click)="$event.preventDefault(); removeGood(good.id)">
+                      <img src="../../../assets/images/icons/cancel-delete.png" alt="remove">
+                      {{ 'single-order-page.actions-btns.remove' | translate }}
+                    </a>
+                  </li>
+                  <li *ngIf="thisOrder?.status === 'delivered' || thisOrder?.status === 'returned'">
+                    <a href="#" (click)="$event.preventDefault(); productReview(); reviewModalComRef.productReview(good.id)">
+                      <img src="../../../../../../../assets/images/icons/stars.png" alt="rating">
+                      {{ 'single-order-page.actions-btns.rating' | translate }}
+                    </a>
+                  </li>
+                  <ng-container *ngIf="thisOrder?.status === 'delivered' && thisOrder?.deliveredDate && !good?.returned">
+                    <li *ngIf="isInReturnPeriod(thisOrder?.deliveredDate)">
+                      <a href="#" (click)="$event.preventDefault(); productReturn(good)">
+                        <img src="../../../assets/images/icons/user/return.png" alt="return">
+                        {{ 'single-order-page.actions-btns.return' | translate }}
+                      </a>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+            </div>
+            <div class="returned-overlay" *ngIf="good?.returned">
+              <strong>{{ 'single-order-page.returned' | translate }}</strong>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>

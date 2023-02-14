@@ -1,0 +1,84 @@
+<div class="section">
+  <!-- page title and breadcrumbs -->
+  <app-title-and-breadcrumbs></app-title-and-breadcrumbs>
+
+  <div class="section-content">
+    <div class="container">
+
+      <!-- features section -->
+      <div class="features" @fadeInStaggerEnter>
+        <div class="item fadeInStagger">
+          <div class="dots-line">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="item-img">
+            <img src="../../../assets/images/icons/about-features/verified-sellers.png" [alt]="'about-page.features.feature1' | translate">
+          </div>
+          <div class="item-text">
+            <h3 class="title">{{ 'about-page.features.feature1' | translate }}</h3>
+            <p>{{ 'about-page.features.feature1-desc' | translate }}</p>
+          </div>
+        </div>
+        <div class="item fadeInStagger">
+          <div class="dots-line">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="item-img">
+            <img src="../../../assets/images/icons/about-features/payment-protection.png" [alt]="'about-page.features.feature2' | translate">
+          </div>
+          <div class="item-text">
+            <h3 class="title">{{ 'about-page.features.feature2' | translate }}</h3>
+            <p>{{ 'about-page.features.feature2-desc' | translate }}</p>
+          </div>
+        </div>
+        <div class="item fadeInStagger">
+          <div class="dots-line">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="item-img">
+            <img src="../../../assets/images/icons/about-features/fast-delivery1.png" [alt]="'about-page.features.feature3' | translate">
+          </div>
+          <div class="item-text">
+            <h3 class="title">{{ 'about-page.features.feature3' | translate }}</h3>
+            <p>{{ 'about-page.features.feature3-desc' | translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-us">
+        <!-- about us page content -->
+        <div class="main-area" @fadeInUp>
+          <div class="text-box">
+            <h3 class="title">{{ 'about-page.main-area.title1' | translate }}</h3>
+            <p>
+              {{ 'about-page.main-area.text-block1' | translate }}
+            </p>
+          </div>
+          <div class="text-box">
+            <h3 class="title">{{ 'about-page.main-area.title2' | translate }}</h3>
+            <p>
+              {{ 'about-page.main-area.text-block2' | translate }}
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQs accordion -->
+        <aside @fadeInUp>
+          <app-accordion [accordionItems]="accordionItems"></app-accordion>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>

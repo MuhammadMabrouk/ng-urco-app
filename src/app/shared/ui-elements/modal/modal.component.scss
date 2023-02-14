@@ -1,0 +1,103 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.modal {
+  position: fixed;
+  z-index: 6000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  animation: fadeInUp 0.3s ease-in-out both;
+
+  .modal-content {
+    position: fixed;
+    z-index: 7000;
+    top: 50%;
+    @include appDir(left, 50%, right, 50%);
+    @include ltr_translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    background-color: #fff;
+    border-radius: $borderRadius;
+    overflow-y: auto;
+
+    @media #{$min_768} {
+      padding: 30px;
+    }
+
+    @media #{$max_767} {
+      padding: 20px;
+    }
+
+    .modal-header {
+      .modal-title {
+        font-weight: 500;
+        margin: 0;
+      }
+    }
+
+    ::ng-deep {
+      .modal-body {
+        max-height: 450px;
+        padding: {
+          top: 30px;
+          bottom: 30px;
+        }
+        overflow-y: auto;
+
+        p {
+          margin: 1.8em 0 0.4em;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .modal-footer {
+        @media #{$min_768} {
+          text-align: end;
+        }
+
+        @media #{$max_767} {
+          text-align: center;
+        }
+
+        .rounded-btn {
+          @media #{$min_768} {
+            &:not(:last-child) {
+              @include appDir(margin-right, 8px, margin-left, 8px);
+            }
+          }
+
+          @media #{$max_767} {
+            &:not(:last-child) {
+              @include appDir(margin-right, 14px, margin-left, 14px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .overlay {
+    position: fixed;
+    z-index: -1;
+    top: 50%;
+    @include appDir(left, 50%, right, 50%);
+    @include ltr_translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}

@@ -1,0 +1,38 @@
+<div #productLightBox class="product-light-box">
+  <div class="content" (click)="closeLightBox()">
+
+    <!-- light-box content -->
+    <figure (click)="$event.stopPropagation()">
+      <button class="close"
+        [title]="'custom-elements.product-light-box.close' | translate"
+        (click)="closeLightBox()">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </button>
+      <img
+        [src]="currentImg?.src"
+        [alt]="currentImg?.alt"
+        [title]="currentImg?.alt"
+        (click)="nextImg()">
+      <figcaption>
+        <span>{{ currentImg?.alt }}</span>
+        <span>{{ currentImgIndex + 1 }}-{{ imagesUrls?.length }}</span>
+      </figcaption>
+    </figure>
+
+    <!-- previous & next buttons -->
+    <div class="controls" (click)="$event.stopPropagation()">
+      <button class="prev"
+        [title]="'custom-elements.product-light-box.prev' | translate"
+        (click)="prevImg()">
+        <span></span>
+        <span></span>
+      </button>
+      <button class="next"
+        [title]="'custom-elements.product-light-box.next' | translate"
+        (click)="nextImg()">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</div>

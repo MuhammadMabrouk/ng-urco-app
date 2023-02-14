@@ -1,0 +1,73 @@
+<div class="content">
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <table class="users" [@fadeInUpStaggerBind]="animationStates">
+          <tr class="user users-header">
+            <th class="img-and-name"><h5>{{ 'users-page.header-titles.name' | translate }}</h5></th>
+            <th class="email"><h5>{{ 'users-page.header-titles.email' | translate }}</h5></th>
+            <th class="date" colspan="2"><h5>{{ 'users-page.header-titles.date' | translate }}</h5></th>
+          </tr>
+          <tr class="no-items-msg" *ngIf="!users?.length">
+            <td colspan="4">
+              {{ 'users-page.no-items-msg' | translate }}
+            </td>
+          </tr>
+          <tr class="user" *ngFor="let user of users; trackBy: track">
+            <td class="img-and-name">
+              <img *ngIf="user?.profilePicture?.url"
+                [src]="user?.profilePicture?.url"
+                [alt]="user?.userName"
+                [appFixOrientation]="user?.profilePicture?.exifOrientation">
+              <img *ngIf="!user?.profilePicture?.url"
+                src="../../../assets/images/icons/user/user-avatar.png"
+                [alt]="user?.userName">
+              <a [routerLink]="['../../user', user.id]">{{ user?.displayName }}</a>
+            </td>
+            <td class="email" *ngIf="user?.email" [attr.data-title]="'users-page.header-titles.email' | translate">
+              <span>{{ user?.email }}</span>
+            </td>
+            <td class="email" *ngIf="!user?.email" [attr.data-title]="'users-page.header-titles.email' | translate">
+              <span class="infinity"></span>
+            </td>
+            <td class="date" [attr.data-title]="'users-page.header-titles.date' | translate">
+              {{ user?.registrationDate }}
+            </td>
+            <td class="actions-col">
+              <button class="actions-btn" [appMenuToggleButton]="actionsMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <ul class="dropdown-list" #actionsMenu>
+                <li>
+                  <a [routerLink]="['../../user', user.id]">
+                    <img src="../../../assets/images/icons/zoom.png" alt="view">
+                    {{ 'users-page.actions-btns.view' | translate }}
+                  </a>
+                </li>
+                <li *ngIf="!user?.isAdmin">
+                  <a href="#" (click)="$event.preventDefault(); makeAdmin(user.id)">
+                    <img src="../../../assets/images/icons/security.png" alt="make-admin">
+                    {{ 'users-page.actions-btns.make-admin' | translate }}
+                  </a>
+                </li>
+                <li *ngIf="user?.isAdmin">
+                  <a href="#" (click)="$event.preventDefault(); removeAdmin(user.id)">
+                    <img src="../../../assets/images/icons/cancel-delete.png" alt="remove-admin">
+                    {{ 'users-page.actions-btns.remove-admin' | translate }}
+                  </a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <div class="the-main-box-footer">
+
+      <!-- simple pagination with items count -->
+      <app-simple-pagination *ngIf="users?.length" (callPrev)="getPrevPage()" (callNext)="getNextPage()"></app-simple-pagination>
+    </div>
+  </div>
+</div>

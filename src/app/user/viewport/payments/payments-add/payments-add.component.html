@@ -1,0 +1,72 @@
+<div class="content" @fadeInUpStaggerEnter>
+  <div class="the-main-box fadeInUpStagger">
+    <form class="form-styled" *ngIf="paymentMethodForm" [formGroup]="paymentMethodForm" (ngSubmit)="saveNewMethod(paymentMethodForm)">
+      <section class="box">
+        <div class="box-content">
+          <!-- box title -->
+          <div class="box-title">
+            <img src="../../../../assets/images/icons/checkout/credit-card.png" alt="credit-card">
+            <h3 class="title">{{ 'add-payments-page.box-title' | translate }}</h3>
+          </div>
+
+          <!-- form controls -->
+          <div class="form-group">
+            <label for="cardNumber">{{ 'add-payments-page.card-number-label' | translate }}</label>
+            <div class="form-control card-number">
+              <input formControlName="cardNumber"
+                id="cardNumber"
+                [class.ltr-dir]="cardNumber?.value"
+                type="tel"
+                [placeholder]="'add-payments-page.card-number-placeholder' | translate"
+                autocomplete="cc-number"
+                ccNumber>
+              <img [src]="typeImgPath"
+                [alt]="'add-payments-page.card-type' | translate"
+                *ngIf="cardType">
+            </div>
+          </div>
+          <div class="small-fields">
+              <div class="form-group">
+              <label for="ExpDate">{{ 'add-payments-page.exp-date-label' | translate }}</label>
+              <div class="form-control">
+                <input formControlName="ExpDate"
+                  id="ExpDate"
+                  class="ltr-dir"
+                  type="tel"
+                  [placeholder]="'add-payments-page.exp-date-placeholder' | translate"
+                  autocomplete="cc-exp"
+                  ccExp>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="securityCode" class="ltr-dir">{{ securityCodeName }}</label>
+              <div class="form-control">
+                <input formControlName="securityCode"
+                  id="securityCode"
+                  class="ltr-dir"
+                  type="tel"
+                  [placeholder]="securityCodePlaceholder"
+                  autocomplete="off"
+                  ccCvc>
+              </div>
+            </div>
+          </div>
+          <!-- form controls -->
+
+        </div>
+      </section>
+      <div class="buttons-container small-fields">
+        <div class="form-group">
+          <button type="reset" class="rounded-btn white-one solid reverse shadow" (click)="redirectToParent()">
+            {{ 'add-payments-page.cancel-btn' | translate }}
+          </button>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="rounded-btn color-one solid reverse shadow" [disabled]="paymentMethodForm.invalid">
+            {{ 'add-payments-page.save-new-method' | translate }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

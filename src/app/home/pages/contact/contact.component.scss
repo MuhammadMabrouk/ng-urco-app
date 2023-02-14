@@ -1,0 +1,157 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.contact-us {
+  @include flexbox(flex, "", start, "", "", wrap);
+
+  .loading {
+    @include flexbox(flex, "", center, center, "", "");
+    width: calc(100% - 400px);
+    min-height: 100px;
+
+    .spinner {
+      display: block;
+      width: 50px;
+      height: 50px;
+      background-color: $color-four;
+      border-radius: 50%;
+      animation: scaleOut 1s infinite ease-in-out;
+    }
+  }
+
+  .contact-info .item,
+  .contact-form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: $borderRadius;
+    box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+  }
+
+  .contact-info {
+    @media #{$min_992} {
+      position: sticky;
+      top: 95px;
+      width: 350px;
+      @include appDir(margin-right, 50px, margin-left, 50px);
+    }
+
+    @media #{$max_991} {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    @media #{$min_768} and #{$max_991} {
+      @include flexbox(flex, "", stretch, "", "", wrap);
+    }
+
+    .item {
+      @media #{$max_767}, #{$min_992} {
+        @include flexbox(flex, "", "center", "", "", "");
+
+        &:not(:last-of-type) {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media #{$min_768} and #{$max_991} {
+        @include flexbox(flex, "", center, center, "", wrap);
+        text-align: center;
+        width: calc((100% / 3) - 20px);
+
+        &:not(:last-of-type) {
+          @include appDir(margin-right, 30px, margin-left, 30px);
+        }
+      }
+
+      @media #{$max_767} {
+        width: 90%;
+        margin: {
+          left: auto;
+          right: auto;
+        };
+      }
+
+      .item-icon {
+        @media #{$min_992}, #{$max_767} {
+          @include appDir(margin-right, 24px, margin-left, 24px);
+        }
+
+        @media #{$min_768} and #{$max_991} {
+          margin-bottom: 24px;
+        }
+
+        img {
+          display: block;
+          width: 64px;
+          margin-top: -1px;
+        }
+      }
+
+      .item-details {
+        .title {
+          font-size: 20px;
+          margin: 0 0 16px;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .contact-form {
+    @media #{$min_992} {
+      width: calc(100% - 400px);
+    }
+
+    @media #{$max_991} {
+      width: 100%;
+    }
+
+    @media #{$max_767} {
+      width: 90%;
+      margin: {
+        left: auto;
+        right: auto;
+      };
+    }
+
+    .box-title {
+      @include flexbox(flex, "", center, "", "", "");
+      margin: 0 0 35px;
+
+      img {
+        display: block;
+        width: 22px;
+        margin-top: -1px;
+        @include appDir(margin-right, 16px, margin-left, 16px);
+      }
+
+      .title {
+        font-size: 20px;
+        margin: 0;
+      }
+    }
+
+    .form-group {
+      .form-control {
+        textarea {
+          height: 150px;
+          resize: none;
+        }
+      }
+    }
+
+    .buttons-container {
+      .rounded-btn {
+        width: 100%;
+
+        .fa {
+          @include appDir(margin-right, 12px, margin-left, 12px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+<div class="sign-up section">
+  <!-- page title and breadcrumbs -->
+  <app-title-and-breadcrumbs></app-title-and-breadcrumbs>
+
+  <div class="section-content" @fadeInUp>
+    <div class="container">
+      <form class="form-styled" [formGroup]="signUpForm" (ngSubmit)="emailSignUp(signUpForm)">
+        <h2 class="title">
+          {{ 'sign-up-page.create-account' | translate }}
+        </h2>
+        <div class="social-networks">
+          <p>{{ 'sign-up-page.sign-up-using-social' | translate }}</p>
+          <ul class="icons" [attr.data-or]="'sign-up-page.or' | translate">
+            <li class="google" title="Google" (click)="signInWithPopup('googleSignIn')">
+              <i class="fa fa-google" aria-hidden="true"></i>
+            </li>
+            <li class="facebook" title="Facebook" (click)="signInWithPopup('fbSignIn')">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </li>
+            <li class="twitter" title="Twitter" (click)="signInWithPopup('twSignIn')">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="small-fields">
+          <div class="form-group">
+            <label for="first-name">{{ 'sign-up-page.sign-up-form.first-name-label' | translate }}</label>
+            <div class="form-control">
+              <input formControlName="firstName"
+                id="first-name"
+                type="text"
+                [placeholder]="'sign-up-page.sign-up-form.first-name-placeholder' | translate">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="last-name">{{ 'sign-up-page.sign-up-form.last-name-label' | translate }}</label>
+            <div class="form-control">
+              <input formControlName="lastName"
+                id="last-name"
+                type="text"
+                [placeholder]="'sign-up-page.sign-up-form.last-name-placeholder' | translate">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">{{ 'sign-up-page.sign-up-form.email-label' | translate }}</label>
+            <div class="form-control">
+              <input formControlName="email"
+                id="email"
+                type="email"
+                [placeholder]="'sign-up-page.sign-up-form.email-placeholder' | translate">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="country">{{ 'sign-up-page.sign-up-form.country-label' | translate }}</label>
+            <div class="form-control">
+              <app-select-menu
+                [modelLabel]="country.value?.label ? country.value?.label : 'sign-up-page.sign-up-form.country-placeholder' | translate"
+                [modelIcon]="country.value?.icon ? country.value?.icon : ''"
+                [options]="countries"
+                (selectChange)="countryChanged($event)">
+              </app-select-menu>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">{{ 'sign-up-page.sign-up-form.password-label' | translate }}</label>
+            <div class="form-control">
+              <i class="fa fa-eye" aria-hidden="true" (click)="togglePasswordVisibility($event)"></i>
+              <input formControlName="password" id="password" type="password" placeholder="********">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">{{ 'sign-up-page.sign-up-form.confirm-password-label' | translate }}</label>
+            <div class="form-control">
+              <i class="fa fa-eye" aria-hidden="true" (click)="togglePasswordVisibility($event)"></i>
+              <input formControlName="confirmPassword" id="confirm-password" type="password" placeholder="********">
+            </div>
+          </div>
+        </div>
+        <div class="checkbox-container">
+          <div class="checkbox">
+            <input id="terms" class="checkbox" formControlName="terms" type="checkbox" name="checkbox">
+            <label for="terms"></label>
+          </div>
+          <label for="terms">
+            {{ 'sign-up-page.sign-up-form.have-read' | translate }}
+            <a routerLink="/terms&conditions" target="_blank">
+              {{ 'sign-up-page.sign-up-form.terms&conditions' | translate }}
+            </a>
+          </label>
+        </div>
+        <button class="rounded-btn color-one solid shadow" type="submit" [disabled]="signUpForm.invalid">
+          {{ 'sign-up-page.sign-up-form.sign-up' | translate }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

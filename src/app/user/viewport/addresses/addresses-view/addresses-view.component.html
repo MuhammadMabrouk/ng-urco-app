@@ -1,0 +1,77 @@
+<div class="content" [@fadeInUpStaggerBind]="animationStates">
+  <div class="the-main-box" *ngIf="!addresses?.length">
+    <div class="box">
+      <div class="no-items-msg">
+        <h4 class="title">{{ 'addresses-page.no-items-msg.title' | translate }}</h4>
+        <p>{{ 'addresses-page.no-items-msg.text' | translate }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="the-main-box" *ngFor="let address of addresses; trackBy: track">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/map-pin.png" alt="map-pin">
+          <h3 class="title">{{ address.addressTitle }}</h3>
+        </div>
+        <div class="address-details">
+          <ul class="details">
+            <li>
+              <strong>{{ 'addresses-page.address-details.address' | translate }}</strong>
+              <h5 class="text">{{ address.address }}</h5>
+            </li>
+            <li>
+              <strong>{{ 'addresses-page.address-details.region' | translate }}</strong>
+              <h5 class="text">{{ address.region }}</h5>
+            </li>
+            <li>
+              <strong>{{ 'addresses-page.address-details.city' | translate }}</strong>
+              <h5 class="text">{{ address.city }}</h5>
+            </li>
+            <li>
+              <strong>{{ 'addresses-page.address-details.street' | translate }}</strong>
+              <h5 class="text">{{ address.street }}</h5>
+            </li>
+            <li>
+              <strong>{{ 'addresses-page.address-details.building&floor' | translate }}</strong>
+              <h5 class="text">{{ address.building }} / {{ address.floor }}</h5>
+            </li>
+            <li>
+              <strong>{{ 'addresses-page.address-details.phone-number' | translate }}</strong>
+              <h5 class="text">{{ address.fullPhoneNumber }}</h5>
+            </li>
+            <li>
+              <strong>{{ 'addresses-page.address-details.additional-info' | translate }}</strong>
+              <h5 class="text">{{ address.additionalInfo }}</h5>
+            </li>
+          </ul>
+          <ul class="edit-and-delete">
+            <li class="edit" [title]="'addresses-page.edit' | translate">
+              <a [routerLink]="['../../edit', address.id]" class="icon-btn">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="delete" [title]="'addresses-page.delete' | translate">
+              <a href="#" (click)="deleteAddress(address.id); $event.preventDefault();" class="icon-btn">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="the-main-box-footer">
+    <!-- simple pagination with items count -->
+    <app-simple-pagination *ngIf="addresses?.length" (callPrev)="getPrevPage()" (callNext)="getNextPage()"></app-simple-pagination>
+
+    <a routerLink="../../add" [ngClass]="{
+      'add-new': addresses?.length,
+      'rounded-btn color-one solid reverse shadow': !addresses?.length
+    }">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      {{ 'addresses-page.add-new' | translate }}
+    </a>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="sign-in section">
+  <!-- page title and breadcrumbs -->
+  <app-title-and-breadcrumbs></app-title-and-breadcrumbs>
+
+  <div class="section-content" @fadeInUp>
+    <div class="container">
+      <form class="form-styled" [formGroup]="signInForm" (ngSubmit)="emailSignIn(signInForm)">
+        <h2 class="title">
+          {{ 'sign-in-page.sign-in-to-account' | translate }}
+        </h2>
+        <div class="social-networks">
+          <p>{{ 'sign-in-page.sign-in-using-social' | translate }}</p>
+          <ul class="icons" [attr.data-or]="'sign-in-page.or' | translate">
+            <li class="google" title="Google" (click)="signInWithPopup('googleSignIn')">
+              <i class="fa fa-google" aria-hidden="true"></i>
+            </li>
+            <li class="facebook" title="Facebook" (click)="signInWithPopup('fbSignIn')">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </li>
+            <li class="twitter" title="Twitter" (click)="signInWithPopup('twSignIn')">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="form-group">
+          <label for="email">{{ 'sign-in-page.sign-in-form.email-label' | translate }}</label>
+          <div class="form-control">
+            <input formControlName="email"
+              #email
+              id="email"
+              type="email"
+              name="email"
+              [placeholder]="'sign-in-page.sign-in-form.email-placeholder' | translate">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">{{ 'sign-in-page.sign-in-form.password-label' | translate }}</label>
+          <div class="form-control">
+            <i class="fa fa-eye" aria-hidden="true" (click)="togglePasswordVisibility($event)"></i>
+            <input formControlName="password" id="password" type="password" name="password" placeholder="********">
+          </div>
+        </div>
+        <div class="text-links">
+          <a (click)="resetPassword(email.value); $event.preventDefault();">
+            {{ 'sign-in-page.sign-in-form.forgot-password' | translate }}
+          </a>
+          <a routerLink="/sign-up">
+            {{ 'sign-in-page.sign-in-form.create-account' | translate }}
+          </a>
+        </div>
+        <button class="rounded-btn color-one solid shadow" type="submit" [disabled]="signInForm.invalid">
+          {{ 'sign-in-page.sign-in-form.sign-in' | translate }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

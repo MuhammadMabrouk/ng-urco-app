@@ -1,0 +1,109 @@
+<!-- admin dashboard content -->
+<div class="dashboard">
+  <ul class="main-boxes" @fadeInUpStaggerEnter>
+    <li class="fadeInUpStagger">
+      <a routerLink="/user-dashboard">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/user/profile-user.png" alt="user-dashboard">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.user-dashboard' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../admin/requests">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/admin/requests.png" alt="requests">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.requests' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../admin/returns">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/user/return.png" alt="returns">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.returns' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../admin/categories">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/admin/categories.png" alt="categories">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.categories' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../admin/products">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/admin/products.png" alt="products">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.products' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../admin/main-slider">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/admin/slider.png" alt="main-slider">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.main-slider' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../admin/main-offer">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/admin/fire-offer.png" alt="main-offer">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.main-offer' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../admin/users">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/admin/users.png" alt="users">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.users' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../admin/coupons">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/admin/coupon.png" alt="coupons">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.coupons' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../admin/contact-form">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/admin/inbox.png" alt="contact-form">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.contact-form.title' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../admin/newsletter">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/admin/newsletter.png" alt="newsletter">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.newsletter' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a routerLink="../admin/general-settings">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/admin/general-settings.png" alt="general-settings">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.general-settings' | translate }}</h2>
+      </a>
+    </li>
+    <li class="fadeInUpStagger">
+      <a href="#" (click)="logOut(); $event.preventDefault();">
+        <div class="box-img">
+          <img src="../../../assets/images/icons/user/exit.png" alt="logout">
+        </div>
+        <h2 class="box-title">{{ 'admin-dashboard-page.logout' | translate }}</h2>
+      </a>
+    </li>
+  </ul>
+</div>

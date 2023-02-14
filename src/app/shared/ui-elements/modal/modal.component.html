@@ -1,0 +1,15 @@
+<div class="modal" *ngIf="isOpen">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">{{ modalTitle }}</h3>
+    </div>
+    <ng-content select=".modal-body"></ng-content>
+    <div class="modal-footer">
+      <button class="rounded-btn color-three shadow reverse" (click)="closeModal()">
+        {{ 'custom-elements.modal.cancel' | translate }}
+      </button>
+      <ng-content select=".rounded-btn"></ng-content>
+    </div>
+  </div>
+  <div class="overlay" (click)="closeModal()"></div>
+</div>

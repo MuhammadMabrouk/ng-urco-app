@@ -1,0 +1,50 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.simple-pagination {
+  @include flexbox(flex, "", center, between, "", "");
+  margin-top: 20px;
+
+  .items-length {
+    strong {
+      font-size: 12px;
+    }
+  }
+
+  .navigation {
+    @include flexbox(flex, "", center, center, "", "");
+
+    li {
+      button {
+        @include flexbox(flex, "", center, center, "", "");
+        height: 36px;
+        width: 36px;
+        background-color: #fff;
+        border: 0;
+        border-radius: 10px;
+        box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+
+        .fa {
+          font-size: 16px;
+          font-weight: bold;
+          @include appDir(transform, unset, transform, rotateY(180deg));
+        }
+
+        &.disabled {
+          color: darken($backgroundColor-darker, 4);
+          cursor: not-allowed;
+        }
+
+        &:not(.disabled):hover {
+          background-color: $color-one;
+          color: #fff;
+        }
+      }
+
+      &:not(:last-of-type) {
+        @include appDir(margin-right, 10px, margin-left, 10px);
+      }
+    }
+  }
+}

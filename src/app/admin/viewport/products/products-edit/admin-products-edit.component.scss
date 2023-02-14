@@ -1,0 +1,183 @@
+@import "../../../../../styles/helpers/variables";
+@import "../../../../../styles/helpers/mixins";
+@import "../../../../../styles/components/components";
+
+.content {
+  .the-main-box {
+    .box {
+      .box-content {
+        ::ng-deep app-input-number {
+          width: 100%;
+        }
+
+        .form-group {
+          &.sizes {
+            @media #{$max_600} {
+              .form-control {
+                @include flexbox("", "", "", "", "", wrap);
+                margin: {
+                  left: -7px;
+                  right: -7px;
+                }
+
+                input {
+                  flex-grow: 1;
+                  width: calc((100% / 3) - 14px);
+                  min-width: 70px;
+                  margin: {
+                    left: 7px;
+                    right: 7px;
+                  }
+
+                  &:not(:last-of-type) {
+                    margin-bottom: 14px;
+                  }
+                }
+              }
+            }
+          }
+
+          textarea {
+            line-height: 1.5;
+          }
+        }
+
+        .colors-container {
+          @include flexbox(flex, "", center, "", "", "");
+          padding: 0 8px;
+
+          @media #{$max_767} {
+            @include flexbox("", "", "", "", "", wrap);
+          }
+
+          > label {
+            color: $color-three;
+            text-align: start;
+            font-weight: 500;
+            @include appDir(margin-right, 20px, margin-left, 20px);
+
+            @media #{$max_767} {
+              margin-bottom: 4px;
+            }
+
+            @media #{$max_767} {
+              margin-bottom: 4px;
+            }
+          }
+
+          .colors {
+            @include flexbox(flex, "", center, "", "", wrap);
+            margin-bottom: -16px;
+
+            .color {
+              @include flexbox(flex, "", center, center, "", "");
+              @include appDir(margin-right, 16px, margin-left, 16px);
+              margin-bottom: 16px;
+
+              input[type="radio"] {
+                display: none;
+
+                &:checked {
+                  & ~ label {
+                    &:before {
+                      @include flexbox(flex, "", center, center, "", "");
+                    }
+                  }
+                }
+              }
+
+              label {
+                position: relative;
+                display: block;
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                cursor: pointer;
+
+                &:before {
+                  content: "\2714";
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  left: 0;
+                  bottom: 0;
+                  height: 100%;
+                  width: 100%;
+                  color: white;
+                  border-radius: 50%;
+                  cursor: pointer;
+                  display: none;
+                }
+
+                &:active,
+                &:hover {
+                  &:before {
+                    @include flexbox(flex, "", center, center, "", "");
+                  }
+                }
+
+                &.white-color {
+                  background-color: white;
+                  border: 1px solid #e6e6e6;
+                }
+
+                &.silver-color {
+                  background-color: #e6e6e6;
+                }
+
+                &.yellow-color {
+                  background-color: #ffeb3b;
+                }
+
+                &.orange-color {
+                  background-color: #ff9800;
+                }
+
+                &.red-color {
+                  background-color: #e7352b;
+                }
+
+                &.purple-color {
+                  background-color: #8d42a1;
+                }
+
+                &.blue-color {
+                  background-color: #3853d8;
+                }
+
+                &.skyblue-color {
+                  background-color: #1fa5e9;
+                }
+
+                &.green-color {
+                  background-color: #5db326;
+                }
+
+                &.lemon-color {
+                  background-color: #cddc39;
+                }
+
+                &.brown-color {
+                  background-color: #7c5f4d;
+                }
+
+                &.black-color {
+                  background-color: #121212;
+                }
+
+                &.white-color,
+                &.silver-color,
+                &.yellow-color,
+                &.lemon-color {
+                  &:before {
+                    color: #121212;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

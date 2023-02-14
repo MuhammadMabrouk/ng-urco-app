@@ -1,0 +1,189 @@
+@import "../../../../../styles/helpers/variables";
+@import "../../../../../styles/helpers/mixins";
+
+.dropdown {
+  position: relative;
+  cursor: pointer;
+
+  .menu-trigger {
+    position: relative;
+    background-color: $backgroundColor;
+    padding: 16px 18px;
+    @include appDir(padding-right, 45px, padding-left, 45px);
+    border: 1px solid transparent;
+    border-radius: $borderRadius;
+    @include A_transition(border-radius, 0.3s, ease-in-out);
+    box-shadow: $insetShadow;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    div {
+      @include flexbox(flex, "", center, "", "", "");
+
+      .icon {
+        width: 24px;
+        max-height: 16px;
+        object-fit: contain;
+        @include appDir(margin-right, 16px, margin-left, 16px);
+        @include appDir(
+          filter, drop-shadow(1px 1px 1px rgba(0, 0, 0, .54)),
+          filter, drop-shadow(-1px 1px 1px rgba(0, 0, 0, .54))
+        );
+      }
+
+      span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      background-color: $backgroundColor;
+      padding: 16px 18px;
+      border: 0;
+      outline: 0;
+      border-radius: $borderRadius;
+      @include transition(0.3s);
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+    }
+
+    &.focus {
+      border-color: $borderColor;
+
+      input {
+        background-color: #fff;
+      }
+    }
+
+    &:before {
+      @include flexbox(flex, "", center, "", "", "");
+      content: "\f107";
+      font-family: FontAwesome;
+      font-weight: bold;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      @include appDir(right, 18px, left, 18px);
+      @include transition(0.3s);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  .menu-options {
+    position: absolute;
+    z-index: 1000;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    height: 142px;
+    max-height: 142px;
+    background-color: #fff;
+    border: 1px solid $borderColor;
+    @include appDir(
+      border-radius,
+      0 0 0 $borderRadius,
+      border-radius,
+      0 0 $borderRadius 0
+    );
+    box-shadow: 0 1px 10px rgba($color-three, 0.1);
+    overflow-y: auto;
+    animation: fadeInUp 0.3s both;
+    display: none;
+
+    &::-webkit-scrollbar {
+      display: block;
+      width: 6px;
+      background-color: $backgroundColor-darker;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: darken($backgroundColor-darker, 20);
+    }
+
+    li {
+      @include flexbox(flex, "", center, "", "", "");
+      padding: 0 16px;
+      min-height: 35px;
+      line-height: 1.8;
+      @include A_transition(all, 0.15s, ease-in);
+
+      &.no-results-msg {
+        cursor: default;
+      }
+
+      &:not(:first-of-type) {
+        border-top: 1px solid $borderColor;
+      }
+
+      &:not(.no-results-msg):hover,
+      &.active {
+        color: $color-three;
+        background-color: $backgroundColor;
+      }
+
+      .icon {
+        width: 24px;
+        max-height: 16px;
+        object-fit: contain;
+        @include appDir(margin-right, 16px, margin-left, 16px);
+        @include appDir(
+          filter, drop-shadow(1px 1px 1px rgba(0, 0, 0, .54)),
+          filter, drop-shadow(-1px 1px 1px rgba(0, 0, 0, .54))
+        );
+      }
+    }
+
+    &.ltr {
+      li {
+        direction: ltr;
+
+        .icon {
+          margin-right: 16px;
+          filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, .54));
+        }
+      }
+    }
+  }
+
+  &.open {
+    .menu-trigger {
+      padding: 0 !important;
+
+      &,
+      input {
+        border-radius: $borderRadius $borderRadius 0 0;
+      }
+
+      &:before {
+        @include ltr_rotate(-180);
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+
+    .menu-options {
+      display: block;
+    }
+  }
+}
+
+:host ::ng-deep {
+  width: 100%;
+}

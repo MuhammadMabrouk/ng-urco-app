@@ -1,0 +1,21 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+::ng-deep {
+  .content {
+    .the-main-box {
+      .buttons-container {
+        &:last-child {
+          margin-bottom: -20px;
+
+          .form-group {
+            &:only-child {
+              margin-bottom: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

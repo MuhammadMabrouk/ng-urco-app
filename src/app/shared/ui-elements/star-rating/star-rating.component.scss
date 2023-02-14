@@ -1,0 +1,46 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.star-rating {
+  @include flexbox(inline-flex, "", center, center, "", "");
+  @include appDir(direction, rtl, direction, ltr);
+
+  input[type="radio"] {
+    display: none;
+
+    &:checked ~ label {
+      color: #FD4;
+    }
+
+    &:last-of-type {
+      &:checked ~ label {
+        color: #f62;
+      }
+    }
+
+    &:first-of-type {
+      &:checked ~ label {
+        color:#fdeb5e;
+        text-shadow: 0 0 20px rgba(#fdeb5e, 0.1);
+      }
+    }
+  }
+
+  label {
+    display: block;
+    color: #ccc;
+    font-size: 18px;
+    padding: 0;
+    @include transition(0.3s);
+    cursor: pointer;
+
+    .fa {
+      display: block;
+    }
+
+    &:hover {
+      @include ltr_rotate_and_scale(-15, 1.3, 1.3);
+    }
+  }
+}

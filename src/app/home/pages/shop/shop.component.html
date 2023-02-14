@@ -1,0 +1,361 @@
+<div class="section">
+  <!-- page title and breadcrumbs -->
+  <app-title-and-breadcrumbs></app-title-and-breadcrumbs>
+
+  <div class="section-content">
+    <div class="container">
+      <div class="shop" [class.open-filter]="isFilterShown">
+
+        <!-- filter widgets -->
+        <aside class="widget-area"
+          stickySidebar
+          topSpacing="95"
+          bottomSpacing="20"
+          containerSelector=".shop"
+          innerWrapperSelector=".sidebar-inner"
+          [updateSticky]="updateSticky"
+          @fadeInUpStaggerEnter>
+
+          <div class="overlay" (click)="isFilterShown = false"></div>
+
+          <div class="sidebar-inner">
+
+            <!-- categories -->
+            <div class="widget fadeInUpStagger">
+              <div class="widget-header">
+                <h4 class="title">
+                  {{ 'shop-page.sidebar.categories.title' | translate }}
+                </h4>
+                <a routerLink="/shop">
+                  <i class="fa fa-remove"
+                    aria-hidden="true"
+                    [title]="'shop-page.sidebar.clear' | translate"></i>
+                </a>
+              </div>
+              <div class="widget-content">
+                <ul class="categories">
+                  <li *ngFor="let category of categories" [class.has-children]="category?.children?.length">
+                    <span class="toggle-btn"
+                      *ngIf="category?.children?.length"
+                      (click)="category?.children?.length ? showSubCategories($event, subMenu) : ''"
+                    ></span>
+                    <a routerLink="/shop"
+                      [queryParams]="{'cat': category?.catSlug}"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{exact: true}"
+                    >
+                      {{ category?.catName[currentLang] | titlecase }}
+                    </a>
+                    <ul #subMenu class="sub-categories">
+                      <li *ngFor="let child of category.children">
+                        <a routerLink="/shop"
+                        [queryParams]="{ 'cat': category?.catSlug, 'subCat': child?.catSlug }"
+                        routerLinkActive="active">
+                          {{ child?.catName[currentLang] | titlecase }}
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- price filter -->
+            <form class="fadeInUpStagger"
+              *ngIf="priceFilterForm"
+              [formGroup]="priceFilterForm"
+              (ngSubmit)="filterGoods(priceFilterForm, 'priceFilterForm')"
+            >
+              <div class="widget">
+                <div class="widget-header">
+                  <h4 class="title">
+                    {{ 'shop-page.sidebar.price.title' | translate }}
+                  </h4>
+                  <i class="fa fa-remove"
+                    aria-hidden="true"
+                    [title]="'shop-page.sidebar.clear' | translate"
+                    (click)="clearFilter(priceFilterForm, 'priceFilterForm')"></i>
+                </div>
+                <div class="widget-content">
+                  <ng5-slider [options]="rangeSliderOptions" formControlName="price"></ng5-slider>
+                </div>
+              </div>
+              <div class="buttons-container" *ngIf="priceFilterFormChanged" @slideToggle>
+                <button type="submit" class="rounded-btn color-one solid reverse shadow" [disabled]="priceFilterForm.invalid">
+                  {{ 'shop-page.sidebar.apply-filter' | translate }}
+                </button>
+              </div>
+            </form>
+
+            <!-- colors filter -->
+            <form class="form-styled colors-container fadeInUpStagger"
+              *ngIf="colorFilterForm"
+              [formGroup]="colorFilterForm"
+              (ngSubmit)="filterGoods(colorFilterForm, 'colorFilterForm')"
+            >
+              <div class="widget">
+                <div class="widget-header">
+                  <h4 class="title">
+                    {{ 'shop-page.sidebar.colors.title' | translate }}
+                  </h4>
+                  <i class="fa fa-remove"
+                    aria-hidden="true"
+                    [title]="'shop-page.sidebar.clear' | translate"
+                    (click)="clearFilter(colorFilterForm, 'colorFilterForm')"></i>
+                </div>
+                <div class="widget-content">
+                  <div class="colors-container">
+                    <div class="color">
+                      <input id="white-color" type="radio" formControlName="color" name="color" value="white">
+                      <label for="white-color" class="white-color" [title]="'shop-page.sidebar.colors.white' | translate"></label>
+                    </div>
+                    <div class="color">
+                      <input id="silver-color" type="radio" formControlName="color" name="color" value="silver">
+                      <label for="silver-color" class="silver-color" [title]="'shop-page.sidebar.colors.silver' | translate"></label>
+                    </div>
+                    <div class="color">
+                      <input id="yellow-color" type="radio" formControlName="color" name="color" value="yellow">
+                      <label for="yellow-color" class="yellow-color" [title]="'shop-page.sidebar.colors.yellow' | translate"></label>
+                    </div>
+                    <div class="color">
+                      <input id="orange-color" type="radio" formControlName="color" name="color" value="orange">
+                      <label for="orange-color" class="orange-color" [title]="'shop-page.sidebar.colors.orange' | translate"></label>
+                    </div>
+                    <div class="color">
+                      <input id="red-color" type="radio" formControlName="color" name="color" value="red">
+                      <label for="red-color" class="red-color" [title]="'shop-page.sidebar.colors.red' | translate"></label>
+                    </div>
+                    <div class="color">
+                      <input id="purple-color" type="radio" formControlName="color" name="color" value="purple">
+                      <label for="purple-color" class="purple-color" [title]="'shop-page.sidebar.colors.purple' | translate"></label>
+                    </div>
+                    <div class="color">
+                      <input id="blue-color" type="radio" formControlName="color" name="color" value="blue">
+                      <label for="blue-color" class="blue-color" [title]="'shop-page.sidebar.colors.blue' | translate"></label>
+                    </div>
+                    <div class="color">
+                      <input id="skyblue-color" type="radio" formControlName="color" name="color" value="skyblue">
+                      <label for="skyblue-color" class="skyblue-color" [title]="'shop-page.sidebar.colors.skyblue' | translate"></label>
+                    </div>
+                    <div class="color">
+                      <input id="green-color" type="radio" formControlName="color" name="color" value="green">
+                      <label for="green-color" class="green-color" [title]="'shop-page.sidebar.colors.green' | translate"></label>
+                    </div>
+                    <div class="color">
+                      <input id="lemon-color" type="radio" formControlName="color" name="color" value="lemon">
+                      <label for="lemon-color" class="lemon-color" [title]="'shop-page.sidebar.colors.lemon' | translate"></label>
+                    </div>
+                    <div class="color">
+                      <input id="brown-color" type="radio" formControlName="color" name="color" value="brown">
+                      <label for="brown-color" class="brown-color" [title]="'shop-page.sidebar.colors.brown' | translate"></label>
+                    </div>
+                    <div class="color">
+                      <input id="black-color" type="radio" formControlName="color" name="color" value="black">
+                      <label for="black-color" class="black-color" [title]="'shop-page.sidebar.colors.black' | translate"></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons-container" *ngIf="colorFilterFormChanged" @slideToggle>
+                <button type="submit" class="rounded-btn color-one solid reverse shadow" [disabled]="colorFilterForm.invalid">
+                  {{ 'shop-page.sidebar.apply-filter' | translate }}
+                </button>
+              </div>
+            </form>
+
+            <!-- rating filter -->
+            <form class="form-styled fadeInUpStagger"
+              *ngIf="rateFilterForm"
+              [formGroup]="rateFilterForm"
+              (ngSubmit)="filterGoods(rateFilterForm, 'rateFilterForm')"
+            >
+              <div class="widget">
+                <div class="widget-header">
+                  <h4 class="title">
+                    {{ 'shop-page.sidebar.rating.title' | translate }}
+                  </h4>
+                  <i class="fa fa-remove"
+                    aria-hidden="true"
+                    [title]="'shop-page.sidebar.clear' | translate"
+                    (click)="clearFilter(rateFilterForm, 'rateFilterForm')"></i>
+                </div>
+                <div class="widget-content rating-filter">
+                  <div class="radio-buttons-container">
+                    <div class="radio-button">
+                      <input id="five-stars" type="radio" formControlName="rate" name="rate" value="5">
+                      <label for="five-stars"></label>
+                    </div>
+                    <label for="five-stars" [title]="'shop-page.sidebar.rating.5' | translate">
+                      <ul class="stars">
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                      </ul>
+                    </label>
+                  </div>
+                  <div class="radio-buttons-container">
+                    <div class="radio-button">
+                      <input id="four-stars" type="radio" formControlName="rate" name="rate" value="4">
+                      <label for="four-stars"></label>
+                    </div>
+                    <label for="four-stars" [title]="'shop-page.sidebar.rating.4' | translate">
+                      <ul class="stars">
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                      </ul>
+                    </label>
+                  </div>
+                  <div class="radio-buttons-container">
+                    <div class="radio-button">
+                      <input id="three-stars" type="radio" formControlName="rate" name="rate" value="3">
+                      <label for="three-stars"></label>
+                    </div>
+                    <label for="three-stars" [title]="'shop-page.sidebar.rating.3' | translate">
+                      <ul class="stars">
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                      </ul>
+                    </label>
+                  </div>
+                  <div class="radio-buttons-container">
+                    <div class="radio-button">
+                      <input id="two-stars" type="radio" formControlName="rate" name="rate" value="2">
+                      <label for="two-stars"></label>
+                    </div>
+                    <label for="two-stars" [title]="'shop-page.sidebar.rating.2' | translate">
+                      <ul class="stars">
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                      </ul>
+                    </label>
+                  </div>
+                  <div class="radio-buttons-container">
+                    <div class="radio-button">
+                      <input id="one-Star" type="radio" formControlName="rate" name="rate" value="1">
+                      <label for="one-Star"></label>
+                    </div>
+                    <label for="one-Star" [title]="'shop-page.sidebar.rating.1' | translate">
+                      <ul class="stars">
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                      </ul>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons-container" *ngIf="rateFilterFormChanged" @slideToggle>
+                <button type="submit" class="rounded-btn color-one solid reverse shadow" [disabled]="rateFilterForm.invalid">
+                  {{ 'shop-page.sidebar.apply-filter' | translate }}
+                </button>
+              </div>
+            </form>
+          </div>
+        </aside>
+
+        <!-- shop page content -->
+        <div class="content-area">
+
+          <!-- goods selection bar -->
+          <div class="goods-selection">
+
+            <!-- filter toggle -->
+            <div class="toggle-btn filter"
+              [class.active]="isFilterShown"
+              (click)="isFilterShown = !isFilterShown"
+              [title]="'shop-page.selection-bar.filter-toggle' | translate"
+            >
+              <i class="fa fa-filter open" aria-hidden="true"></i>
+              <i class="fa fa-times close" aria-hidden="true"></i>
+            </div>
+
+            <!-- layout methods -->
+            <div class="toggle-btn layout"
+              [class.active]="isMultiColumns"
+              (click)="changeLayout(true)"
+              [title]="'shop-page.selection-bar.layout.multi-columns' | translate"
+            >
+              <i class="fa fa-th" aria-hidden="true"></i>
+            </div>
+            <div class="toggle-btn layout"
+              [class.active]="!isMultiColumns"
+              (click)="changeLayout(false)"
+              [title]="'shop-page.selection-bar.layout.one-column' | translate"
+            >
+              <i class="fa fa-th-list" aria-hidden="true"></i>
+            </div>
+
+            <!-- shown goods title -->
+            <div class="goods-title">
+              <div *ngIf="categoryName; else allGoods">
+                {{ categoryName }}<span *ngIf="childCategoryName"> > {{ childCategoryName }}</span>
+              </div>
+              <ng-template #allGoods>
+                {{ 'shop-page.selection-bar.goods-title.title' | translate }}
+              </ng-template>
+            </div>
+
+            <!-- shown goods length -->
+            <div class="goods-length" [appMenuToggleButton]="goodsLengthMenu">
+              <span>{{ 'shop-page.selection-bar.goods-length.show' | translate }}</span>{{ shownGoodsLimit || generalSettingsSer.generalSettings?.shopGoodsLimit }}
+              <ul class="dropdown-list" #goodsLengthMenu>
+                <li *ngFor="let number of shownGoodsLength" (click)="changeGoodsLength(number)">{{ number }}</li>
+              </ul>
+            </div>
+
+            <!-- sorting shown goods -->
+            <div class="goods-sorting" [appMenuToggleButton]="goodsSortingMenu">
+              <span class="title">{{ 'shop-page.selection-bar.goods-sorting.sort-by' | translate }}</span>
+              <i class="fa fa-exchange sorting-icon" aria-hidden="true"></i>
+              <span class="selected-method-title">{{ selectedSortingMethodTitle }}</span>
+              <ul class="dropdown-list" #goodsSortingMenu>
+                <li *ngFor="let method of objectKeys(sortingMethodsTitles)" (click)="goodsSorting(method)">
+                  {{ sortingMethodsTitles[method] }}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- goods items area -->
+          <div class="goods-items"
+            [ngClass]="{ 'multi-columns': isMultiColumns, 'single-column': !isMultiColumns }"
+            infiniteScroll
+            [infiniteScrollDistance]="0"
+            [infiniteScrollThrottle]="50"
+            (scrolled)="loadMoreOnScroll()"
+            [@fadeInUpStaggerBind]="goodsArray?.length">
+            <div class="no-items-msg" *ngIf="goodsArray === undefined">
+              <span class="spinner"></span>
+            </div>
+            <div class="no-items-msg no-results" *ngIf="goodsArray?.length === 0">
+              {{ 'shop-page.no-results' | translate }}
+            </div>
+            <app-good-element
+              *ngFor="let good of goodsArray; trackBy: track"
+              [good]="good"
+              [className]="isMultiColumns ? 'multi-columns' : 'single-column'">
+            </app-good-element>
+
+            <!-- infinite scroll loading -->
+            <div class="infinite-scroll-loading" *ngIf="isLoadingGoods">
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,171 @@
+<!-- main slider -->
+<app-main-slider></app-main-slider>
+
+<!-- collections -->
+<div class="collections section">
+  <div class="section-content">
+    <div class="container">
+      <div class="items" [@fadeInUpStaggerBind]="categories?.length">
+        <div class="item" *ngFor="let category of categories | slice:0:3; trackBy: trackCategories">
+          <div class="item-text">
+            <h3 class="title">{{ category?.catName[currentLang] }}</h3>
+            <p *ngIf="category?.catBrief[currentLang]">{{ category?.catBrief[currentLang] }}</p>
+            <a routerLink="/shop" [queryParams]="{'cat': category?.catSlug}" class="rounded-btn white-three solid reverse shadow">
+              {{ 'home-page.collections.shop-now' | translate}}
+            </a>
+          </div>
+          <div class="item-img">
+            <img [src]="category?.catImg" [alt]="category?.catSlug" appLoader>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- new arrivals goods -->
+<div class="goods section">
+  <div class="section-title holder">
+    <div class="container">
+      <h2>{{ 'home-page.new-arrivals.section-title' | translate }}</h2>
+      <p>{{ 'home-page.new-arrivals.section-sub-title' | translate }}</p>
+    </div>
+  </div>
+  <div class="section-content">
+    <div class="container">
+      <div class="items" [@fadeInUpStaggerBind]="newArrivalsGoods?.length">
+        <div class="no-items-msg" *ngIf="!newArrivalsGoods?.length">
+          <span class="spinner"></span>
+        </div>
+        <app-good-element
+          *ngFor="let good of newArrivalsGoods; trackBy: trackGoods"
+          [good]="good"
+          className="multi-columns">
+        </app-good-element>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- offer panner -->
+<div class="offer-panner panner section">
+  <div class="section-content">
+    <div class="container">
+      <div class="panner-content">
+
+        <div [ngClass]="'panner-img ' + firstBannerClass">
+          <img class="shape" src="../../../assets/images/white-shape.png" alt="">
+          <a class="img-link" [routerLink]="['/good', mainOfferGood?.id]" *ngIf="mainOfferGood">
+            <img src="{{ mainOfferGood?.images[0] }}" [alt]="mainOfferGood?.name[currentLang]" appLoader>
+          </a>
+        </div>
+
+        <div class="panner-text">
+          <div class="discount-rate">
+            <strong>
+              <img class="shape" src="../../../assets/images/blue-and-red-shape.png" alt="">
+              <span *ngIf="mainOfferData?.type === 'percent'">
+                {{ mainOfferData?.amount | percent }}
+                {{ 'home-page.offer-panner.off' | translate }}
+              </span>
+              <span *ngIf="mainOfferData?.type === 'fixed'">
+                {{ mainOfferData?.amount | currencyExchange : currencyExchangeSer?.exchangeRates }}
+                {{ 'home-page.offer-panner.off' | translate }}
+              </span>
+            </strong>
+          </div>
+          <a class="img-link" [routerLink]="['/good', mainOfferGood?.id]" *ngIf="mainOfferGood">
+            <img src="{{ mainOfferGood?.images[0] }}" [alt]="mainOfferGood?.name[currentLang]" appLoader>
+          </a>
+          <h2 class="title">
+            <a [routerLink]="['/good', mainOfferGood?.id]" *ngIf="mainOfferGood">
+              {{ mainOfferGood?.name[currentLang] }}
+            </a>
+          </h2>
+          <div class="price">
+            <strong>{{ mainOfferGood?.price | currencyExchange : currencyExchangeSer?.exchangeRates }}</strong>
+            <strong *ngIf="mainOfferData?.type === 'percent'">
+              {{ mainOfferGood?.price - (mainOfferGood?.price * mainOfferData?.amount) | currencyExchange : currencyExchangeSer?.exchangeRates }}
+            </strong>
+            <strong *ngIf="mainOfferData?.type === 'fixed'">
+              {{ mainOfferGood?.price - mainOfferData?.amount | currencyExchange : currencyExchangeSer?.exchangeRates }}
+            </strong>
+          </div>
+          <a [routerLink]="['/good', mainOfferGood?.id]"
+          class="rounded-btn color-one solid shadow"
+          *ngIf="mainOfferGood">
+            {{ 'home-page.offer-panner.shop-now' | translate }}
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- featured goods -->
+<div class="goods section">
+  <div class="section-title holder">
+    <div class="container">
+      <h2>{{ 'home-page.featured-goods.section-title' | translate }}</h2>
+      <p>{{ 'home-page.featured-goods.section-sub-title' | translate }}</p>
+    </div>
+  </div>
+  <div class="section-content">
+    <div class="container">
+      <div class="items" [@fadeInUpStaggerBind]="featuredGoods?.length">
+        <div class="no-items-msg" *ngIf="!featuredGoods?.length">
+          <span class="spinner"></span>
+        </div>
+        <app-good-element *ngFor="let good of featuredGoods; trackBy: trackGoods"
+          [good]="good"
+          className="multi-columns">
+        </app-good-element>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- sign up panner -->
+<div class="sign-up-panner panner section" *ngIf="!authSer?.isLoggedIn">
+  <div class="section-content">
+    <div class="container">
+      <div class="panner-content">
+        <div class="panner-text">
+          <h2 class="title">
+            {{ 'home-page.sign-up-panner.title' | translate }}
+          </h2>
+          <a routerLink="/sign-up" class="rounded-btn color-one solid shadow">
+            {{ 'home-page.sign-up-panner.sign-up' | translate }}
+          </a>
+        </div>
+        <div [ngClass]="'panner-img ' + secondBannerClass">
+          <img class="shape" src="../../../assets/images/white-shape.png" alt="">
+          <img src="../../../assets/images/sign-up-now.png" alt="{{ 'home-page.sign-up-panner.sign-up' | translate }}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- contact us panner -->
+<div class="contact-us-panner panner section" *ngIf="authSer?.isLoggedIn">
+  <div class="section-content">
+    <div class="container">
+      <div class="panner-content">
+        <div class="panner-text">
+          <h2 class="title">
+            {{ 'home-page.contact-us-panner.title' | translate }}
+          </h2>
+          <a routerLink="/contact-us" class="rounded-btn color-one solid shadow">
+            {{ 'home-page.contact-us-panner.contact-us' | translate }}
+          </a>
+        </div>
+        <div [ngClass]="'panner-img ' + secondBannerClass">
+          <img class="shape" src="../../../assets/images/white-shape.png" alt="">
+          <img src="../../../assets/images/sign-up-now.png" alt="{{ 'home-page.contact-us-panner.contact-us' | translate }}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Import Table of Contents File
+@import "styles/table-of-contents";
+
+// Import Normalize File
+@import '~normalize.css';
+
+// Import Variables File
+@import "styles/helpers/variables";
+
+// Import Mixins File
+@import "styles/helpers/mixins";
+
+// Import Animations File
+@import "styles/helpers/animations";
+
+// Import Global & Reset File
+@import "styles/global-and-reset";
+
+// Import Components File
+@import "styles/components/components";

@@ -1,0 +1,63 @@
+<div class="modal" *ngIf="isOpen">
+  <div class="modal-content">
+
+    <!-- modal header -->
+    <div class="modal-header">
+      <h3 class="modal-title">{{ modalTitle }}</h3>
+    </div>
+
+    <!-- modal body -->
+    <div class="modal-body">
+      <form class="form-styled" *ngIf="reviewForm" [formGroup]="reviewForm" (ngSubmit)="sendReview(reviewForm)">
+        <div class="rating">
+          <app-star-rating #ratingComponent (rate)="getRateValue($event)"></app-star-rating>
+          <ng-container [ngSwitch]="ratingValue">
+            <h4 class="rating-title" *ngSwitchCase="5">
+              {{ 'custom-elements.review-model.rating-values.excellent' | translate }}
+            </h4>
+            <h4 class="rating-title" *ngSwitchCase="4">
+              {{ 'custom-elements.review-model.rating-values.very-good' | translate }}
+            </h4>
+            <h4 class="rating-title" *ngSwitchCase="3">
+              {{ 'custom-elements.review-model.rating-values.good' | translate }}
+            </h4>
+            <h4 class="rating-title" *ngSwitchCase="2">
+              {{ 'custom-elements.review-model.rating-values.fair' | translate }}
+            </h4>
+            <h4 class="rating-title" *ngSwitchCase="1">
+              {{ 'custom-elements.review-model.rating-values.poor' | translate }}
+            </h4>
+            <h4 class="rating-title" *ngSwitchDefault>
+              {{ 'custom-elements.review-model.rating-values.rate-this-product' | translate }}
+            </h4>
+          </ng-container>
+        </div>
+        <div class="form-group">
+          <label for="comment">
+            {{ 'custom-elements.review-model.comment.comment-label' | translate }}
+            <span class="optional">({{ 'custom-elements.review-model.comment.optional' | translate }})</span>
+          </label>
+          <div class="form-control">
+            <textarea formControlName="comment"
+              id="comment"
+              [placeholder]="'custom-elements.review-model.comment.comment-placeholder' | translate">
+            </textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- modal footer -->
+    <div class="modal-footer">
+      <button class="rounded-btn color-three shadow reverse" (click)="closeModal()">
+        {{ 'custom-elements.review-model.footer.cancel' | translate }}
+      </button>
+      <button class="rounded-btn color-one solid shadow"
+        [disabled]="reviewForm.invalid"
+        (click)="sendReview(reviewForm)">
+        {{ 'custom-elements.review-model.footer.submit' | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="overlay" (click)="closeModal()"></div>
+</div>

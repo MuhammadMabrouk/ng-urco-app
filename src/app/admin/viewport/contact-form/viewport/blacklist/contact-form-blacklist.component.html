@@ -1,0 +1,33 @@
+<div class="content">
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <table class="black-list" [@fadeInUpStaggerBind]="animationStates">
+          <tr class="email black-list-header">
+            <th colspan="2"><h5>{{ 'contact-form-blacklist-page.email' | translate }}</h5></th>
+          </tr>
+          <tr class="no-items-msg" *ngIf="!blackListEmails?.length">
+            <td colspan="2">
+              {{ 'contact-form-blacklist-page.no-items-msg' | translate }}
+            </td>
+          </tr>
+          <tr class="email" *ngFor="let email of blackListEmails; trackBy: track">
+            <td>{{ email?.email }}</td>
+            <td class="del-btn">
+              <button class="icon-btn small"
+                [title]="'contact-form-blacklist-page.delete' | translate"
+                (click)="deleteEmail(email?.email)">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <div class="the-main-box-footer">
+
+      <!-- simple pagination with items count -->
+      <app-simple-pagination *ngIf="blackListEmails?.length" (callPrev)="getPrevPage()" (callNext)="getNextPage()"></app-simple-pagination>
+    </div>
+  </div>
+</div>

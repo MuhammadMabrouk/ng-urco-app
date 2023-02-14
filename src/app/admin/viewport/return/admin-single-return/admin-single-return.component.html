@@ -1,0 +1,55 @@
+<div class="content">
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/user/return.png" alt="return">
+          <h3 class="title" *ngIf="translateSer?.currentLang === 'en'">
+            {{ thisReturnedGood?.good?.name[currentLang] }} - {{ 'single-return-page.box-title' | translate }}
+          </h3>
+          <h3 class="title" *ngIf="translateSer?.currentLang === 'ar'">
+            {{ 'single-return-page.box-title' | translate }} - {{ thisReturnedGood?.good?.name[currentLang] }}
+          </h3>
+        </div>
+        <table class="loading" *ngIf="!thisReturnedGood">
+          <span class="spinner"></span>
+        </table>
+        <table class="returned-good" *ngIf="thisReturnedGood" @fadeInUpStaggerEnter>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-return-page.ordered' | translate }}</th>
+            <td>{{ thisReturnedGood?.placedDate }}</td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-return-page.delivered' | translate }}</th>
+            <td>{{ thisReturnedGood?.deliveredDate }}</td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-return-page.returned' | translate }}</th>
+            <td>{{ thisReturnedGood?.returnedDate }}</td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-return-page.user' | translate }}</th>
+            <td>{{ thisReturnedGood?.userInfo?.displayName }}</td>
+          </tr>
+          <tr class="reasons fadeInUpStagger">
+            <th>{{ 'single-return-page.reasons' | translate }}</th>
+            <td>
+              <ul>
+                <li *ngFor="let reason of thisReturnedGood?.reasons">
+                  {{ reason }}
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="comment fadeInUpStagger">
+            <th>{{ 'single-return-page.comment' | translate }}</th>
+            <td>
+              <span *ngIf="thisReturnedGood?.comments">{{ thisReturnedGood?.comments }}</span>
+              <span class="infinity" *ngIf="!thisReturnedGood?.comments"></span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="content" @fadeInUpStaggerEnter>
+  <div class="the-main-box fadeInUpStagger">
+    <form class="coupons form-styled" *ngIf="couponForm" [formGroup]="couponForm" (ngSubmit)="saveNewCoupon(couponForm)">
+      <section class="box">
+        <div class="box-content">
+          <!-- box title -->
+          <div class="box-title">
+            <img src="../../../../assets/images/icons/admin/coupon.png" alt="coupon">
+            <h3 class="title">
+              {{ 'add-coupons-page.box-title' | translate }}
+            </h3>
+          </div>
+
+          <!-- form controls -->
+          <div class="form-group">
+            <div class="form-control two-radio-buttons">
+              <label>{{ 'add-coupons-page.coupon-type-label' | translate }}</label>
+              <div class="radio-buttons-container">
+                <div class="radio-button">
+                  <input id="percent" class="radio" type="radio" formControlName="type" name="type" value="percent">
+                  <label for="percent"></label>
+                </div>
+                <label for="percent">{{ 'add-coupons-page.percent-label' | translate }}</label>
+              </div>
+              <div class="radio-buttons-container">
+                <div class="radio-button">
+                  <input id="fixed" class="radio" type="radio" formControlName="type" name="type" value="fixed">
+                  <label for="fixed"></label>
+                </div>
+                <label for="fixed">{{ 'add-coupons-page.fixed-label' | translate }}</label>
+              </div>
+            </div>
+          </div>
+          <div class="small-fields">
+            <div class="form-group">
+              <label>{{ 'add-coupons-page.amount-label' | translate }}</label>
+              <div class="form-control">
+                <app-input-number value="0" (valueChange)="updateValue(couponForm, 'amount', $event)"></app-input-number>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>{{ 'add-coupons-page.uses-limit-label' | translate }}</label>
+              <div class="form-control">
+                <app-input-number value="0" (valueChange)="updateValue(couponForm, 'usesLimit', $event)"></app-input-number>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="ExpDate">{{ 'add-coupons-page.ExpDate-label' | translate }}</label>
+              <div class="form-control">
+                <i class="fa fa-calendar-o" aria-hidden="true" (click)="dp.toggleCalendar()"></i>
+                <input formControlName="ExpDate"
+                  id="ExpDate"
+                  name="ExpDate"
+                  [placeholder]="'add-coupons-page.ExpDate-placeholder' | translate"
+                  [options]="ExpDateOptions"
+                  angular-mydatepicker
+                  #dp="angular-mydatepicker">
+              </div>
+            </div>
+          </div>
+          <!-- form controls -->
+
+        </div>
+      </section>
+      <div class="buttons-container small-fields">
+        <div class="form-group">
+          <button type="reset" class="rounded-btn white-one solid reverse shadow" (click)="redirectToParent()">
+            {{ 'add-coupons-page.cancel' | translate }}
+          </button>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="rounded-btn color-one solid reverse shadow" [disabled]="couponForm.invalid">
+            {{ 'add-coupons-page.save-new-coupon' | translate }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

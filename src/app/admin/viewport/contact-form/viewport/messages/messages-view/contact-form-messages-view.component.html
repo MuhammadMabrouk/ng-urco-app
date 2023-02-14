@@ -1,0 +1,74 @@
+<div class="content">
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <table class="messages" [@fadeInUpStaggerBind]="animationStates">
+          <tr class="message messages-header">
+            <th class="name"><h5>{{ 'messages-page.header-titles.name' | translate }}</h5></th>
+            <th class="email"><h5>{{ 'messages-page.header-titles.email' | translate }}</h5></th>
+            <th class="phone"><h5>{{ 'messages-page.header-titles.phone' | translate }}</h5></th>
+            <th class="subject"><h5>{{ 'messages-page.header-titles.subject' | translate }}</h5></th>
+            <th class="date" colspan="2"><h5>{{ 'messages-page.header-titles.date' | translate }}</h5></th>
+          </tr>
+          <tr class="no-items-msg" *ngIf="!contactFormMessages?.length">
+            <td colspan="6">
+              {{ 'messages-page.no-items-msg' | translate }}
+            </td>
+          </tr>
+          <tr class="message" *ngFor="let message of contactFormMessages; trackBy: track">
+            <td class="name" [attr.data-title]="'messages-page.header-titles.name' | translate">
+              {{ message?.name }}
+            </td>
+            <td class="email" [attr.data-title]="'messages-page.header-titles.email' | translate">
+              <span>{{ message?.email }}</span>
+            </td>
+            <td class="phone" *ngIf="message?.phone" [attr.data-title]="'messages-page.header-titles.phone' | translate">
+              <span>{{ message?.phone }}</span>
+            </td>
+            <td class="phone" *ngIf="!message?.phone" [attr.data-title]="'messages-page.header-titles.phone' | translate">
+              <span class="infinity"></span>
+            </td>
+            <td class="subject" [attr.data-title]="'messages-page.header-titles.subject' | translate">
+              {{ message?.subject?.label }}
+            </td>
+            <td class="date" [attr.data-title]="'messages-page.header-titles.date' | translate">
+              {{ message?.receivedDate }}
+            </td>
+            <td class="actions-col">
+              <button class="actions-btn" [appMenuToggleButton]="actionsMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <ul class="dropdown-list" #actionsMenu>
+                <li>
+                  <a [routerLink]="['../../message', message.id]">
+                    <img src="../../../assets/images/icons/zoom.png" alt="view">
+                    {{ 'messages-page.actions-btns.view' | translate }}
+                  </a>
+                </li>
+                <li>
+                  <a href="#" (click)="$event.preventDefault(); blockEmailAddress(message.email)">
+                    <img src="../../../assets/images/icons/block.png" alt="block">
+                    {{ 'messages-page.actions-btns.block' | translate }}
+                  </a>
+                </li>
+                <li>
+                  <a href="#" (click)="$event.preventDefault(); deleteMessage(message.id)">
+                    <img src="../../../assets/images/icons/cancel-delete.png" alt="delete">
+                    {{ 'messages-page.actions-btns.delete' | translate }}
+                  </a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <div class="the-main-box-footer">
+
+      <!-- simple pagination with items count -->
+      <app-simple-pagination *ngIf="contactFormMessages?.length" (callPrev)="getPrevPage()" (callNext)="getNextPage()"></app-simple-pagination>
+    </div>
+  </div>
+</div>

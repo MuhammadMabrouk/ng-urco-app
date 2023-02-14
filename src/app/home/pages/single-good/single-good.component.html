@@ -1,0 +1,173 @@
+<div class="section">
+  <div class="section-content">
+    <div class="container" @fadeInUpStaggerEnter>
+      <!-- good overview -->
+      <div class="good-overview main-box fadeInUpStagger">
+        <div class="box-header">
+          <span>{{ 'single-good-page.product-overview' | translate }}</span>
+        </div>
+        <div class="box-content">
+
+          <!-- images area -->
+          <div class="images-area"
+            [class.multi-images]="singleGood?.images?.length > 1"
+            [style.height]="detailsAreaHeight"
+            (appOnSwipe)="swipeToNavigate($event)"
+          >
+            <div class="slider" *ngIf="singleGood?.images?.length > 1">
+              <button class="arrow-up" (click)="thumbnailsScrolling('up')">
+                <i class="fa fa-chevron-up" aria-hidden="true"></i>
+              </button>
+              <button class="arrow-down" (click)="thumbnailsScrolling('down')">
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <ul class="thumbnails" #thumbnails>
+                <li *ngFor="let img of singleGood?.images; index as i;" (click)="getToView(i)">
+                  <img [src]="img" [alt]="'image-' + i">
+                </li>
+              </ul>
+            </div>
+
+            <div class="main-img">
+              <img #mainImg
+                *ngIf="singleGood?.images[0]"
+                [src]="singleGood?.images[currentSlideIndex]"
+                [alt]="singleGood?.name[translateSer.currentLang]"
+                [appProductLightBox]="singleGood?.images"
+              >
+            </div>
+
+            <ul class="pagers">
+              <li *ngFor="let img of singleGood?.images; index as i"
+                [class.active]="currentSlideIndex === i"
+                (click)="getToView(i)"
+              >
+                <span></span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- details area -->
+          <div class="details-area" #detailsArea>
+            <a class="edit-icon"
+              [routerLink]="'../../admin-dashboard/admin/products/edit/' + singleGood?.id"
+              [title]="'single-good-page.edit-product' | translate"
+              *ngIf="userSer?.userInfo?.isAdmin"
+            >
+              <img src="../../../assets/images/icons/edit-tool.png" alt="edit">
+            </a>
+            <div class="title">
+              <span class="category">{{ singleGood?.category?.catName[translateSer.currentLang] }}</span>
+              <h2 class="name">{{ singleGood?.name[translateSer.currentLang] }}</h2>
+            </div>
+            <app-star-rating-view [ratingClass]="singleGood?.rating"></app-star-rating-view>
+            <div class="price">
+              <strong>{{ singleGood?.price | currencyExchange : currencyExchangeSer?.exchangeRates }}</strong>
+              <strong *ngIf="singleGood?.discount > 0">
+                {{ singleGood?.priceAfterDiscount | currencyExchange : currencyExchangeSer?.exchangeRates }}
+              </strong>
+            </div>
+            <p class="desc">{{ singleGood?.desc[translateSer.currentLang] | truncate:200 }}</p>
+            <div class="sizes" *ngIf="singleGood?.sizes?.length">
+              <h5 class="label">
+                {{ 'single-good-page.sizes' | translate }}
+              </h5>
+              <ul>
+                <li *ngFor="let size of singleGood?.sizes; index as i;">
+                  <input [id]="'size' + i" type="radio" name="sizes" [checked]="i === 0">
+                  <label [for]="'size' + i" (click)="getSize(size)">{{ size }}</label>
+                </li>
+              </ul>
+            </div>
+            <div class="buttons-container">
+              <app-input-number value="1" (valueChange)="updateQty($event)"></app-input-number>
+              <button class="wishlist"
+                [title]="'single-good-page.add-to-wishlist' | translate"
+                (click)="addToWishlist(singleGood?.id)">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </button>
+              <button class="shopping-cart"
+                [title]="'single-good-page.add-to-cart' | translate"
+                (click)="addToCart(singleGood?.id)">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <i class="fa fa-cart-plus cart-plus" aria-hidden="true"></i>
+                <span>{{ 'single-good-page.add-to-cart' | translate }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- good description -->
+      <div class="good-description main-box fadeInUpStagger">
+        <div class="box-header">
+          <button (click)="goToTab($event, description)" class="active">
+            {{ 'single-good-page.description' | translate }}
+          </button>
+          <button (click)="goToTab($event, reviews)">
+            {{ 'single-good-page.reviews' | translate }}
+          </button>
+        </div>
+        <div class="box-content">
+          <!-- description -->
+          <div #description class="description tab active">{{ singleGood?.desc[translateSer.currentLang] }}</div>
+
+          <!-- reviews -->
+          <div #reviews class="reviews tab">
+            <table>
+              <tr class="no-items-msg" *ngIf="!goodReviews?.length">
+                <td colspan="2">
+                  {{ 'single-good-page.no-items-msg' | translate }}
+                </td>
+              </tr>
+              <tr *ngFor="let review of goodReviews; trackBy: trackReviews">
+                <td>
+                  <div class="user-info">
+                    <div class="user-avatar">
+                      <img [src]="review?.userImg" [alt]="review?.userName" *ngIf="review?.userImg; else userInitials">
+                      <ng-template #userInitials>
+                        <div class="user-initials">{{ review?.userInitials }}</div>
+                      </ng-template>
+                    </div>
+                    <div class="date-and-name">
+                      <span class="date">{{ review?.date }}</span>
+                      <h5 class="user-name">{{ review?.userName }}</h5>
+                    </div>
+                  </div>
+                </td>
+                <td [class.editable]="authSer.userId === review?.userId">
+                  <app-star-rating-view [ratingClass]="review?.rating"></app-star-rating-view>
+                  <p class="comment">{{ review?.comment }}</p>
+                  <button *ngIf="authSer.userId === review?.userId"
+                    class="edit-icon"
+                    [title]="'single-good-page.edit-review' | translate"
+                    (click)="editReview(); reviewModalComRef.productReview(review?.goodId)">
+                    <img src="../../../assets/images/icons/edit-tool.png" alt="edit">
+                  </button>
+                </td>
+              </tr>
+              <tr *ngIf="goodReviews?.length">
+                <td class="show-more" colspan="2">
+                  <button *ngIf="!isLoadingReviews; else loadingSpinner" (click)="loadMoreReviews()">
+                    {{ 'single-good-page.see-more-reviews' | translate }}
+                  </button>
+                  <ng-template #loadingSpinner>
+                    <i class="fa fa-spinner" aria-hidden="true"></i>
+                  </ng-template>
+                </td>
+              </tr>
+            </table>
+
+            <!-- review modal -->
+            <app-review-model
+              #reviewModalComRef
+              [isOpen]="reviewModal"
+              (cancelEvent)="cancelReview()"
+              [modalTitle]="'single-good-page.leave-feedback' | translate">
+            </app-review-model>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

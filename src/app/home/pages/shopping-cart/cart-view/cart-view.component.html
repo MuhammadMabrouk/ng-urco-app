@@ -1,0 +1,88 @@
+<div class="cart">
+
+  <!-- cart items -->
+  <div class="main-box" @fadeInUp>
+    <ul class="box-header">
+      <li>{{ 'shopping-cart-page.main-box.header.cart-items' | translate }}</li>
+    </ul>
+
+    <ul class="cart-items" [@fadeInUpStaggerBind]="cartGoods?.length">
+      <li class="no-items-msg" *ngIf="cartGoods?.length === 0">
+        {{ 'shopping-cart-page.main-box.no-items-msg' | translate }}
+      </li>
+      <li *ngFor="let good of cartGoods; trackBy: track; index as i;"
+      [@slideFadeUpRedHighlightState]="animationStates[i]">
+        <div class="img-and-name">
+          <div class="item-img">
+            <a [routerLink]="['/good', good.id]" [title]="good?.name[currentLang] | titlecase">
+              <img [src]="good?.images[0]" [alt]="good?.name[currentLang]" appLoader>
+            </a>
+          </div>
+          <div class="item-name">
+            <h4 class="name" [title]="good?.name[currentLang] | titlecase">
+              <a [routerLink]="['/good', good.id]">{{ good?.name[currentLang] | titlecase | truncate:30 }}</a>
+            </h4>
+          </div>
+        </div>
+        <div class="other-fields">
+          <div class="price">
+            <strong>{{ good.priceAfterDiscount | currencyExchange : currencyExchangeSer?.exchangeRates }}</strong>
+          </div>
+          <div class="qty">
+            <app-input-number #qty [value]="good.qty" (valueChange)="updateQty(good, $event)"></app-input-number>
+          </div>
+          <div class="subtotal">
+            <strong>{{ ((good.priceAfterDiscount) * qty.value) | currencyExchange : currencyExchangeSer?.exchangeRates }}</strong>
+          </div>
+          <div class="icons">
+            <button class="delete icon-btn"
+              [title]="'shopping-cart-page.main-box.delete-item' | translate"
+              (click)="deleteCartItem(good.id, i)">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="box-footer">
+      <li class="step-back">
+        <a routerLink="/">{{ 'shopping-cart-page.main-box.footer.continue-shopping' | translate }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- summary -->
+  <div class="side-box" *ngIf="cartGoods?.length != 0" @fadeInUp>
+    <ul class="box-header">
+      <li>{{ 'shopping-cart-page.side-box.header.summary' | translate }}</li>
+    </ul>
+    <div class="side-box-content">
+      <table class="summary content">
+        <tr>
+          <th>{{ 'shopping-cart-page.side-box.subtotal' | translate }}</th>
+          <th>{{ subtotal | currencyExchange : currencyExchangeSer?.exchangeRates }}</th>
+        </tr>
+        <tr>
+          <th>{{ 'shopping-cart-page.side-box.shipping' | translate }}</th>
+          <th>{{ generalSettingsSer.generalSettings?.shippingCost | currencyExchange : currencyExchangeSer?.exchangeRates }}</th>
+        </tr>
+        <tr>
+          <th>{{ 'shopping-cart-page.side-box.total' | translate }}</th>
+          <th>{{ subtotal + generalSettingsSer.generalSettings?.shippingCost | currencyExchange : currencyExchangeSer?.exchangeRates }}</th>
+        </tr>
+      </table>
+    </div>
+    <ul class="box-footer">
+      <li class="step-forward">
+        <a [routerLink]="['../checkout', subtotal + generalSettingsSer.generalSettings?.shippingCost]"
+        *ngIf="isLoggedIn && subtotal && generalSettingsSer.generalSettings?.shippingCost">
+          {{ 'shopping-cart-page.side-box.footer.checkout' | translate }}
+        </a>
+        <a *ngIf="!isLoggedIn" (click)="signInToCheckout(); $event.preventDefault()">
+          {{ 'shopping-cart-page.side-box.footer.continue-buying' | translate }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

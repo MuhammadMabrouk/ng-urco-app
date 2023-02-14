@@ -1,0 +1,77 @@
+<div class="item"
+  [class.oos]="good.oosLabel"
+  [class]="className">
+
+  <div class="item-card">
+    <a [routerLink]="['/good', good?.id]"
+      class="item-img"
+      [title]="good?.name[translateSer.currentLang]"
+    >
+      <img [src]="good?.images[0]" [alt]="good?.name[translateSer.currentLang]" appLoader>
+      <img *ngIf="good?.images[1]" [src]="good?.images[1]" [alt]="good?.name[translateSer.currentLang]" appLoader>
+    </a>
+
+    <ul class="product-labels">
+      <li *ngIf="good.newLabel" class="new-label">
+        {{ 'home-page.good-element.labels.new-label' | translate }}
+      </li>
+      <li *ngIf="good.bestLabel" class="best-label">
+        {{ 'home-page.good-element.labels.best-label' | translate }}
+      </li>
+      <li *ngIf="good.discount > 0" class="sale-label">-{{ good?.discount | percent: '2.0-0' }}</li>
+      <li *ngIf="good.oosLabel" class="oos-label">
+        {{ 'home-page.good-element.labels.oos-label' | translate }}
+      </li>
+    </ul>
+
+    <ul class="product-icons" *ngIf="className === 'multi-columns'">
+      <li (click)="addToWishlist(good)" *ngIf="!good.oosLabel">
+        <i class="fa fa-heart" aria-hidden="true"></i>
+        <span class="icon-title">
+          {{ 'home-page.good-element.icons.add-to-wishlist' | translate }}
+        </span>
+      </li>
+      <li (click)="addToCart(good)" *ngIf="!good.oosLabel">
+        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+        <span class="icon-title">
+          {{ 'home-page.good-element.icons.add-to-cart' | translate }}
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="item-text">
+    <h3 class="title">
+      <a [routerLink]="['/good', good.id]">
+        {{ good?.name[translateSer.currentLang] | titlecase }}
+      </a>
+    </h3>
+
+    <div class="price-and-rating">
+      <div class="price">
+        <strong>{{ good.price | currencyExchange : currencyExchangeSer?.exchangeRates }}</strong>
+        <strong *ngIf="good.discount > 0">
+          {{ good?.priceAfterDiscount | currencyExchange : currencyExchangeSer?.exchangeRates }}
+        </strong>
+      </div>
+      <app-star-rating-view [ratingClass]="good?.rating"></app-star-rating-view>
+    </div>
+
+    <p class="brief-desc" *ngIf="className === 'single-column'">{{ good?.desc[translateSer.currentLang] | truncate:100 }}</p>
+
+    <ul class="product-icons" *ngIf="className === 'single-column'">
+      <li (click)="addToWishlist(good)" *ngIf="!good.oosLabel">
+        <i class="fa fa-heart" aria-hidden="true"></i>
+        <span class="icon-title">
+          {{ 'home-page.good-element.icons.add-to-wishlist' | translate }}
+        </span>
+      </li>
+      <li (click)="addToCart(good)" *ngIf="!good.oosLabel">
+        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+        <span class="icon-title">
+          {{ 'home-page.good-element.icons.add-to-cart' | translate }}
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>

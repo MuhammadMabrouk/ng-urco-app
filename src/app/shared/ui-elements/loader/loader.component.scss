@@ -1,0 +1,42 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  @include appDir(left, 50%, right, 50%);
+  @include ltr_translate(-50%, -50%);
+  height: 50px;
+  width: 50px;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    @include appDir(left, 50%, right, 50%);
+    @include ltr_translate(-50%, -50%);
+    border: 2px solid $color-one;
+    border-radius: 50%;
+    animation: blast-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+
+  &:after {
+    animation-delay: .5s;
+  }
+}
+
+// animation
+@keyframes blast-ripple {
+  0% {
+    opacity: 1;
+    height: 0;
+    width: 0;
+  }
+  100% {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+  }
+}

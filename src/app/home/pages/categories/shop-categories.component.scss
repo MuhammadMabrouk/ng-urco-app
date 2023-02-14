@@ -1,0 +1,87 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.categories {
+  .section-content {
+    .items {
+      @include flexbox(flex, "", stretch, "", "", wrap);
+      margin: 0 -15px -30px;
+
+      @media #{$max_767} {
+        width: 90%;
+        margin: {
+          left: auto;
+          right: auto;
+        };
+      }
+
+      .item {
+        @include flexbox(flex, "", center, "", "", "");
+        padding: 25px;
+        margin: 0 15px 30px;
+        border-radius: $borderRadius;
+        box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+
+        @media #{$min_992} {
+          width: calc((100% / 3) - 30px);
+        }
+
+        @media #{$max_991} {
+          width: calc(50% - 30px);
+        }
+
+        @media #{$max_767} {
+          width: 100%;
+
+          &:not(:last-of-type) {
+            margin-bottom: 30px;
+          }
+        }
+
+        &:nth-of-type(5n+1) {
+          background-color: $primary-color-one;
+        }
+
+        &:nth-of-type(5n+2) {
+          background-color: $primary-color-two;
+        }
+
+        &:nth-of-type(5n+3) {
+          background-color: $primary-color-three;
+        }
+
+        &:nth-of-type(5n+4) {
+          background-color: $primary-color-four;
+        }
+
+        &:nth-of-type(5n+5) {
+          background-color: $primary-color-five;
+        }
+
+        .item-text {
+          width: calc(100% - 80px);
+          @include appDir(margin-right, 16px, margin-left, 16px);
+
+          .title {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 20px;
+          }
+
+          p {
+            color: $backgroundColor;
+            margin: 0 0 20px;
+          }
+        }
+
+        .item-img {
+          img {
+            display: block;
+            width: 96px;
+          }
+        }
+      }
+    }
+  }
+}

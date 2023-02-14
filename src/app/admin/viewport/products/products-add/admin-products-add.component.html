@@ -1,0 +1,240 @@
+<div class="content" @fadeInUpStaggerEnter>
+  <div class="the-main-box fadeInUpStagger">
+    <form class="form-styled" *ngIf="goodForm" [formGroup]="goodForm" (ngSubmit)="saveNewGood(goodForm)">
+      <section class="box">
+        <div class="box-content">
+          <div class="box-title">
+            <img src="../../../../assets/images/icons/admin/products.png" alt="new-product">
+            <h3 class="title">
+              {{ 'add-admin-products-page.box-title' | translate }}
+            </h3>
+          </div>
+          <div class="small-fields">
+            <div class="form-group">
+              <label>{{ 'add-admin-products-page.category-label' | translate }}</label>
+              <div class="form-control">
+                <app-select-menu
+                  [modelLabel]="category?.value ? category?.value?.label : 'add-admin-products-page.category-label' | translate"
+                  [options]="categories"
+                  (selectChange)="selectMenuChanged('category', $event)">
+                </app-select-menu>
+              </div>
+            </div>
+            <div class="form-group" *ngIf="category?.value?.children?.length">
+              <label>{{ 'add-admin-products-page.sub-category-label' | translate }}</label>
+              <div class="form-control">
+                <app-select-menu
+                  [modelLabel]="category?.value?.children[0]?.label"
+                  [options]="category?.value?.children"
+                  (selectChange)="selectMenuChanged('subCategory', $event)">
+                </app-select-menu>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name">{{ 'add-admin-products-page.name-label' | translate }}</label>
+              <div class="form-control">
+                <input formControlName="name"
+                  id="name"
+                  type="text"
+                  [placeholder]="'add-admin-products-page.name-placeholder' | translate">
+              </div>
+            </div>
+          </div>
+          <div class="small-fields">
+            <div class="form-group">
+              <label>{{ 'add-admin-products-page.price-label' | translate }}</label>
+              <div class="form-control">
+                <app-input-number [value]="price?.value || 0" (valueChange)="updateValue('price', $event)"></app-input-number>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>{{ 'add-admin-products-page.discount-label' | translate }}</label>
+              <div class="form-control">
+                <app-input-number [value]="discount?.value" (valueChange)="updateValue('discount', $event)"></app-input-number>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="desc">{{ 'add-admin-products-page.desc-label' | translate }}</label>
+            <div class="form-control">
+              <textarea formControlName="desc"
+                id="desc"
+                type="text"
+                [placeholder]="'add-admin-products-page.desc-placeholder' | translate"
+                rows="6"
+                [appCharRemaining]="charCountView">
+              </textarea>
+            </div>
+            <div class="char-count">
+              <span #charCountView>0</span> / <span>{{ descMinLength }}</span>
+            </div>
+          </div>
+          <div class="form-group sizes">
+            <label>
+              {{ 'add-admin-products-page.sizes-label' | translate }}
+              <span class="optional">({{ 'add-admin-products-page.optional' | translate }})</span>
+            </label>
+            <div class="form-control multiple" formArrayName="sizes">
+              <input formControlName="0" type="text">
+              <input formControlName="1" type="text">
+              <input formControlName="2" type="text">
+              <input formControlName="3" type="text">
+              <input formControlName="4" type="text">
+              <input formControlName="5" type="text">
+              <input formControlName="6" type="text">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="colors-container">
+              <label>{{ 'add-admin-products-page.colors.title' | translate }}</label>
+              <div class="colors">
+                <div class="color">
+                  <input id="white-color" type="radio" formControlName="color" name="color" value="white">
+                  <label for="white-color"
+                    class="white-color"
+                    [title]="'add-admin-products-page.colors.white' | translate">
+                  </label>
+                </div>
+                <div class="color">
+                  <input id="silver-color" type="radio" formControlName="color" name="color" value="silver">
+                  <label for="silver-color"
+                    class="silver-color"
+                    [title]="'add-admin-products-page.colors.silver' | translate">
+                  </label>
+                </div>
+                <div class="color">
+                  <input id="yellow-color" type="radio" formControlName="color" name="color" value="yellow">
+                  <label for="yellow-color"
+                    class="yellow-color"
+                    [title]="'add-admin-products-page.colors.yellow' | translate">
+                  </label>
+                </div>
+                <div class="color">
+                  <input id="orange-color" type="radio" formControlName="color" name="color" value="orange">
+                  <label for="orange-color"
+                    class="orange-color"
+                    [title]="'add-admin-products-page.colors.orange' | translate">
+                  </label>
+                </div>
+                <div class="color">
+                  <input id="red-color" type="radio" formControlName="color" name="color" value="red">
+                  <label for="red-color"
+                    class="red-color"
+                    [title]="'add-admin-products-page.colors.red' | translate">
+                  </label>
+                </div>
+                <div class="color">
+                  <input id="purple-color" type="radio" formControlName="color" name="color" value="purple">
+                  <label for="purple-color"
+                    class="purple-color"
+                    [title]="'add-admin-products-page.colors.purple' | translate">
+                  </label>
+                </div>
+                <div class="color">
+                  <input id="blue-color" type="radio" formControlName="color" name="color" value="blue">
+                  <label for="blue-color"
+                    class="blue-color"
+                    [title]="'add-admin-products-page.colors.blue' | translate">
+                  </label>
+                </div>
+                <div class="color">
+                  <input id="skyblue-color" type="radio" formControlName="color" name="color" value="skyblue">
+                  <label for="skyblue-color"
+                    class="skyblue-color"
+                    [title]="'add-admin-products-page.colors.skyblue' | translate">
+                  </label>
+                </div>
+                <div class="color">
+                  <input id="green-color" type="radio" formControlName="color" name="color" value="green">
+                  <label for="green-color"
+                    class="green-color"
+                    [title]="'add-admin-products-page.colors.green' | translate">
+                  </label>
+                </div>
+                <div class="color">
+                  <input id="lemon-color" type="radio" formControlName="color" name="color" value="lemon">
+                  <label for="lemon-color"
+                    class="lemon-color"
+                    [title]="'add-admin-products-page.colors.lemon' | translate">
+                  </label>
+                </div>
+                <div class="color">
+                  <input id="brown-color" type="radio" formControlName="color" name="color" value="brown">
+                  <label for="brown-color"
+                    class="brown-color"
+                    [title]="'add-admin-products-page.colors.brown' | translate">
+                  </label>
+                </div>
+                <div class="color">
+                  <input id="black-color" type="radio" formControlName="color" name="color" value="black">
+                  <label for="black-color"
+                    class="black-color"
+                    [title]="'add-admin-products-page.colors.black' | translate">
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>
+              {{ 'add-admin-products-page.images-label' | translate }}
+              ({{ images?.controls?.length }}):
+            </label>
+            <app-file-upload multiple
+              (fileChange)="getProductImages($event)"
+              [isBigArea]="true"
+              [progressPercent]="progressPercent"
+              [progressComplete]="progressComplete">
+            </app-file-upload>
+            <ul class="file-upload-images big" formArrayName="images">
+              <li *ngFor="let item of images?.controls; index as i" [formGroupName]="i" @slideFade>
+                <img [src]="item?.value" [alt]="'image-' + i">
+                <div class="del-img"
+                  [title]="'add-admin-products-page.remove' | translate"
+                  (click)="removeImage(i, item?.value)">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="small-fields">
+            <div class="form-group">
+              <div class="switch-container">
+                <label for="new-label" class="switch">
+                  <input id="new-label" formControlName="newLabel" type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+                <label for="new-label">
+                  {{ 'add-admin-products-page.new-label' | translate }}
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="switch-container">
+                <label for="best-label" class="switch">
+                  <input id="best-label" formControlName="bestLabel" type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+                <label for="best-label">
+                  {{ 'add-admin-products-page.best-label' | translate }}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="buttons-container small-fields">
+        <div class="form-group">
+          <button type="reset" class="rounded-btn white-one solid reverse shadow" (click)="redirectToParent()">
+            {{ 'add-admin-products-page.cancel' | translate }}
+          </button>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="rounded-btn color-one solid reverse shadow" [disabled]="goodForm.invalid">
+            {{ 'add-admin-products-page.save-new-product' | translate }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

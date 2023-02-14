@@ -1,0 +1,60 @@
+<div class="content">
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <ul class="requests" [@fadeInUpStaggerBind]="animationStates">
+          <li class="request requests-header">
+            <div class="request-id"><h5 class="title">{{ 'requests-page.header-titles.request' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'requests-page.header-titles.date' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'requests-page.header-titles.time' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'requests-page.header-titles.status' | translate }}</h5></div>
+            <div><h5 class="title">{{ 'requests-page.header-titles.amount' | translate }}</h5></div>
+            <div class="actions-col">
+              <label class="actions-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+          </li>
+          <li class="no-items-msg" *ngIf="!requests?.length">
+            {{ 'requests-page.no-items-msg' | translate }}
+          </li>
+          <li class="request" *ngFor="let request of requests; trackBy: track">
+            <div class="request-id" [attr.data-title]="'requests-page.header-titles.request' | translate">
+              <a [routerLink]="['/admin-dashboard/admin/requests/request', request.id]">{{ request?.id }}</a>
+            </div>
+            <div [attr.data-title]="'requests-page.header-titles.date' | translate">{{ request?.placedDate }}</div>
+            <div [attr.data-title]="'requests-page.header-titles.time' | translate">{{ request?.placedTime }}</div>
+            <div class="status" [attr.data-title]="'requests-page.header-titles.status' | translate">
+              <span [class]="request?.status">
+                {{ ('single-request-page.change-status.statuses.' + request?.status) | translate }}
+              </span>
+            </div>
+            <div [attr.data-title]="'requests-page.header-titles.amount' | translate">
+              {{ request?.total | currencyExchange : currencyExchangeSer?.exchangeRates }}
+            </div>
+            <div class="actions-col">
+              <button class="actions-btn" [appMenuToggleButton]="actionsMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+              <ul class="dropdown-list" #actionsMenu>
+                <li>
+                  <a [routerLink]="['/admin-dashboard/admin/requests/request', request.id]">
+                    <img src="../../../assets/images/icons/zoom.png" alt="view">
+                    {{ 'requests-page.actions-btns.view' | translate }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- simple pagination with items count -->
+    <app-simple-pagination *ngIf="requests?.length" (callPrev)="getPrevPage()" (callNext)="getNextPage()"></app-simple-pagination>
+  </div>
+</div>

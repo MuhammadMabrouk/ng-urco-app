@@ -1,0 +1,349 @@
+/*------------------------------------------------------------------------------------------*/
+/* 5.06 Buttons */
+/*------------------------------------------------------------------------------------------*/
+
+// rounded buttons styles
+.rounded-btn {
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  @include appDir(
+    font-family,
+    ("Poppins", sans-serif),
+    font-family,
+    ("flat-jooza", sans-serif)
+  );
+  white-space: nowrap;
+  padding: 14px 24px;
+  border: 1px solid;
+  border-radius: $borderRadius;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.rounded-btn.white-one,
+.rounded-btn.white-two,
+.rounded-btn.white-three,
+.rounded-btn.white-one.solid,
+.rounded-btn.white-two.solid,
+.rounded-btn.white-three.solid {
+  border-color: #fff;
+}
+
+.rounded-btn.color-one,
+.rounded-btn.color-one.solid {
+  border-color: $color-one;
+}
+
+.rounded-btn.color-two,
+.rounded-btn.color-two.solid {
+  border-color: $color-two;
+}
+
+.rounded-btn.color-three,
+.rounded-btn.color-three.solid {
+  border-color: $color-three;
+}
+
+.rounded-btn.success,
+.rounded-btn.success.solid {
+  border-color: $success-color;
+}
+
+.rounded-btn.danger,
+.rounded-btn.danger.solid {
+  border-color: $danger-color;
+}
+
+.rounded-btn.warning,
+.rounded-btn.warning.solid {
+  border-color: $warning-color;
+}
+
+.rounded-btn.info,
+.rounded-btn.info.solid {
+  border-color: $info-color;
+}
+
+.rounded-btn.white-one,
+.rounded-btn.white-two,
+.rounded-btn.white-three,
+.rounded-btn.color-one,
+.rounded-btn.color-two,
+.rounded-btn.color-three,
+.rounded-btn.success,
+.rounded-btn.danger,
+.rounded-btn.warning,
+.rounded-btn.info {
+  background-color: transparent;
+}
+
+.rounded-btn.white-one.solid,
+.rounded-btn.white-two.solid,
+.rounded-btn.white-three.solid {
+  background-color: #fff;
+}
+
+.rounded-btn.color-one.solid {
+  background-color: $color-one;
+}
+
+.rounded-btn.color-two.solid {
+  background-color: $color-two;
+}
+
+.rounded-btn.color-three.solid {
+  background-color: $color-three;
+}
+
+.rounded-btn.success.solid {
+  background-color: $success-color;
+}
+
+.rounded-btn.danger.solid {
+  background-color: $danger-color;
+}
+
+.rounded-btn.warning.solid {
+  background-color: $warning-color;
+}
+
+.rounded-btn.info.solid {
+  background-color: $info-color;
+}
+
+.rounded-btn.white-one,
+.rounded-btn.white-two,
+.rounded-btn.white-three,
+.rounded-btn.color-one.solid,
+.rounded-btn.color-two.solid,
+.rounded-btn.color-three.solid,
+.rounded-btn.success.solid,
+.rounded-btn.danger.solid,
+.rounded-btn.warning.solid,
+.rounded-btn.info.solid {
+  color: #fff;
+}
+
+.rounded-btn.white-one.solid,
+.rounded-btn.color-one {
+  color: $color-one;
+}
+
+.rounded-btn.white-two.solid,
+.rounded-btn.color-two {
+  color: $color-two;
+}
+
+.rounded-btn.white-three.solid,
+.rounded-btn.color-three {
+  color: $color-three;
+}
+
+.rounded-btn.success {
+  color: $success-color;
+}
+
+.rounded-btn.danger {
+  color: $danger-color;
+}
+
+.rounded-btn.warning {
+  color: $warning-color;
+}
+
+.rounded-btn.info {
+  color: $info-color;
+}
+
+.rounded-btn.white-one:not(:disabled):hover {
+  background-color: #fff;
+  color: $color-one;
+}
+
+.rounded-btn.white-two:not(:disabled):hover {
+  background-color: #fff;
+  color: $color-two;
+}
+
+.rounded-btn.white-three:not(:disabled):hover {
+  background-color: #fff;
+  color: $color-three;
+}
+
+.rounded-btn.color-one:not(:disabled):hover {
+  background-color: $color-one;
+  color: #fff;
+}
+
+.rounded-btn.color-two:not(:disabled):hover {
+  background-color: $color-two;
+  color: #fff;
+}
+
+.rounded-btn.color-three:not(:disabled):hover {
+  background-color: $color-three;
+  color: #fff;
+}
+
+.rounded-btn.success:not(:disabled):hover {
+  background-color: $success-color;
+  color: #fff;
+}
+
+.rounded-btn.danger:not(:disabled):hover {
+  background-color: $danger-color;
+  color: #fff;
+}
+
+.rounded-btn.warning:not(:disabled):hover {
+  background-color: $warning-color;
+  color: #fff;
+}
+
+.rounded-btn.info:not(:disabled):hover {
+  background-color: $info-color;
+  color: #fff;
+}
+
+.rounded-btn.white-one.solid:not(:disabled):hover,
+.rounded-btn.white-two.solid:not(:disabled):hover,
+.rounded-btn.white-three.solid:not(:disabled):hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+.rounded-btn.white-one.solid.reverse:not(:disabled):hover {
+  background-color: $color-one;
+  color: #fff;
+  border-color: $color-one;
+}
+
+.rounded-btn.white-two.solid.reverse:not(:disabled):hover {
+  background-color: $color-two;
+  color: #fff;
+  border-color: $color-two;
+}
+
+.rounded-btn.white-three.solid.reverse:not(:disabled):hover {
+  background-color: $color-three;
+  color: #fff;
+  border-color: $color-three;
+}
+
+.rounded-btn.color-one.solid:not(:disabled):hover {
+  background-color: transparent;
+  color: $color-one;
+}
+
+.rounded-btn.color-two.solid:not(:disabled):hover {
+  background-color: transparent;
+  color: $color-two;
+}
+
+.rounded-btn.color-three.solid:not(:disabled):hover {
+  background-color: transparent;
+  color: $color-three;
+}
+
+.rounded-btn.success.solid:not(:disabled):hover {
+  background-color: transparent;
+  color: $success-color;
+}
+
+.rounded-btn.danger.solid:not(:disabled):hover {
+  background-color: transparent;
+  color: $danger-color;
+}
+
+.rounded-btn.warning.solid:not(:disabled):hover {
+  background-color: transparent;
+  color: $warning-color;
+}
+
+.rounded-btn.info.solid:not(:disabled):hover {
+  background-color: transparent;
+  color: $info-color;
+}
+
+.rounded-btn.color-one.solid.reverse:not(:disabled):hover {
+  background-color: #fff;
+  color: $color-one;
+  border-color: #fff;
+}
+
+.rounded-btn.color-two.solid.reverse:not(:disabled):hover {
+  background-color: #fff;
+  color: $color-two;
+  border-color: #fff;
+}
+
+.rounded-btn.color-three.solid.reverse:not(:disabled):hover {
+  background-color: #fff;
+  color: $color-three;
+  border-color: #fff;
+}
+
+.rounded-btn.success.solid.reverse:not(:disabled):hover {
+  background-color: #fff;
+  color: $success-color;
+  border-color: #fff;
+}
+
+.rounded-btn.danger.solid.reverse:not(:disabled):hover {
+  background-color: #fff;
+  color: $danger-color;
+  border-color: #fff;
+}
+
+.rounded-btn.warning.solid.reverse:not(:disabled):hover {
+  background-color: #fff;
+  color: $warning-color;
+  border-color: #fff;
+}
+
+.rounded-btn.info.solid.reverse:not(:disabled):hover {
+  background-color: #fff;
+  color: $info-color;
+  border-color: #fff;
+}
+
+.rounded-btn.shadow:not(:disabled):hover {
+  box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.3);
+}
+
+// icon buttons styles
+.icon-btn {
+  @include flexbox(flex, "", center, center, "", "");
+  background-color: $backgroundColor;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: $insetShadow;
+
+  &:not(.small) {
+    height: 42px;
+    width: 42px;
+  }
+
+  &.small {
+    height: 36px;
+    width: 36px;
+  }
+
+  > .fa {
+    font-size: 18px;
+  }
+
+  > img {
+    width: 20px;
+  }
+
+  &:hover {
+    color: $color-one;
+  }
+}

@@ -1,0 +1,61 @@
+@import "../../../../../styles/helpers/variables";
+@import "../../../../../styles/helpers/mixins";
+
+.custom-number {
+  position: relative;
+  height: 50px;
+  background-color: $backgroundColor;
+  border-radius: $borderRadius;
+  box-shadow: $insetShadow;
+
+  .number, .fa {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: transparent;
+    color: $color-four;
+    text-align: center;
+    border-radius: $borderRadius;
+
+    &.number {
+      @include flexbox(flex, "", center, center, "", "");
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding: 0 !important;
+      border: 0;
+      outline: 0;
+    }
+
+    &.fa {
+      width: 26px;
+      cursor: pointer;
+      @include transition(0.3s);
+
+      &.fa-minus {
+        @include flexbox(flex, "", center, end, "", "");
+        @include appDir(left, 0, right, 0);
+      }
+
+      &.fa-plus {
+        @include flexbox(flex, "", center, start, "", "");
+        @include appDir(right, 0, left, 0);
+      }
+
+      &:hover {
+        color: $color-three;
+      }
+    }
+
+    &.success:focus ~ .fa {
+      color: $success-color;
+      border-color: $success-color;
+    }
+
+    &.error:focus ~ .fa {
+      color: $danger-color;
+      border-color: $danger-color;
+    }
+  }
+}

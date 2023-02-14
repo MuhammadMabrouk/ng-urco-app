@@ -1,0 +1,628 @@
+//------------------------------------------------------------------------------------------/
+// 1. Flex Box
+//------------------------------------------------------------------------------------------/
+@mixin flexbox($display, $align-content, $align-items, $justify-content, $flex-direction, $flex-wrap) {
+
+  // display => values
+  @if $display == flex {
+
+    display: flex;
+
+  } @else if $display == inline-flex {
+
+    display: inline-flex;
+
+	} @else if $display == none {
+
+    display: none;
+
+	} @else if $display == '' {}
+
+  // align-content => values
+  @if $align-content == center {
+
+    align-content: center;
+
+  } @else if $align-content == start {
+
+    align-content: flex-start;
+
+	} @else if $align-content == end {
+
+    align-content: flex-end;
+
+	} @else if $align-content == around {
+
+    align-content: space-around;
+
+	} @else if $align-content == between {
+
+    align-content: space-between;
+
+	} @else if $align-content == stretch {
+
+    align-content: stretch;
+
+	} @else if $align-content == '' {}
+
+  // align-items => values
+  @if $align-items == center {
+
+    align-items: center;
+
+  } @else if $align-items == baseline {
+
+    align-items: baseline;
+
+	} @else if $align-items == start {
+
+    align-items: flex-start;
+
+	} @else if $align-items == end {
+
+    align-items: flex-end;
+
+	} @else if $align-items == stretch {
+
+    align-items: stretch;
+
+	} @else if $align-items == '' {}
+
+  // justify-content => values
+  @if $justify-content == center {
+
+    justify-content: center;
+
+  } @else if $justify-content == start {
+
+    justify-content: flex-start;
+
+	} @else if $justify-content == end {
+
+    justify-content: flex-end;
+
+	} @else if $justify-content == around {
+
+    justify-content: space-around;
+
+	} @else if $justify-content == between {
+
+    justify-content: space-between;
+
+	} @else if $justify-content == '' {}
+
+  // flex-direction => values
+  @if $flex-direction == column {
+
+    flex-direction: column;
+
+  } @else if $flex-direction == column-reverse {
+
+    flex-direction: column-reverse;
+
+	} @else if $flex-direction == row {
+
+    flex-direction: row;
+
+	} @else if $flex-direction == row-reverse {
+
+    flex-direction: row-reverse;
+
+	} @else if $flex-direction == '' {}
+
+  // flex-wrap => values
+  @if $flex-wrap == wrap {
+
+    flex-wrap: wrap;
+
+  } @else if $flex-wrap == wrap-reverse {
+
+    flex-wrap: wrap-reverse;
+
+	} @else if $flex-wrap == nowrap {
+
+    flex-wrap: nowrap;
+
+	} @else if $flex-wrap == '' {}
+
+}
+
+//********************************
+//******* align-self Mixin *******
+//********************************
+@mixin align-self($align-self) {
+
+  // align-self => values
+  @if $align-self == center {
+
+    align-self: center;
+
+  } @else if $align-self == start {
+
+    align-self: flex-start;
+
+	} @else if $align-self == end {
+
+    align-self: flex-end;
+
+	} @else if $align-self == baseline {
+
+    align-self: baseline;
+
+	} @else if $align-self == stretch {
+
+    align-self: stretch;
+
+	} @else if $align-self == auto {
+
+    align-self: auto;
+
+	}
+
+}
+
+//------------------------------------------------------------------------------------------/
+// 2. Transition Mixins
+//------------------------------------------------------------------------------------------/
+@mixin transition($dur) {
+  transition: all $dur ease-in-out
+}
+
+@mixin A_transition($prop, $dur, $tim) {
+  transition: $prop $dur $tim
+}
+
+//------------------------------------------------------------------------------------------/
+// 3. Translate Mixins
+//------------------------------------------------------------------------------------------/
+
+/*----------------------*/
+/* ltr translate mixin */
+@mixin ltr_translate($x, $y) {
+  :host-context(.ltr) & {
+    transform: translate($x, $y);
+  }
+
+  :host-context(.rtl) & {
+    transform: translate($x * -1, $y);
+  }
+}
+
+/* rtl translate mixin */
+@mixin rtl_translate($x, $y) {
+  :host-context(.rtl) & {
+    transform: translate($x, $y);
+  }
+
+  :host-context(.ltr) & {
+    transform: translate($x * -1, $y);
+  }
+}
+
+/*-----------------------*/
+/* ltr translateX mixin */
+@mixin ltr_translateX($x) {
+  :host-context(.ltr) & {
+    transform: translateX($x);
+  }
+
+  :host-context(.rtl) & {
+    transform: translateX($x * -1);
+  }
+}
+
+/* rtl translateX mixin */
+@mixin rtl_translateX($x) {
+  :host-context(.rtl) & {
+    transform: translateX($x);
+  }
+
+  :host-context(.ltr) & {
+    transform: translateX($x * -1);
+  }
+}
+
+@mixin translateY($y) {
+  transform: translateY($y)
+}
+
+@mixin translateZ($z) {
+  transform: translateZ($z)
+}
+
+//------------------------------------------------------------------------------------------/
+// 4. Skew Mixins
+//------------------------------------------------------------------------------------------/
+
+/*-----------------*/
+/* ltr skew mixin */
+@mixin ltr_skew($x, $y) {
+  :host-context(.ltr) & {
+    transform: skew($x + deg, $y + deg);
+  }
+
+  :host-context(.rtl) & {
+    transform: skew($x * -1 + deg, $y * -1 + deg);
+  }
+}
+
+/* rtl skew mixin */
+@mixin rtl_skew($x, $y) {
+  :host-context(.rtl) & {
+    transform: skew($x + deg, $y + deg);
+  }
+
+  :host-context(.ltr) & {
+    transform: skew($x * -1 + deg, $y * -1 + deg);
+  }
+}
+
+/*------------------*/
+/* ltr skewX mixin */
+@mixin ltr_skewX($x) {
+  :host-context(.ltr) & {
+    transform: skew($x + deg);
+  }
+
+  :host-context(.rtl) & {
+    transform: skew($x * -1 + deg);
+  }
+}
+
+/* rtl skewX mixin */
+@mixin rtl_skewX($x) {
+  :host-context(.rtl) & {
+    transform: skew($x + deg);
+  }
+
+  :host-context(.ltr) & {
+    transform: skew($x * -1 + deg);
+  }
+}
+
+/*------------------*/
+/* ltr skewY mixin */
+@mixin ltr_skewY($y) {
+  :host-context(.ltr) & {
+    transform: skew($y + deg);
+  }
+
+  :host-context(.rtl) & {
+    transform: skew($y * -1 + deg);
+  }
+}
+
+/* rtl skewY mixin */
+@mixin rtl_skewY($y) {
+  :host-context(.rtl) & {
+    transform: skew($y + deg);
+  }
+
+  :host-context(.ltr) & {
+    transform: skew($y * -1 + deg);
+  }
+}
+
+//------------------------------------------------------------------------------------------/
+// 5. Rotate Mixins
+//------------------------------------------------------------------------------------------/
+
+/*-------------------*/
+/* ltr rotate mixin */
+@mixin ltr_rotate($deg) {
+  :host-context(.ltr) & {
+    transform: rotate($deg + deg);
+  }
+
+  :host-context(.rtl) & {
+    transform: rotate($deg * -1 + deg);
+  }
+}
+
+/* rtl rotate mixin */
+@mixin rtl_rotate($deg) {
+  :host-context(.rtl) & {
+    transform: rotate($deg + deg);
+  }
+
+  :host-context(.ltr) & {
+    transform: rotate($deg * -1 + deg);
+  }
+}
+
+/*--------------------*/
+/* ltr rotateY mixin */
+@mixin ltr_rotateY($y) {
+  :host-context(.ltr) & {
+    transform: rotateY($y + deg);
+  }
+
+  :host-context(.rtl) & {
+    transform: rotateY($y * -1 + deg);
+  }
+}
+
+/* rtl rotateY mixin */
+@mixin rtl_rotateY($y) {
+  :host-context(.rtl) & {
+    transform: rotateY($y + deg);
+  }
+
+  :host-context(.ltr) & {
+    transform: rotateY($y * -1 + deg);
+  }
+}
+
+/*--------------------*/
+/* ltr rotateZ mixin */
+@mixin ltr_rotateZ($z) {
+  :host-context(.ltr) & {
+    transform: rotateZ($z + deg);
+  }
+
+  :host-context(.rtl) & {
+    transform: rotateZ($z * -1 + deg);
+  }
+}
+
+/* rtl rotateZ mixin */
+@mixin rtl_rotateZ($z) {
+  :host-context(.rtl) & {
+    transform: rotateZ($z + deg);
+  }
+
+  :host-context(.ltr) & {
+    transform: rotateZ($z * -1 + deg);
+  }
+}
+
+@mixin rotateX($x) {
+  transform: rotateX($x + deg);
+}
+
+//------------------------------------------------------------------------------------------/
+// 6. Scale Mixins
+//------------------------------------------------------------------------------------------/
+@mixin scale($w, $h) {
+  transform: scale($w, $h);
+}
+
+@mixin scaleX($w) {
+  transform: scaleX($w);
+}
+
+@mixin scaleY($h) {
+  transform: scaleY($h);
+}
+
+@mixin scaleZ($z) {
+  transform: scaleZ($z);
+}
+
+//------------------------------------------------------------------------------------------/
+// 7. Rotate & Translate Mixins
+//------------------------------------------------------------------------------------------/
+
+/*----------------------------------*/
+/* ltr rotate and translate mixin */
+@mixin ltr_rotate_and_translate($deg, $x, $y) {
+  :host-context(.ltr) & {
+    transform: rotate(($deg) + deg) translate($x, $y);
+  }
+
+  :host-context(.rtl) & {
+    transform: rotate(($deg * -1) + deg) translate($x * -1, $y);
+  }
+}
+
+/* rtl rotate and translate mixin */
+@mixin rtl_rotate_and_translate($deg, $x, $y) {
+  :host-context(.rtl) & {
+    transform: rotate(($deg) + deg) translate($x, $y);
+  }
+
+  :host-context(.ltr) & {
+    transform: rotate(($deg * -1) + deg) translate($x * -1, $y);
+  }
+}
+
+/*----------------------------------*/
+/* ltr translate and rotate mixin */
+@mixin ltr_translate_and_rotate($x, $y, $deg) {
+  :host-context(.ltr) & {
+    transform: translate($x, $y) rotate(($deg) + deg);
+  }
+
+  :host-context(.rtl) & {
+    transform: translate($x * -1, $y) rotate(($deg * -1) + deg);
+  }
+}
+
+/* rtl translate and rotate mixin */
+@mixin rtl_translate_and_rotate($x, $y, $deg) {
+  :host-context(.rtl) & {
+    transform: translate($x, $y) rotate(($deg) + deg);
+  }
+
+  :host-context(.ltr) & {
+    transform: translate($x * -1, $y) rotate(($deg * -1) + deg);
+  }
+}
+
+/*----------------------------------*/
+/* ltr rotate and translateX mixin */
+@mixin ltr_rotate_and_translateX($deg, $x) {
+  :host-context(.ltr) & {
+    transform: rotate(($deg) + deg) translateX($x);
+  }
+
+  :host-context(.rtl) & {
+    transform: rotate(($deg * -1) + deg) translateX($x * -1);
+  }
+}
+
+/* rtl rotate and translateX mixin */
+@mixin rtl_rotate_and_translateX($deg, $x) {
+  :host-context(.rtl) & {
+    transform: rotate(($deg) + deg) translateX($x);
+  }
+
+  :host-context(.ltr) & {
+    transform: rotate(($deg * -1) + deg) translateX($x * -1);
+  }
+}
+
+/*----------------------------------*/
+/* ltr translateX and rotate mixin */
+@mixin ltr_translateX_and_rotate($x, $deg) {
+  :host-context(.ltr) & {
+    transform: translateX($x) rotate(($deg) + deg);
+  }
+
+  :host-context(.rtl) & {
+    transform: translateX($x * -1) rotate(($deg * -1) + deg);
+  }
+}
+
+/* rtl translateX and rotate mixin */
+@mixin rtl_translateX_and_rotate($x, $deg) {
+  :host-context(.rtl) & {
+    transform: translateX($x) rotate(($deg) + deg);
+  }
+
+  :host-context(.ltr) & {
+    transform: translateX($x * -1) rotate(($deg * -1) + deg);
+  }
+}
+
+/*----------------------------------*/
+/* ltr rotate and translateY mixin */
+@mixin ltr_rotate_and_translateY($deg, $y) {
+  :host-context(.ltr) & {
+    transform: rotate(($deg) + deg) translateY($y);
+  }
+
+  :host-context(.rtl) & {
+    transform: rotate(($deg * -1) + deg) translateY($y);
+  }
+}
+
+/* rtl rotate and translateY mixin */
+@mixin rtl_rotate_and_translateY($deg, $y) {
+  :host-context(.rtl) & {
+    transform: rotate(($deg) + deg) translateY($y);
+  }
+
+  :host-context(.ltr) & {
+    transform: rotate(($deg * -1) + deg) translateY($y);
+  }
+}
+
+/*----------------------------------*/
+/* ltr translateY and rotate mixin */
+@mixin ltr_translateY_and_rotate($y, $deg) {
+  :host-context(.ltr) & {
+    transform: translateY($y) rotate(($deg) + deg);
+  }
+
+  :host-context(.rtl) & {
+    transform: translateY($y) rotate(($deg * -1) + deg);
+  }
+}
+
+/* rtl translateY and rotate mixin */
+@mixin rtl_translateY_and_rotate($y, $deg) {
+  :host-context(.rtl) & {
+    transform: translateY($y) rotate(($deg) + deg);
+  }
+
+  :host-context(.ltr) & {
+    transform: translateY($y) rotate(($deg * -1) + deg);
+  }
+}
+
+//------------------------------------------------------------------------------------------/
+// 8. Rotate & Scale Mixins
+//------------------------------------------------------------------------------------------/
+
+/*-----------------------------*/
+/* ltr rotate and scale mixin */
+@mixin ltr_rotate_and_scale($deg, $w, $h) {
+  :host-context(.ltr) & {
+    transform: rotate(($deg) + deg) scale($w, $h);
+  }
+
+  :host-context(.rtl) & {
+    transform: rotate(($deg * -1) + deg) scale($w, $h);
+  }
+}
+
+/* rtl rotate and scale mixin */
+@mixin rtl_rotate_and_scale($deg, $w, $h) {
+  :host-context(.rtl) & {
+    transform: rotate(($deg) + deg) scale($w, $h);
+  }
+
+  :host-context(.ltr) & {
+    transform: rotate(($deg * -1) + deg) scale($w, $h);
+  }
+}
+
+/*------------------------------*/
+/* ltr rotate and scaleX mixin */
+@mixin ltr_rotate_and_scaleX($deg, $w) {
+  :host-context(.ltr) & {
+    transform: rotate(($deg) + deg) scaleX($w);
+  }
+
+  :host-context(.rtl) & {
+    transform: rotate(($deg * -1) + deg) scaleX($w);
+  }
+}
+
+/* rtl scaleX and rotate mixin */
+@mixin rtl_rotate_and_scaleX($deg, $w) {
+  :host-context(.rtl) & {
+    transform: rotate(($deg) + deg) scaleX($w);
+  }
+
+  :host-context(.ltr) & {
+    transform: rotate(($deg * -1) + deg) scaleX($w);
+  }
+}
+
+/*------------------------------*/
+/* ltr rotate and scaleY mixin */
+@mixin ltr_rotate_and_scaleY($deg, $h) {
+  :host-context(.ltr) & {
+    transform: rotate(($deg) + deg) scaleY($h);
+  }
+
+  :host-context(.rtl) & {
+    transform: rotate(($deg * -1) + deg) scaleY($h);
+  }
+}
+
+/* rtl rotate and scaleY mixin */
+@mixin rtl_rotate_and_scaleY($deg, $h) {
+  :host-context(.rtl) & {
+    transform: rotate(($deg) + deg) scaleY($h);
+  }
+
+  :host-context(.ltr) & {
+    transform: rotate(($deg * -1) + deg) scaleY($h);
+  }
+}
+
+//------------------------------------------------------------------------------------------/
+// 9. Directions Mixins
+//------------------------------------------------------------------------------------------/
+@mixin appDir($ltr_property, $ltr_value, $rtl_property, $rtl_value) {
+  :host-context(.ltr) & {
+    #{$ltr_property}: $ltr_value;
+  }
+
+  :host-context(.rtl) & {
+    #{$rtl_property}: $rtl_value;
+  }
+}

@@ -1,0 +1,169 @@
+/*------------------------------------------------------------------------------------------*/
+/* 5.01 Typography */
+/*------------------------------------------------------------------------------------------*/
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  font-size: 12px;
+}
+
+p {
+  color: lighten($color-three, 40);
+}
+
+// Blockquotes
+blockquote {
+  position: relative;
+  z-index: 1;
+  @include appDir(padding-left, 100px, padding-right, 100px);
+  margin: 40px 0;
+
+  @media #{$max_767} {
+    font-style: italic;
+    @include appDir(padding-left, 0, padding-right, 0);
+    margin: 20px 0;
+  }
+
+  &:after {
+    content: "\f10d";
+    position: absolute;
+    z-index: 0;
+    top: 6px;
+    @include appDir(left, 16px, right, 16px);
+    width: 40px;
+    height: 100%;
+    color: rgba(lighten($color-three, 40), 0.2);
+    font-size: 60px;
+    font-family: "FontAwesome";
+
+    @media #{$max_767} {
+      display: none;
+    }
+  }
+
+  p {
+    font-size: 25px;
+    line-height: 1.5;
+
+    @media #{$max_767} {
+      color: lighten($color-three, 30);
+      font-size: 18px;
+    }
+  }
+}
+
+// Columns
+.columns {
+  .col-span-all {
+    column-span: all;
+  }
+
+  .col {
+    column-gap: 30px;
+
+    &.col-5 {
+      column-count: 5;
+    }
+
+    &.col-4 {
+      column-count: 4;
+    }
+
+    &.col-3 {
+      column-count: 3;
+    }
+
+    &.col-2 {
+      column-count: 2;
+    }
+
+    &.col-1 {
+      column-count: 1;
+    }
+
+    @media #{$max_767} {
+      column-count: 1 !important;
+    }
+  }
+
+  p {
+    margin-top: 0;
+  }
+}
+
+// Drop Caps & Highlight
+.dropcaps {
+  @include appDir(float, left, float, right);
+  display: inline-block;
+  text-align: center;
+  font-weight: 500;
+  @include appDir(margin-right, 10px, margin-left, 10px);
+
+  &:not(.square):not(.circle) {
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    color: $color-one;
+    font-size: 36px;
+    margin-top: 5px;
+  }
+
+  &.square,
+  &.circle {
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    background-color: $color-one;
+    color: #fff;
+    font-size: 1.5em;
+  }
+
+  &.circle {
+    border-radius: 50%;
+  }
+}
+
+.highlight {
+  color: #fff;
+
+  &.color-one {
+    background-color: $color-one;
+  }
+
+  &.color-two {
+    background-color: $color-two;
+  }
+
+  &.color-three {
+    background-color: $color-three;
+  }
+}

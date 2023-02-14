@@ -1,0 +1,29 @@
+@import "../../../../../styles/helpers/variables";
+@import "../../../../../styles/helpers/mixins";
+@import "../../../../../styles/components/components";
+
+.content {
+  .the-main-box {
+    .box {
+      .box-content {
+        .card-number {
+          position: relative;
+
+          input {
+            @include appDir(padding-right, 60px, padding-left, 60px);
+          }
+
+          img {
+            display: block;
+            position: absolute;
+            top: 50%;
+            @include translateY(-50%);
+            height: 32px;
+            width: 32px;
+            @include appDir(right, 18px, left, 18px);
+          }
+        }
+      }
+    }
+  }
+}

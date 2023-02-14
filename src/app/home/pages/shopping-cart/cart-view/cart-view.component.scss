@@ -1,0 +1,331 @@
+@import "../../../../../styles/helpers/variables";
+@import "../../../../../styles/helpers/mixins";
+@import "../../../../../styles/components/components";
+
+.cart {
+  @media #{$min_768} {
+    @include flexbox(flex, "", start, "", "", "");
+  }
+
+  .main-box,
+  .side-box {
+    background-color: #fff;
+    border-radius: $borderRadius;
+    box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+    overflow: hidden;
+
+    @media #{$max_767} {
+      width: 90%;
+      margin: {
+        left: auto;
+        right: auto;
+      }
+    }
+
+    .box-header {
+      @include flexbox(flex, "", center, "", "", "");
+      width: 100%;
+      color: $color-three;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      border-bottom: 1px solid $borderColor;
+
+      li {
+        width: 100%;
+        padding: 20px;
+        @include appDir(text-transform, capitalize, text-transform, unset);
+      }
+    }
+
+    .box-footer {
+      @include flexbox(flex, "", center, "", "", "");
+      width: 100%;
+      border-top: 1px solid $borderColor;
+
+      li {
+        @include appDir(text-transform, capitalize, text-transform, unset);
+
+        &:only-child {
+          width: 100%;
+        }
+
+        &:not(:only-child) {
+          width: 50%;
+        }
+
+        &:not(:last-of-type) {
+          a {
+            border-style: solid;
+            border-color: $borderColor;
+            @include appDir(border-width, 0 1px 0 0, border-width, 0 0 0 1px);
+          }
+        }
+
+        a {
+          display: block;
+          color: $color-three;
+          text-align: center;
+          font-weight: bold;
+          padding: 20px;
+
+          &:hover {
+            background-color: $color-one;
+            color: #fff;
+            border-color: $color-one;
+          }
+        }
+
+        &.step-back {
+          a {
+            &:before {
+              font-family: FontAwesome;
+              @include appDir(content, "\f104", content, "\f105");
+              @include appDir(margin-right, 8px, margin-left, 8px);
+            }
+          }
+        }
+
+        &.step-forward {
+          a {
+            &:after {
+              font-family: FontAwesome;
+              @include appDir(content, "\f105", content, "\f104");
+              @include appDir(margin-left, 8px, margin-right, 8px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main-box {
+    &:only-of-type {
+      @media #{$min_768} {
+        width: 100%;
+      }
+    }
+
+    @media #{$min_1200} {
+      &:not(:only-of-type) {
+        width: calc(100% - 340px);
+      }
+    }
+
+    @media #{$min_768} and #{$max_1199} {
+      &:not(:only-of-type) {
+        width: calc(100% - 290px);
+      }
+    }
+
+    .cart-items {
+      li {
+        @include flexbox(flex, "", center, center, "", "");
+        min-height: 100px;
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid $borderColor;
+        }
+
+        @media #{$max_991} {
+          @include flexbox("", "", "", "", "", wrap);
+        }
+
+        @media #{$min_1200} {
+          padding: 20px 40px;
+        }
+
+        @media #{$max_1199} {
+          padding: 20px;
+        }
+
+        > div {
+          @include flexbox(flex, "", center, "", "", "");
+        }
+
+        .img-and-name {
+          flex-grow: 1;
+
+          .item-img {
+            @media #{$min_768} {
+              width: 125px;
+            }
+
+            @media #{$max_767} {
+              width: 70px;
+            }
+
+            a {
+              display: block;
+              width: fit-content;
+              margin: auto;
+
+              img {
+                display: block;
+                max-width: 100%;
+                max-height: 80px;
+                object-fit: contain;
+              }
+            }
+          }
+
+          .item-name {
+            @include appDir(margin-left, 40px, margin-right, 40px);
+            width: 100%;
+
+            @media #{$min_992} {
+              @include appDir(margin-left, 40px, margin-right, 40px);
+            }
+
+            @media #{$max_991} {
+              @include appDir(margin-left, 25px, margin-right, 25px);
+            }
+
+            .name {
+              font-size: 16px;
+              margin: 0;
+
+              a:hover {
+                color: $color-one;
+              }
+            }
+          }
+        }
+
+        .other-fields {
+          @media #{$max_991} {
+            width: 100%;
+            margin-top: 25px;
+          }
+
+          > div {
+            @include flexbox(flex, "", center, center, "", "");
+
+            &:not(:last-of-type) {
+              min-width: 70px;
+            }
+
+            @media #{$min_992} {
+              &:not(:first-of-type) {
+                @include appDir(margin-left, 40px, margin-right, 40px);
+              }
+            }
+
+            @media #{$max_991} {
+              &:not(:first-of-type) {
+                @include appDir(margin-left, 14px, margin-right, 14px);
+              }
+            }
+          }
+
+          .price {
+            @media #{$max_991} {
+              @include flexbox("", "", "", start, "", "");
+              flex-grow: 1;
+            }
+
+            @media (min-width: 350px) and #{$max_991} {
+              @include appDir(padding-left, 12px, padding-right, 12px);
+            }
+          }
+
+          .qty {
+            ::ng-deep .custom-number {
+              width: 100px;
+
+              @media #{$max_991} {
+                height: 42px;
+              }
+            }
+          }
+
+          .subtotal {
+            @media #{$max_767} {
+              display: none;
+            }
+          }
+
+          .icons {
+            > .icon-btn {
+              &:not(:last-of-type) {
+                @include appDir(margin-right, 12px, margin-left, 12px);
+              }
+
+              &:hover {
+                color: $color-three;
+              }
+            }
+          }
+        }
+
+        &.no-items-msg {
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .side-box {
+    position: sticky;
+    top: 95px;
+
+    @media #{$min_1200} {
+      width: 300px;
+    }
+
+    @media #{$min_768} and #{$max_1199} {
+      width: 250px;
+    }
+
+    @media #{$min_768} {
+      @include appDir(margin-left, 40px, margin-right, 40px);
+    }
+
+    @media #{$max_767} {
+      margin-top: 40px;
+    }
+
+    .side-box-content {
+      @media #{$min_1200} {
+        padding: 20px 40px;
+      }
+
+      @media #{$max_1199} {
+        padding: 20px;
+      }
+
+      .content:not(:last-child) {
+        margin-bottom: 30px;
+      }
+
+      .summary {
+        width: 100%;
+        margin: {
+          top: -8px;
+          bottom: -8px;
+        }
+        border-collapse: collapse;
+
+        tr {
+          th {
+            @include appDir(text-align, left, text-align, right);
+            padding: {
+              top: 8px;
+              bottom: 8px;
+            }
+            white-space: nowrap;
+
+            &:first-of-type {
+              color: $color-three;
+            }
+
+            &:last-of-type {
+              @include appDir(padding-left, 8px, padding-right, 8px);
+            }
+          }
+        }
+      }
+    }
+  }
+}

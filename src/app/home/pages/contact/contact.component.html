@@ -1,0 +1,120 @@
+<div class="section">
+  <!-- page title and breadcrumbs -->
+  <app-title-and-breadcrumbs></app-title-and-breadcrumbs>
+
+  <div class="section-content">
+    <div class="container">
+      <div class="contact-us">
+
+        <!-- contact info -->
+        <div class="contact-info" @fadeInUpStaggerEnter>
+          <div class="item fadeInUpStagger">
+            <div class="item-icon">
+              <img src="../../../../assets/images/icons/contact-info/address.png" alt="address">
+            </div>
+            <div class="item-details">
+              <h3 class="title">{{ 'contact-us-page.contact-info.address-title' | translate }}</h3>
+              <p>{{ 'contact-us-page.contact-info.address-details' | translate }}</p>
+            </div>
+          </div>
+          <div class="item fadeInUpStagger">
+            <div class="item-icon">
+              <img src="../../../../assets/images/icons/contact-info/telephone.png" alt="telephone">
+            </div>
+            <div class="item-details">
+              <h3 class="title">{{ 'contact-us-page.contact-info.telephone-title' | translate }}</h3>
+              <p class="ltr-dir">{{ 'contact-us-page.contact-info.phone' | translate }}</p>
+              <p class="ltr-dir">{{ 'contact-us-page.contact-info.fax' | translate }}</p>
+            </div>
+          </div>
+          <div class="item fadeInUpStagger">
+            <div class="item-icon">
+              <img src="../../../../assets/images/icons/contact-info/email.png" alt="email">
+            </div>
+            <div class="item-details">
+              <h3 class="title">{{ 'contact-us-page.contact-info.email-title' | translate }}</h3>
+              <p>{{ 'contact-us-page.contact-info.email-details' | translate }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- loading animation -->
+        <div class="loading" *ngIf="!contactForm">
+          <span class="spinner"></span>
+        </div>
+
+        <!-- contact form -->
+        <form class="contact-form form-styled"
+        *ngIf="contactForm" [formGroup]="contactForm"
+        (ngSubmit)="sendMessage(contactForm)" @fadeInUp>
+          <div class="box-title">
+            <img src="../../../../assets/images/icons/paper-plane.png" alt="contact-us">
+            <h3 class="title">{{ 'contact-us-page.contact-form.title' | translate }}</h3>
+          </div>
+          <div class="small-fields">
+            <div class="form-group">
+              <label for="full-name">{{ 'contact-us-page.contact-form.full-name-label' | translate }}</label>
+              <div class="form-control">
+                <input formControlName="fullName"
+                  id="full-name"
+                  type="text"
+                  [placeholder]="'contact-us-page.contact-form.full-name-placeholder' | translate">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">{{ 'contact-us-page.contact-form.email-label' | translate }}</label>
+              <div class="form-control">
+                <input formControlName="email"
+                  id="email"
+                  type="email"
+                  [placeholder]="'contact-us-page.contact-form.email-placeholder' | translate">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone-number">
+                {{ 'contact-us-page.contact-form.phone-label' | translate }}
+                <span class="optional">({{ 'contact-us-page.contact-form.optional' | translate }})</span>
+              </label>
+              <div class="form-control phone-number">
+                <input formControlName="phoneNumber"
+                  id="phone-number"
+                  type="text"
+                  [placeholder]="'contact-us-page.contact-form.phone-placeholder' | translate">
+                <div class="country-dial" *ngIf="userSer.userInfo?.country || userCountry">
+                  <img class="icon" [src]="userSer.userInfo?.country?.icon ? userSer.userInfo?.country?.icon : $any(userCountry)?.flag">
+                  <span class="dial-code">{{ userSer.userInfo?.country?.dial ? userSer.userInfo?.country?.dial : userCountry?.dial }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject">{{ 'contact-us-page.contact-form.subject-label' | translate }}</label>
+              <div class="form-control">
+                <app-select-menu
+                  [modelLabel]="'contact-us-page.contact-form.subject-placeholder' | translate"
+                  [options]="subjectTypes"
+                  (selectChange)="subjectChanged($event)">
+                </app-select-menu>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">{{ 'contact-us-page.contact-form.message-label' | translate }}</label>
+            <div class="form-control">
+              <textarea formControlName="message" id="message"
+              placeholder="{{ 'contact-us-page.contact-form.message-placeholder-part1' | translate }} {{ messageMinLength }} {{ 'contact-us-page.contact-form.message-placeholder-part2' | translate }}"
+              [appCharRemaining]="charCountView"></textarea>
+            </div>
+            <div class="char-count">
+              <span #charCountView>0</span> / <span>{{ messageMinLength }}</span>
+            </div>
+          </div>
+          <div class="buttons-container">
+            <button class="rounded-btn color-one solid shadow" type="submit" [disabled]="contactForm.invalid">
+              <i class="fa fa-send" aria-hidden="true"></i>{{ 'contact-us-page.contact-form.submit-btn' | translate }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

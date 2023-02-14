@@ -1,0 +1,90 @@
+<div class="content" @fadeInUpStaggerEnter>
+
+  <!-- user card -->
+  <div class="the-main-box fadeInUpStagger">
+    <section class="box">
+      <div class="user-card">
+        <div class="user-img">
+          <img *ngIf="thisUser?.profilePicture?.url"
+            [src]="thisUser?.profilePicture?.url"
+            [alt]="thisUser?.userName"
+            [appFixOrientation]="thisUser?.profilePicture?.exifOrientation"
+          >
+          <img *ngIf="!thisUser?.profilePicture?.url"
+            src="../../../assets/images/icons/user/user-avatar.png"
+            [alt]="thisUser?.userName"
+          >
+          <div class="admin-badge" *ngIf="thisUser?.isAdmin">
+            <img src="../../../assets/images/icons/admin/admin-badge.png"
+              alt="admin-badge"
+              [attr.title]="'user-page.admin' | translate"
+            >
+          </div>
+        </div>
+        <div class="card-text">
+          <h3 class="user-name">{{ thisUser?.displayName }}</h3>
+          <strong class="registration-date">
+            <span>{{ 'user-page.date' | translate }}</span>
+            {{ thisUser?.registrationDate }}
+          </strong>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- user data -->
+  <div class="the-main-box fadeInUpStagger">
+    <section class="box info-table">
+      <div class="box-content">
+
+        <!-- loading spinner -->
+        <table class="loading" *ngIf="!thisUser">
+          <span class="spinner"></span>
+        </table>
+
+        <!-- user data -->
+        <table class="user" *ngIf="thisUser" @fadeInUpStaggerEnter>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'user-page.name' | translate }}</th>
+            <td>{{ thisUser?.displayName }}</td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'user-page.email' | translate }}</th>
+            <td *ngIf="thisUser?.email">
+              {{ thisUser?.email }}
+            </td>
+            <td *ngIf="!thisUser?.email">
+              <span class="infinity"></span>
+            </td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'user-page.registration-date' | translate }}</th>
+            <td>{{ thisUser?.registrationDate }}</td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'user-page.country' | translate }}</th>
+            <td class="country" *ngIf="thisUser?.country">
+              <img [src]="thisUser?.country?.icon" [alt]="thisUser?.country?.label">
+              <span>{{ thisUser?.country?.label }}</span>
+            </td>
+            <td *ngIf="!thisUser?.country"><span class="infinity"></span></td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'user-page.birth-date' | translate }}</th>
+            <td *ngIf="thisUser?.birthDate">{{ thisUser?.birthDate?.day }}/{{ thisUser?.birthDate?.month }}/{{ thisUser?.birthDate?.year }}</td>
+            <td *ngIf="!thisUser?.birthDate"><span class="infinity"></span></td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'user-page.gender' | translate }}</th>
+            <td *ngIf="thisUser?.gender">{{ thisUser?.gender }}</td>
+            <td *ngIf="!thisUser?.gender"><span class="infinity"></span></td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'user-page.register-by' | translate }}</th>
+            <td>{{ thisUser?.providerId }}</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>

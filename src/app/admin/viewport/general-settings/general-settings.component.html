@@ -1,0 +1,178 @@
+<div class="content" @fadeInUpStaggerEnter>
+  <form class="the-main-box form-styled fadeInUpStagger"
+    *ngIf="generalSettingsForm"
+    [formGroup]="generalSettingsForm"
+    (ngSubmit)="updateGeneralSettings(generalSettingsForm, 'generalSettingsForm')">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/admin/general-settings.png" alt="general-settings">
+          <h3 class="title">
+            {{ 'general-settings-page.general-settings-form.box-title' | translate }}
+          </h3>
+        </div>
+        <div class="small-fields">
+          <div class="form-group">
+            <label>{{ 'general-settings-page.general-settings-form.shop-goods-limit' | translate }}</label>
+            <div class="form-control">
+              <app-select-menu
+                [modelLabel]="shopGoodsLimit?.value ? shopGoodsLimit?.value : 'general-settings-page.general-settings-form.select-time-zone' | translate"
+                [options]="shopGoodsLimits"
+                (selectChange)="shopGoodsLimitChanged($event)">
+              </app-select-menu>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.general-settings-form.shipping-cost' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="shippingCost?.value" (valueChange)="updateValue(generalSettingsForm, 'shippingCost', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.general-settings-form.return-period' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="returnPeriod?.value" (valueChange)="updateValue(generalSettingsForm, 'returnPeriod', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.general-settings-form.time-zone' | translate }}</label>
+            <div class="form-control">
+              <app-select-menu
+                [modelLabel]="timeZone?.value?.name ? timeZone?.value?.name : 'Select...'"
+                [options]="timeZones"
+                (selectChange)="timeZoneChanged($event)">
+              </app-select-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="buttons-container" *ngIf="generalSettingsFormChanged" @slideToggle>
+      <button type="submit" class="rounded-btn color-one solid reverse shadow" [disabled]="generalSettingsForm.invalid">
+        {{ 'general-settings-page.save-changes' | translate }}
+      </button>
+    </div>
+  </form>
+  <form class="the-main-box form-styled fadeInUpStagger"
+    *ngIf="adminDashboardSettingsForm"
+    [formGroup]="adminDashboardSettingsForm"
+    (ngSubmit)="updateGeneralSettings(adminDashboardSettingsForm, 'adminDashboardSettingsForm')">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/admin/admin-dashboard.png" alt="admin-dashboard">
+          <h3 class="title">
+            {{ 'general-settings-page.admin-settings-form.box-title' | translate }}
+          </h3>
+        </div>
+        <div class="small-fields">
+          <div class="form-group">
+            <label>{{ 'general-settings-page.admin-settings-form.requests-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="requestsLimit?.value" (valueChange)="updateValue(adminDashboardSettingsForm, 'requestsLimit', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.admin-settings-form.returns-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="returnsLimit?.value" (valueChange)="updateValue(adminDashboardSettingsForm, 'returnsLimit', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.admin-settings-form.categories-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="categoriesLimit?.value" (valueChange)="updateValue(adminDashboardSettingsForm, 'categoriesLimit', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.admin-settings-form.goods-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="goodsLimit?.value" (valueChange)="updateValue(adminDashboardSettingsForm, 'goodsLimit', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.admin-settings-form.users-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="usersLimit?.value" (valueChange)="updateValue(adminDashboardSettingsForm, 'usersLimit', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.admin-settings-form.coupons-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="couponsLimit?.value" (valueChange)="updateValue(adminDashboardSettingsForm, 'couponsLimit', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.admin-settings-form.messages-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="messagesLimit?.value" (valueChange)="updateValue(adminDashboardSettingsForm, 'messagesLimit', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.admin-settings-form.blacklist-emails-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="blackListEmailsLimit?.value" (valueChange)="updateValue(adminDashboardSettingsForm, 'blackListEmailsLimit', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.admin-settings-form.newsletter-emails-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="newsletterEmailsLimit?.value" (valueChange)="updateValue(adminDashboardSettingsForm, 'newsletterEmailsLimit', $event)"></app-input-number>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="buttons-container" *ngIf="adminDashboardSettingsFormChanged" @slideToggle>
+      <button type="submit" class="rounded-btn color-one solid reverse shadow" [disabled]="adminDashboardSettingsForm.invalid">
+        {{ 'general-settings-page.save-changes' | translate }}
+      </button>
+    </div>
+  </form>
+  <form class="the-main-box form-styled fadeInUpStagger"
+    *ngIf="userDashboardSettingsForm"
+    [formGroup]="userDashboardSettingsForm"
+    (ngSubmit)="updateGeneralSettings(userDashboardSettingsForm, 'userDashboardSettingsForm')">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/user/profile-user.png" alt="user-dashboard">
+          <h3 class="title">
+            {{ 'general-settings-page.user-settings-form.box-title' | translate }}
+          </h3>
+        </div>
+        <div class="small-fields">
+          <div class="form-group">
+            <label>{{ 'general-settings-page.user-settings-form.orders-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="ordersLimit?.value" (valueChange)="updateValue(userDashboardSettingsForm, 'ordersLimit', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.user-settings-form.addresses-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="addressesLimit?.value" (valueChange)="updateValue(userDashboardSettingsForm, 'addressesLimit', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.user-settings-form.payment-methods-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="paymentMethodsLimit?.value" (valueChange)="updateValue(userDashboardSettingsForm, 'paymentMethodsLimit', $event)"></app-input-number>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>{{ 'general-settings-page.user-settings-form.returned-goods-limit' | translate }}</label>
+            <div class="form-control">
+              <app-input-number [value]="returnedGoodsLimit?.value" (valueChange)="updateValue(userDashboardSettingsForm, 'returnedGoodsLimit', $event)"></app-input-number>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="buttons-container" *ngIf="userDashboardSettingsFormChanged" @slideToggle>
+      <button type="submit" class="rounded-btn color-one solid reverse shadow" [disabled]="userDashboardSettingsForm.invalid">
+        {{ 'general-settings-page.save-changes' | translate }}
+      </button>
+    </div>
+  </form>
+</div>

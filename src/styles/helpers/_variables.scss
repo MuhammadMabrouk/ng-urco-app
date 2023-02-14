@@ -1,0 +1,67 @@
+//------------------------------------------------------------------------------------------/
+// Variables
+//------------------------------------------------------------------------------------------/
+
+
+//*********************************
+//**         Color Codes         **
+//*********************************
+
+$color-one: #7571f9;
+$color-two: #ff5e5e;
+$color-three: #3b424e;
+$color-four: #8493aa;
+
+$primary-color-one: #fa5f7d;
+$primary-color-two: #58c9e9;
+$primary-color-three: #fe9055;
+$primary-color-four: #50d684;
+$primary-color-five: #ea55fe;
+
+$success-color: #00b894;
+$danger-color: #df6171;
+$warning-color: #fd9d15;
+$info-color: #0984e3;
+$extra-color: #9C27B0;
+
+$backgroundColor: mix($color-four, #fff, 10%);
+$backgroundColor-darker: mix($color-four, #fff, 28%);
+
+$borderColor: mix($color-four, #fff, 10%);
+$borderRadius: 14px;
+
+$insetShadow: inset 0 2px 4px hsla(0, 0%, 0%, 0.08);
+$insetShadow-darker: inset 0 2px 4px hsla(0, 0%, 0%, 0.2);
+
+
+//*********************************
+//**         Media Sizes         **
+//*********************************
+
+// 1. Extra Large Screen
+$min_1400: "(min-width: 1400px)";
+
+// 2. Large Screen
+$min_1200_max_1399: "(min-width: 1200px) and (max-width: 1399px)";
+$min_1200: "(min-width: 1200px)";
+
+// 3. Medium Screen
+$min_992_max_1199: "(min-width: 992px) and (max-width: 1199px)";
+$max_1199: "(max-width: 1199px)";
+
+// 4. Small Screen
+$min_992: "(min-width: 992px)";
+$max_991: "(max-width: 991px)";
+
+// 5. Extra Small Screen
+$min_768: "(min-width: 768px)";
+$max_767: "(max-width: 767px)";
+
+// 6. Screen Width 600px
+$max_600: "(max-width: 600px)";
+
+// 7. Screen Width 450px
+$max_450: "(max-width: 450px)";
+
+// 8. Screen Width 350px
+$max_350: "(max-width: 350px)";

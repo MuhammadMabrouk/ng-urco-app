@@ -1,0 +1,9 @@
+<div class="content-goes-here">
+  <!-- page title and breadcrumbs -->
+  <app-user-dashboard-sidebar></app-user-dashboard-sidebar>
+
+  <!-- view page content -->
+  <div class="view-content" [@routingFadeInUp]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+</div>

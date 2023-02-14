@@ -1,0 +1,120 @@
+<div class="content" @fadeInUpStaggerEnter>
+  <div class="the-main-box fadeInUpStagger">
+    <form class="form-styled" *ngIf="addressesForm" [formGroup]="addressesForm" (ngSubmit)="saveNewAddress(addressesForm)">
+      <section class="box">
+        <div class="box-content">
+          <div class="box-title">
+            <img src="../../../../assets/images/icons/map-pin.png" alt="map-pin">
+            <h3 class="title">{{ 'add-address-page.box-title' | translate }}</h3>
+          </div>
+          <div class="form-group">
+            <label for="address">{{ 'add-address-page.address-label' | translate }}</label>
+            <div class="form-control">
+              <input formControlName="address"
+                id="address"
+                type="text"
+                [placeholder]="'add-address-page.address-placeholder' | translate">
+            </div>
+          </div>
+          <div class="small-fields">
+            <div class="form-group">
+              <label for="region">{{ 'add-address-page.region-label' | translate }}</label>
+              <div class="form-control">
+                <input formControlName="region"
+                  id="region"
+                  type="text"
+                  [placeholder]="'add-address-page.region-placeholder' | translate">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="city">{{ 'add-address-page.city-label' | translate }}</label>
+              <div class="form-control">
+                <input formControlName="city"
+                  id="city"
+                  type="text"
+                  [placeholder]="'add-address-page.city-placeholder' | translate">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="street">{{ 'add-address-page.street-label' | translate }}</label>
+              <div class="form-control">
+                <input formControlName="street"
+                  id="street"
+                  type="text"
+                  [placeholder]="'add-address-page.street-placeholder' | translate">
+              </div>
+            </div>
+            <div class="form-group small-fields">
+              <div class="form-group">
+                <label for="building">{{ 'add-address-page.building-label' | translate }}</label>
+                <div class="form-control">
+                  <input formControlName="building"
+                    id="building"
+                    type="text"
+                    [placeholder]="'add-address-page.building-placeholder' | translate">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="floor">{{ 'add-address-page.floor-label' | translate }}</label>
+                <div class="form-control">
+                  <input formControlName="floor"
+                    id="floor"
+                    type="text"
+                    [placeholder]="'add-address-page.floor-placeholder' | translate">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address-title">{{ 'add-address-page.address-title-label' | translate }}</label>
+              <div class="form-control">
+                <input formControlName="addressTitle"
+                  id="address-title"
+                  type="text"
+                  [placeholder]="'add-address-page.address-title-placeholder' | translate">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address-phone-number">{{ 'add-address-page.address-phone-number-label' | translate }}</label>
+              <div class="form-control phone-number">
+                <input formControlName="phoneNumber"
+                  id="address-phone-number"
+                  type="text"
+                  [placeholder]="'add-address-page.address-phone-number-placeholder' | translate">
+                <div class="country-dial" *ngIf="userSer.userInfo?.country || userCountry">
+                  <img class="icon" [src]="userSer.userInfo?.country?.icon ? userSer.userInfo?.country?.icon : userCountry?.icon">
+                  <span class="dial-code">{{ userSer.userInfo?.country?.dial ? userSer.userInfo?.country?.dial : userCountry.dial }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="additional-info">
+              {{ 'add-address-page.additional-info-label' | translate }}
+              <i class="optional">({{ 'add-address-page.optional' | translate }})</i>
+            </label>
+            <div class="form-control">
+              <textarea formControlName="additionalInfo"
+                id="additional-info"
+                type="text"
+                rows="3"
+                [placeholder]="'add-address-page.additional-info-placeholder' | translate"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="buttons-container small-fields">
+        <div class="form-group">
+          <button type="reset" class="rounded-btn white-one solid reverse shadow" (click)="redirectToParent()">
+            {{ 'add-address-page.cancel' | translate }}
+          </button>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="rounded-btn color-one solid reverse shadow" [disabled]="addressesForm.invalid">
+            {{ 'add-address-page.save-new-address' | translate }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

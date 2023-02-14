@@ -1,0 +1,76 @@
+@import "../../../styles/helpers/variables";
+@import "../../../styles/helpers/mixins";
+@import "../../../styles/components/components";
+
+.dashboard {
+  .main-boxes {
+    @include flexbox(flex, "", "", "", "", wrap);
+    margin: 0 -12px -30px;
+
+    @media #{$max_767} {
+      width: 90%;
+      margin: {
+        left: auto;
+        right: auto;
+      };
+    }
+
+    li {
+      width: calc(25% - 24px);
+      margin: 0 12px 30px;
+
+      @media #{$min_768} and #{$max_991} {
+        width: calc((100% / 3) - 24px);
+      }
+
+      @media #{$max_767} {
+        width: calc(50% - 24px);
+      }
+
+      @media #{$max_450} {
+        width: 100%;
+      }
+
+      a {
+        @include flexbox(flex, "", center, center, "", wrap);
+        height: 100%;
+        background-color: #fff;
+        text-align: center;
+        padding: 30px 40px;
+        border-radius: $borderRadius;
+        box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+        overflow: hidden;
+
+        .box-img {
+          width: 100%;
+
+          img {
+            display: block;
+            width: 32px;
+            height: 32px;
+            margin: {
+              left: auto;
+              right: auto;
+            };
+          }
+        }
+
+        .box-title {
+          width: 100%;
+          font-size: 16px;
+          line-height: 1.6;
+          margin: 16px 0 0;
+          @include transition(0.3s);
+        }
+
+        &:hover {
+          @include translateY(-6px);
+
+          .box-title {
+            color: $color-one;
+          }
+        }
+      }
+    }
+  }
+}

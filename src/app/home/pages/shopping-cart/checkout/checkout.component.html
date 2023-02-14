@@ -1,0 +1,241 @@
+<div class="checkout">
+
+  <!-- main area -->
+  <div class="main-area" @fadeInUpStaggerEnter>
+
+    <!-- shipping address -->
+    <div class="box fadeInUpStagger">
+      <ul class="box-header">
+        <li>{{ 'checkout-page.main-area.address-box.header.shipping-address' | translate }}</li>
+      </ul>
+
+      <div class="box-content form-styled">
+        <div class="form-group" *ngIf="addresses?.length; else noItemsMsg">
+          <label>{{ 'checkout-page.main-area.address-box.select-address' | translate }}</label>
+          <div class="form-control">
+            <app-select-menu
+              [modelLabel]="addresses?.length ? addresses[0].label : 'checkout-page.main-area.address-box.shipping-address' | translate"
+              [options]="addresses"
+              (selectChange)="shippingAddressChanged($event)">
+            </app-select-menu>
+          </div>
+        </div>
+        <ng-template #noItemsMsg>
+          <div class="no-items-msg">
+            <h4 class="title">{{ 'checkout-page.main-area.address-box.no-address-msg.title' | translate }}</h4>
+            <p>{{ 'checkout-page.main-area.address-box.no-address-msg.text' | translate }}</p>
+          </div>
+        </ng-template>
+      </div>
+
+      <ul class="box-footer">
+        <li class="step-back" *ngIf="addresses?.length">
+          <a routerLink="/user-dashboard/user/addresses/index">
+            {{ 'checkout-page.main-area.address-box.footer.edit-addresses' | translate }}
+          </a>
+        </li>
+        <li *ngIf="!addresses?.length">
+          <a routerLink="/user-dashboard/user/addresses/add">
+            {{ 'checkout-page.main-area.address-box.footer.new-address' | translate }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- payment method -->
+    <div class="box fadeInUpStagger">
+      <ul class="box-header">
+        <li>{{ 'checkout-page.main-area.payment-box.header.payment-method' | translate }}</li>
+      </ul>
+
+      <div class="box-content">
+        <ul class="payment-tabs">
+          <li class="active" (click)="paymentMethodsTabs($event, creditCard)">
+            <img src="../../../assets/images/icons/checkout/credit-card.png" alt="credit-card">
+            <span class="title">
+              {{ 'checkout-page.main-area.payment-box.payment-tabs.credit-card' | translate }}
+            </span>
+          </li>
+          <li (click)="paymentMethodsTabs($event, paypal)">
+            <img src="../../../assets/images/icons/checkout/paypal.png" alt="paypal">
+            <span class="title">
+              {{ 'checkout-page.main-area.payment-box.payment-tabs.paypal' | translate }}
+            </span>
+          </li>
+          <li (click)="paymentMethodsTabs($event, cashOnDelivery)">
+            <img src="../../../assets/images/icons/checkout/cash-on-delivery.png" alt="cash-on-delivery">
+            <span class="title">
+              {{ 'checkout-page.main-area.payment-box.payment-tabs.cash' | translate }}
+            </span>
+          </li>
+        </ul>
+
+        <div class="payment-method">
+          <!-- credit card -->
+          <div #creditCard class="card-form content">
+            <div class="credit-cards-select-menu form-styled"
+              [attr.data-or]="'checkout-page.main-area.payment-box.payment-methods.saved-credit-card.or' | translate"
+              *ngIf="paymentMethods?.length">
+              <div class="form-group">
+                <label>{{ 'checkout-page.main-area.payment-box.payment-methods.saved-credit-card.select-label' | translate }}</label>
+                <div class="form-control">
+                  <app-select-menu
+                    [modelLabel]="'checkout-page.main-area.payment-box.payment-methods.saved-credit-card.select-placeholder' | translate"
+                    [ltrOnly]="true"
+                    [options]="paymentMethods"
+                    (selectChange)="selectCardChanged($event)">
+                  </app-select-menu>
+                </div>
+              </div>
+            </div>
+            <form class="form-styled"
+              *ngIf="creditCardForm"
+              [formGroup]="creditCardForm"
+              (ngSubmit)="payByCreditCard(creditCardForm)"
+              novalidate>
+              <div class="form-group">
+                <label for="cardNumber">
+                  {{ 'checkout-page.main-area.payment-box.payment-methods.new-credit-card.card-number-label' | translate }}
+                </label>
+                <div class="form-control card-number">
+                  <input formControlName="cardNumber"
+                    id="cardNumber"
+                    [class.ltr-dir]="cardNumber?.value"
+                    type="tel"
+                    [placeholder]="'checkout-page.main-area.payment-box.payment-methods.new-credit-card.card-number-placeholder' | translate"
+                    autocomplete="cc-number"
+                    ccNumber>
+                  <img [src]="typeImgPath"
+                    [alt]="'checkout-page.main-area.payment-box.payment-methods.new-credit-card.card-type' | translate"
+                    *ngIf="cardType">
+                </div>
+              </div>
+              <div class="small-fields">
+                  <div class="form-group">
+                    <label for="ExpDate">
+                      {{ 'checkout-page.main-area.payment-box.payment-methods.new-credit-card.exp-date-label' | translate }}
+                    </label>
+                    <div class="form-control">
+                      <input formControlName="ExpDate"
+                        id="ExpDate"
+                        class="ltr-dir"
+                        type="tel"
+                        [placeholder]="'checkout-page.main-area.payment-box.payment-methods.new-credit-card.exp-date-placeholder' | translate"
+                        autocomplete="cc-exp"
+                        ccExp>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="securityCode" class="ltr-dir">{{ securityCodeName }}</label>
+                    <div class="form-control">
+                      <input formControlName="securityCode"
+                        id="securityCode"
+                        class="ltr-dir"
+                        type="tel"
+                        [placeholder]="securityCodePlaceholder"
+                        autocomplete="off"
+                        ccCvc>
+                    </div>
+                  </div>
+              </div>
+              <div class="buttons-container">
+                <button type="submit" class="rounded-btn color-one solid shadow" [disabled]="creditCardForm.invalid">
+                  {{ 'checkout-page.main-area.payment-box.payment-methods.new-credit-card.confirm-btn' | translate }}
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- paypal -->
+          <div #paypal class="paypal-method content">
+            <h3>{{ 'checkout-page.main-area.payment-box.payment-methods.paypal.title' | translate }}</h3>
+            <p>{{ 'checkout-page.main-area.payment-box.payment-methods.paypal.text' | translate }}</p>
+            <div class="paypal-buttons-container">
+              <div class="paypal-button">
+                <button (click)="payByPayPal()">
+                  <img src="../../../assets/images/icons/checkout/colored-paypal.png" alt="paypal">
+                  <span>{{ 'checkout-page.main-area.payment-box.payment-methods.paypal.checkout-btn' | translate }}</span>
+                </button>
+                <span class="paypal-button-tagline">
+                  {{ 'checkout-page.main-area.payment-box.payment-methods.paypal.checkout-btn-tagline' | translate }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- cash on delivery -->
+          <div #cashOnDelivery class="cash-on-delivery content">
+            <h3>{{ 'checkout-page.main-area.payment-box.payment-methods.cash.title' | translate }}</h3>
+            <p>{{ 'checkout-page.main-area.payment-box.payment-methods.cash.text' | translate }}</p>
+            <button class="rounded-btn color-one solid shadow" (click)="payCash()">
+              {{ 'checkout-page.main-area.payment-box.payment-methods.cash.checkout-btn' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="box-footer">
+        <li class="step-back">
+          <a routerLink="/user-dashboard/user/payments">
+            {{ 'checkout-page.main-area.payment-box.footer.edit-payments' | translate }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- summary side box -->
+  <div class="side-box" @fadeInUp>
+    <ul class="box-header">
+      <li>{{ 'checkout-page.side-box.header.summary' | translate }}</li>
+    </ul>
+
+    <div class="side-box-content">
+      <!-- promotion form -->
+      <form class="promotion-form form-styled content"
+        *ngIf="promotionForm"
+        [formGroup]="promotionForm"
+        (ngSubmit)="applyDiscount(promotionForm)">
+        <div class="form-group">
+          <label for="promo">{{ 'checkout-page.side-box.promotion-form.promo-label' | translate }}</label>
+          <div class="form-control">
+            <input formControlName="promotionCode"
+              id="promo"
+              type="text"
+              [placeholder]="'checkout-page.side-box.promotion-form.promo-placeholder' | translate">
+          </div>
+        </div>
+        <div class="buttons-container">
+          <button type="submit" class="rounded-btn color-one solid reverse shadow" [disabled]="promotionForm.invalid">
+            {{ 'checkout-page.side-box.promotion-form.apply-btn' | translate }}
+          </button>
+        </div>
+      </form>
+
+      <!-- summary -->
+      <table class="summary content">
+        <tr>
+          <th>{{ 'checkout-page.side-box.subtotal' | translate }}</th>
+          <th>{{ subtotal | currencyExchange : currencyExchangeSer?.exchangeRates }}</th>
+        </tr>
+        <tr>
+          <th>{{ 'checkout-page.side-box.promo' | translate }}</th>
+          <th *ngIf="promoType === 'fixed'">{{ promoAmount | currencyExchange : currencyExchangeSer?.exchangeRates }}</th>
+          <th *ngIf="promoType === 'percent'">{{ promoAmount | percent: '2.0-0' }}</th>
+        </tr>
+        <tr>
+          <th>{{ 'checkout-page.side-box.total' | translate }}</th>
+          <th>{{ total | currencyExchange : currencyExchangeSer?.exchangeRates }}</th>
+        </tr>
+      </table>
+    </div>
+
+    <ul class="box-footer">
+      <li class="step-back">
+        <a routerLink="/shopping-cart">
+          {{ 'checkout-page.side-box.footer.edit-shopping-cart' | translate }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

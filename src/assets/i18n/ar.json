@@ -1,0 +1,1173 @@
+{
+  "languages": {
+    "en": "الإنجليزية",
+    "ar": "العربية"
+  },
+  "home-page": {
+    "home": "الرئيسية",
+    "page-title": "أركو - تطبيق أنجولار للتسوق الإلكتروني",
+    "nav": {
+      "logo": "أركو",
+      "search": "ما الذي تبحث عنه",
+      "account": "حسابي",
+      "create-account": "إنشاء حساب",
+      "sign-in": "تسجيل الدخول",
+      "admin-dashboard": "لوحة تحكم المشرف",
+      "user-dashboard": "لوحة تحكم المستخدم",
+      "my-orders": "طلباتي",
+      "logout": "تسجيل خروج"
+    },
+    "side-menu": {
+      "all-categories": "جميع الفئات",
+      "all-products": "جميع المنتجات",
+      "wishlist": "قائمة الأمنيات"
+    },
+    "main-slider": {
+      "details": "تفاصيل",
+      "buy-now": "شراء الآن",
+      "slider-control": {
+        "prev": "السابق",
+        "next": "التالي"
+      }
+    },
+    "collections": {
+      "shop-now": "تسوق الآن"
+    },
+    "new-arrivals": {
+      "section-title": "وصل حديثا",
+      "section-sub-title": "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة"
+    },
+    "featured-goods": {
+      "section-title": "المنتجات المميزة",
+      "section-sub-title": "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة"
+    },
+    "good-element": {
+      "labels": {
+        "new-label": "جديد",
+        "best-label": "الأفضل",
+        "oos-label": "نفدت"
+      },
+      "icons": {
+        "add-to-wishlist": "أضف إلى المفضلة",
+        "add-to-cart": "أضف إلى العربة"
+      }
+    },
+    "offer-panner": {
+      "off": "خصم",
+      "shop-now": "تسوق الآن"
+    },
+    "sign-up-panner": {
+      "title": "انضم إلينا الآن واختر من بين الآلاف من أفضل المنتجات",
+      "sign-up": "سجل الآن"
+    },
+    "contact-us-panner": {
+      "title": "إذا كنت بحاجة إلى أي مساعدة ، لا تتردد في الاتصال بنا على الفور",
+      "contact-us": "اتصل بنا"
+    },
+    "footer": {
+      "about-widget": {
+        "title": "نحن رائعون",
+        "text": "يرجع ذلك إلى الخدمة الممتازة والأسعار التنافسية ودعم العملاء السريع. إنه رائع تمامًا الحصول على مثل هذه الخدمة المميزة."
+      },
+      "links-widget": {
+        "title": "روابط مفيدة",
+        "about-us": "من نحن",
+        "contact-us": "اتصل بنا",
+        "terms&conditions": "الشروط والأحكام",
+        "sign-up": "انشاء حساب",
+        "sign-in": "تسجيل الدخول",
+        "logout": "تسجيل خروج"
+      },
+      "contact-widget": {
+        "title": "معلومات التواصل",
+        "address": "مصر ، القاهرة ، 24 شارع السلام ، 240",
+        "email": "support@urco.com",
+        "phone": "+ 38 (067) 113-00-35",
+        "fax": "+ 39 (068) 114-00-36"
+      },
+      "newsletter-widget": {
+        "title": "النشرة الإخبارية",
+        "text": "اشترك الآن للحصول على آخر الأخبار والتحديثات ومعلومات العرض.",
+        "subscribe": "اشتراك",
+        "email": "البريد الإلكتروني",
+        "enter-your-email": "البريد الإلكتروني"
+      },
+      "copyright": {
+        "app-name": "أركو - تطبيق أنجولار للتسوق الإلكتروني",
+        "text": "2020 أركو مدعوم بكل بفخر من",
+        "webrouk": "ويبروك"
+      }
+    }
+  },
+  "sign-up-page": {
+    "page-title": "انشاء حساب - أركو",
+    "create-account": "انشاء حساب جديد",
+    "sign-up-using-social": "قم بالتسجيل باستخدام الشبكات الاجتماعية",
+    "or": "أو",
+    "sign-up-form": {
+      "first-name-label": "الاسم الأول",
+      "first-name-placeholder": "فلان",
+      "last-name-label": "الاسم الاخير",
+      "last-name-placeholder": "الفلاني",
+      "email-label": "البريد الإلكتروني",
+      "email-placeholder": "e.g. john.doe@gmail.com",
+      "country-label": "البلد",
+      "country-placeholder": "اختر البلد",
+      "password-label": "كلمة المرور",
+      "confirm-password-label": "تأكيد كلمة المرور",
+      "have-read": "لقد قرأت",
+      "terms&conditions": "الشروط والأحكام",
+      "sign-up": "تسجيل"
+    }
+  },
+  "sign-in-page": {
+    "page-title": "تسجيل الدخول - أركو",
+    "sign-in-to-account": "تسجيل الدخول إلى حسابك",
+    "or": "أو",
+    "sign-in-using-social": "تسجيل الدخول باستخدام الشبكات الاجتماعية",
+    "sign-in-form": {
+      "email-label": "البريد الإلكتروني",
+      "email-placeholder": "e.g. john.doe@gmail.com",
+      "password-label": "كلمة المرور",
+      "forgot-password": "نسيت كلمة المرور؟",
+      "create-account": "إنشاء حساب",
+      "sign-in": "تسجيل الدخول"
+    }
+  },
+  "about-page": {
+    "page-title": "من نحن - أركو",
+    "features": {
+      "feature1": "بائعين مُعتَمدين",
+      "feature1-desc": "في رؤيتنا ، لن يتم تقديم هذا المنتج إلا من قبل البائعين المعتمدين",
+      "feature2": "مدفوعات آمنة",
+      "feature2-desc": "نحن نضمن السلامة لكل من التجار والمشترين عبر الإنترنت",
+      "feature3": "توصيل سريع",
+      "feature3-desc": "توصيل سريع للملايين من المنتجات الأكثر مبيعًا والاحتياجات اليومية"
+    },
+    "main-area": {
+      "title1": "تاريخ الشركة",
+      "text-block1": "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق. إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع. ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق. هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً.",
+      "title2": "هدفنا وفكرتنا",
+      "text-block2": "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق. إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع. ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق. هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً."
+    },
+    "FAQs": {
+      "00": {
+        "title": "ما هو أركو؟",
+        "content": "تأسست أركو في عام 2020 ، وهي وجهة التجارة الإلكترونية الرائدة في منطقة الشرق الأوسط وشمال أفريقيا. تقدم أركو أكثر من 400.000 منتج عبر فئات متعددة بما في ذلك الإلكترونيات الاستهلاكية والأزياء والصحة والجمال والسلع المنزلية والكتب والمزيد. يتم تقييم الفئات الجديدة وإطلاقها باستمرار طوال الوقت."
+      },
+      "01": {
+        "title": "كيف يمكنني التسجيل؟",
+        "content": "انقر فوق 'إنشاء حساب' في الزاوية اليسرى العليا من أي صفحة على urco.com"
+      },
+      "02": {
+        "title": "كيف يمكنني تسجيل الدخول؟",
+        "content": "انقر فوق 'تسجيل الدخول' في الزاوية اليسرى العليا من أي صفحة على urco.com"
+      },
+      "03": {
+        "title": "نسيت كلمة المرور ، فماذا أفعل؟",
+        "content": "انقر فوق 'تسجيل الدخول'  في الزاوية اليسرى العليا من أي صفحة على urco.com ، ثم انقر فوق 'هل نسيت كلمة المرور؟'  وأدخل عنوان البريد الإلكتروني الذي استخدمته للتسجيل. سنرسل إليك بريدًا إلكترونيًا يحتوي على تعليمات لإعادة تعيين كلمة المرور الخاصة بك."
+      },
+      "04": {
+        "title": "كيف يمكنني تتبع طلبي؟",
+        "content": "لعرض طلباتك ، قم بتسجيل الدخول إلى حسابك. هناك سترى سجل طلباتك مقسمًا حسب طلبات المشتريات الجديدة والطلبات المؤكدة والطلبات الملغية والطلبات المرتجعة."
+      },
+      "05": {
+        "title": "بمن اتصل إذا كان لدي أسئلة؟",
+        "content": "يمكنك الرجوع إلى مستندات دعم البائع وإذا كنت لا تزال تشعر بأن استفساراتك لم تتم الإجابة عليها ، فلا تتردد في الاتصال بنا (+2) 12345"
+      }
+    }
+  },
+  "contact-us-page": {
+    "page-title": "اتصل بنا - أركو",
+    "contact-info": {
+      "address-title": "العنوان",
+      "address-details": "مصر ، القاهرة ، 24 شارع السلام ، 240",
+      "telephone-title": "الهاتف",
+      "phone": "+ 38 (067) 113-00-35",
+      "fax": "+ 39 (068) 114-00-36",
+      "email-title": "البريد الإلكتروني",
+      "email-details": "support@urco.com"
+    },
+    "contact-form": {
+      "title": "ابقى على تواصل",
+      "full-name-label": "الاسم الكامل",
+      "full-name-placeholder": "فلان الفلاني",
+      "email-label": "البريد الإلكتروني",
+      "email-placeholder": "e.g. john.doe@gmail.com",
+      "phone-label": "الهاتف",
+      "phone-placeholder": "رقم الهاتف",
+      "subject-label": "الموضوع",
+      "subject-placeholder": "اختر الموضوع",
+      "message-label": "الرسالة",
+      "message-placeholder-part1": "اترك رسالتك في",
+      "message-placeholder-part2": "حرف على الأقل...",
+      "optional": "اختياري",
+      "submit-btn": "أرسل رسالتك"
+    }
+  },
+  "terms&conditions-page": {
+    "page-title": "الشروط والأحكام - أركو",
+    "title1": "الملكية الفكرية",
+    "list1": {
+      "0": "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة.",
+      "1": "تم توليد هذا النص من مولد النص العربى.",
+      "2": "يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى.",
+      "3": "النص لن يبدو مقسما ولا يحوي أخطاء لغوية.",
+      "4": "إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد."
+    },
+    "title2": "إنهاء العقد",
+    "list2": {
+      "0": "مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص.",
+      "1": "هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة.",
+      "2": "دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل.",
+      "3": "يجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً.",
+      "4": "يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع."
+    },
+    "title3": "التغييرات على هذه الاتفاقية",
+    "text-block1": "هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص. إن كنت تريد أن تستخدم نص لوريم إيبسوم ما، عليك أن تتحقق أولاً أن ليس هناك أي كلمات أو عبارات محرجة أو غير لائقة مخبأة في هذا النص. بينما تعمل جميع مولّدات نصوص لوريم إيبسوم على الإنترنت على إعادة تكرار مقاطع من نص لوريم إيبسوم نفسه عدة مرات بما تتطلبه الحاجة، يقوم مولّدنا هذا باستخدام كلمات من قاموس يحوي على أكثر من 200 كلمة لا تينية، مضاف إليها مجموعة من الجمل النموذجية، لتكوين نص لوريم إيبسوم ذو شكل منطقي قريب إلى النص الحقيقي. وبالتالي يكون النص الناتح خالي من التكرار، أو أي كلمات أو عبارات غير لائقة أو ما شابه. وهذا ما يجعله أول مولّد نص لوريم إيبسوم حقيقي على الإنترنت.",
+    "title4": "اتصل بنا",
+    "text-block2": "إذا كان لديك أي أسئلة حول هذه الاتفاقية ، يرجى الاتصال بنا عن طريق ملء",
+    "contact": "نموذج الاتصال"
+  },
+  "categories-page": {
+    "page-title": "الفئات - أركو",
+    "shop-now": "تسوق الآن"
+  },
+  "shop-page": {
+    "page-title": "المتجر - أركو",
+    "sidebar": {
+      "categories": {
+        "title": "فئات المنتجات"
+      },
+      "price": {
+        "title": "تصفية حسب السعر"
+      },
+      "colors": {
+        "title": "تصفية حسب اللون",
+        "white": "أبيض",
+        "silver": "فضي",
+        "yellow": "أصفر",
+        "orange": "برتقالي",
+        "red": "أحمر",
+        "purple": "بنفسجي",
+        "blue": "أزرق",
+        "skyblue": "أزرق سماوي",
+        "green": "أخضر",
+        "lemon": "ليموني",
+        "brown": "بني",
+        "black": "أسود"
+      },
+      "rating": {
+        "title": "تصفية حسب التقييم",
+        "5": "5 نجوم",
+        "4": "4 نجوم",
+        "3": "3 نجوم",
+        "2": "نجمتان",
+        "1": "نجمة واحدة"
+      },
+      "clear": "إلغاء",
+      "apply-filter": "تطبيق التصفية"
+    },
+    "selection-bar": {
+      "filter-toggle": "تصفية",
+      "layout": {
+        "multi-columns": "أعمدة متعددة",
+        "one-column": "عمود واحد"
+      },
+      "goods-title": {
+        "title": "جميع المنتجات"
+      },
+      "goods-length": {
+        "show": "إظهار:"
+      },
+      "goods-sorting": {
+        "sort-by": "ترتيب حسب:",
+        "methods": {
+          "default": "الإفتراضي",
+          "most-rated": "الأعلى تقييما",
+          "price-low-to-high": "السعر: من الأقل إلى الأعلى",
+          "price-high-to-low": "السعر: من الأعلى إلى الأقل"
+        }
+      }
+    },
+    "no-results": "لم يتم العثور على منتجات تطابق اختيارك"
+  },
+  "single-good-page": {
+    "urco": "أركو",
+    "product-overview": "نظرة عامة للمنتج",
+    "edit-product": "تعديل المنتج",
+    "sizes": "المقاسات",
+    "add-to-wishlist": "أضف الى المفضلة",
+    "add-to-cart": "أضف إلى العربة",
+    "description": "المواصفات",
+    "reviews": "التقييمات",
+    "no-items-msg": "لا توجد تقييمات لهذا المنتج.",
+    "edit-review": "تعديل التقييم",
+    "see-more-reviews": "عرض المزيد",
+    "leave-feedback": "قيم هذا المنتج"
+  },
+  "wishlist-page": {
+    "page-title": "قائمة الأمنيات - أركو",
+    "header": {
+      "wishlist-items": "عناصر قائمة الامنيات"
+    },
+    "footer": {
+      "continue-shopping": "مواصلة التسوق",
+      "add-all-to-cart": "إضافة الكل إلى العربة"
+    },
+    "no-items-msg": "لا يوجد لديك عناصر في قائمة الامنيات.",
+    "add-to-cart": "أضف إلى العربة",
+    "delete-item": "احذف هذا المنتج"
+  },
+  "shopping-cart-page": {
+    "page-title": "عربة التسوق - أركو",
+    "main-box": {
+      "header": {
+        "cart-items": "عناصر عربة التسوق"
+      },
+      "footer": {
+        "continue-shopping": "مواصلة التسوق"
+      },
+      "no-items-msg": "لا يوجد لديك عناصر في عربة التسوق.",
+      "delete-item": "حذف هذا المنتج"
+    },
+    "side-box": {
+      "header": {
+        "summary": "ملخص الدفع"
+      },
+      "footer": {
+        "checkout": "إتمام الدفع",
+        "continue-buying": "مواصلة الشراء"
+      },
+      "subtotal": "المجموع الفرعي:",
+      "shipping": "تكلفة الشحن:",
+      "total": "الإجمالي:"
+    }
+  },
+  "checkout-page": {
+    "page-title": "الدفع - أركو",
+    "main-area": {
+      "address-box": {
+        "header": {
+          "shipping-address": "عنوان الشحن"
+        },
+        "footer": {
+          "edit-addresses": "تعديل العناوين",
+          "new-address": "أضف عنوان جديد"
+        },
+        "select-address": "اختر عنوان الشحن",
+        "shipping-address": "عنوان الشحن",
+        "no-address-msg": {
+          "title": "لا يوجد لديك عناوين المحفوظة!",
+          "text": "أضف عنوانًا الآن حتى نتمكن من توصيل طلباتك."
+        }
+      },
+      "payment-box": {
+        "header": {
+          "payment-method": "طريقة الدفع"
+        },
+        "footer": {
+          "edit-payments": "تعديل طرق الدفع"
+        },
+        "payment-tabs": {
+          "credit-card": "بطاقة ائتمان",
+          "paypal": "باي بال",
+          "cash": "مال نقدي"
+        },
+        "payment-methods": {
+          "saved-credit-card": {
+            "or": "أو",
+            "select-label": "اختر من البطاقات المحفوظة",
+            "select-placeholder": "بطاقات الائتمان"
+          },
+          "new-credit-card": {
+            "card-number-label": "رقم البطاقة",
+            "card-number-placeholder": "مجموعة طويلة من الأرقام المعروضة على بطاقتك",
+            "card-type": "card-type",
+            "exp-date-label": "تاريخ الإنتهاء",
+            "exp-date-placeholder": "MM / YY",
+            "confirm-btn": "تأكيد الطلب"
+          },
+          "paypal": {
+            "title": "الدفع السريع باستخدام باي بال",
+            "text": "قم بإجراء مدفوعات سريعة وآمنة باستخدام الدفع السريع من باي بال.",
+            "checkout-btn": "Checkout",
+            "checkout-btn-tagline": "الطريقة الامن والاسهل فى الدفع"
+          },
+          "cash": {
+            "title": "الدفع عند الاستلام",
+            "text": "ادفع نقدًا عندما يتم توصيل المنتج إليك.",
+            "checkout-btn": "تأكيد الطلب"
+          }
+        }
+      }
+    },
+    "side-box": {
+      "header": {
+        "summary": "ملخص الدفع"
+      },
+      "footer": {
+        "edit-shopping-cart": "تعديل عربة التسوق"
+      },
+      "promotion-form": {
+        "promo-label": "أدخل كود الخصم",
+        "promo-placeholder": "كود الخصم",
+        "apply-btn": "تطبيق الخصم"
+      },
+      "subtotal": "المجموع الفرعي",
+      "promo": "الخصم",
+      "total": "الإجمالي"
+    }
+  },
+  "confirmation-page": {
+    "page-title": "تم تأكيد الطلب - أركو",
+    "thank-you": "شكرا لك!",
+    "sub-title": "تم تقديم طلبك ودفع المبلغ بنجاح!",
+    "text": "من الحقائق الثابتة أن القارئ سيشتت انتباهه بسبب المحتوى القابل للقراءة للصفحة عند النظر في تصميمه.",
+    "orders-link": "عرض طلبك"
+  },
+  "not-found-page": {
+    "page-title": "الصفحة غير موجودة - أركو",
+    "page-not-found": "عفوًا! الصفحة غير موجودة",
+    "back-to-home": "العودة إلى الصفحة الرئيسية"
+  },
+
+
+  "user-dashboard-page": {
+    "page-title": "لوحة تحكم المستخدم - أركو",
+    "admin-dashboard": "لوحة تحكم المشرف",
+    "user-profile": "حسابي",
+    "user-orders": "طلباتي",
+    "user-address": "العناوين",
+    "user-payments": "وسائل الدفع",
+    "user-returns": "المرتجعات",
+    "logout": "تسجيل خروج",
+    "welcome-msg": "مرحبا بعودتك!"
+  },
+  "profile-page": {
+    "page-title": "حسابي - أركو",
+    "basic-info": {
+      "title": "المعلومات الأساسية",
+      "first-name-label": "الاسم الأول",
+      "first-name-placeholder": "فلان",
+      "last-name-label": "الاسم الأخير",
+      "last-name-placeholder": "الفلاني",
+      "email-label": "البريد الإلكتروني",
+      "email-placeholder": "e.g. john.doe@gmail.com",
+      "country-label": "الدولة",
+      "country-placeholder": "اختر الدولة"
+    },
+    "additional-info": {
+      "title": "المعلومات الإضافية",
+      "birth-date-label": "تاريخ الميلاد",
+      "birth-date-placeholder": "DD/MM/YYYY",
+      "gender": "النوع:",
+      "male": "ذكر",
+      "female": "أنثى"
+    },
+    "security": {
+      "title": "الأمان",
+      "password": "كلمة المرور",
+      "new-password": "كلمة المرور الجديدة",
+      "confirm-password": "تأكيد كلمة المرور"
+    },
+    "profile-picture": {
+      "title": "الصورة",
+      "field-title": "الصورة الشخصية",
+      "remove": "إزالة الصورة"
+    },
+    "save-btn": "حفظ التغييرات"
+  },
+  "my-orders-page": {
+    "page-title": "طلباتي - أركو",
+    "header-titles": {
+      "order": "الطلب",
+      "date": "التاريخ",
+      "address": "العنوان",
+      "status": "الحالة",
+      "total": "الإجمالي"
+    },
+    "no-items-msg": "لا يوجد لديك طلبات.",
+    "actions-btns": {
+      "view": "عرض",
+      "cancel": "إلغاء الطلب"
+    }
+  },
+  "single-order-page": {
+    "page-title": "تفاصيل الطلب - أركو",
+    "header-titles": {
+      "item": "العنصر",
+      "price": "السعر",
+      "qty": "الكمية",
+      "total": "الإجمالي"
+    },
+    "no-items-msg": "تم حذف جميع المنتجات من قبل المستخدم.",
+    "returned": "تم إرجاعها",
+    "actions-btns": {
+      "no-actions": "لا توجد إجراءات",
+      "remove": "إزالة",
+      "rating": "تقييم",
+      "return": "إرجاع"
+    },
+    "leave-feedback": "اترك تقييم للبائع",
+    "return-modal": {
+      "reason-for-return": "سبب الإرجاع",
+      "reasons": {
+        "accidental-order": "تم الطلب بالخطأ",
+        "better-price-available": "هناك سعر أفضل",
+        "poor-quality-or-faulty": "جودة رديئة / معيبة",
+        "arrived-too-late": "وصل متأخر جدا",
+        "wrong-item-was-sent": "تم إرسال منتج مختلف",
+        "looks-different-from-images": "تبدو مختلفة عن الصور",
+        "description-was-not-accurate": "لم يكن الوصف دقيقا",
+        "no-longer-needed": "لم تعد هناك حاجة لها"
+      },
+      "comments": {
+        "your-comment": "تعليقك",
+        "comments-label": "التعليقات",
+        "optional": "اختياري",
+        "comments-placeholder-part1": "مزيد من التفاصيل في",
+        "comments-placeholder-part2": "حرف على الأقل..."
+      },
+      "submit-btn": "إرسال"
+    }
+  },
+  "addresses-page": {
+    "page-title": "العناوين - أركو",
+    "no-items-msg": {
+      "title": "ليس لديك عناوين محفوظة!",
+      "text": "أضف عنوانًا الآن حتى نتمكن من توصيل طلباتك."
+    },
+    "address-details": {
+      "address": "العنوان",
+      "region": "المحافظة",
+      "city": "المدينة",
+      "street": "الشارع",
+      "building&floor": "المبنى / الطابق",
+      "phone-number": "رقم هاتف العنوان",
+      "additional-info": "معلومة اضافية"
+    },
+    "edit": "تعديل",
+    "delete": "حذف",
+    "add-new": "أضف جديد"
+  },
+  "add-address-page": {
+    "page-title": "إضافة عنوان جديد - أركو",
+    "box-title": "أضف عنوان جديد",
+    "address-label": "العنوان",
+    "address-placeholder": "اسم المبنى والمنطقة السكنية",
+    "region-label": "المحافظة",
+    "region-placeholder": "مثل: القاهرة",
+    "city-label": "المدينة",
+    "city-placeholder": "مثل: المعادي",
+    "street-label": "الشارع",
+    "street-placeholder": "مثل: شارع النصر",
+    "building-label": "المبنى",
+    "building-placeholder": "مثل: 47",
+    "floor-label": "الطابق",
+    "floor-placeholder": "مثل: 5",
+    "address-title-label": "اسم العنوان",
+    "address-title-placeholder": "مثل: المنزل، العمل..",
+    "address-phone-number-label": "رقم هاتف العنوان",
+    "address-phone-number-placeholder": "رقم الهاتف",
+    "additional-info-label": "معلومة اضافية",
+    "additional-info-placeholder": "قدم تفاصيل مثل وصف المبنى ، أو معلم قريب ، أو أي تفاصيل أخرى",
+    "optional": "اختياري",
+    "cancel": "إلغاء",
+    "save-new-address": "حفظ العنوان"
+  },
+  "edit-address-page": {
+    "page-title": "تعديل العنوان - أركو",
+    "edit": "تعديل",
+    "address": "عنوان",
+    "save-changes": "حفظ التغييرات"
+  },
+  "payments-page": {
+    "page-title": "وسائل الدفع - أركو",
+    "header-titles": {
+      "method": "الوسيلة",
+      "type": "النوع",
+      "expires": "تاريخ الانتهاء"
+    },
+    "no-items-msg": "لا يوجد لديك وسائل دفع حتى الان.",
+    "actions-btns": {
+      "edit": "تعديل",
+      "delete": "حذف"
+    },
+    "add-new": "أضف جديد"
+  },
+  "add-payments-page": {
+    "page-title": "إضافة وسيلة دفع - أركو",
+    "box-title": "أضف وسيلة جديدة",
+    "card-number-label": "رقم البطاقة",
+    "card-number-placeholder": "مجموعة طويلة من الأرقام المعروضة على بطاقتك",
+    "card-type": "card-type",
+    "security-code": "كود الحماية",
+    "exp-date-label": "تاريخ الإنتهاء",
+    "exp-date-placeholder": "MM / YY",
+    "cancel-btn": "إلغاء",
+    "save-new-method": "حفظ الوسيلة"
+  },
+  "edit-payments-page": {
+    "page-title": "تعديل الوسيلة - أركو",
+    "box-title": "تعديل الوسيلة",
+    "save-changes": "حفظ التغييرات"
+  },
+  "user-returns-page": {
+    "page-title": "المرتجعات - أركو",
+    "header-titles": {
+      "item": "العنصر",
+      "date": "التاريخ",
+      "total": "الإجمالي"
+    },
+    "no-items-msg": "لا توجد مرتجعات.",
+    "dates": {
+      "ordered": "طُلِبت:",
+      "delivered": "سُلِّمت:",
+      "returned": "أُرجعت:"
+    },
+    "totals": {
+      "price": "السعر:",
+      "qty": "الكمية:",
+      "total": "الإجمالي:"
+    },
+    "actions-btns": {
+      "rating": "تقييم"
+    },
+    "leave-feedback": "اترك تقييم للبائع"
+  },
+
+
+  "admin-dashboard-page": {
+    "page-title": "لوحة تحكم المشرف - أركو",
+    "user-dashboard": "لوحة تحكم المستخدم",
+    "requests": "الطلبات",
+    "returns": "المرتجعات",
+    "categories": "الفئات",
+    "products": "المنتجات",
+    "main-slider": "السلايدر الرئيسي",
+    "main-offer": "العرض الرئيسي",
+    "users": "المستخدمين",
+    "coupons": "كوبونات",
+    "contact-form": {
+      "title": "نموذج التواصل",
+      "messages": "الرسائل",
+      "blacklist": "القائمة السوداء",
+      "settings": "الإعدادات"
+    },
+    "newsletter": "النشرة الإخبارية",
+    "general-settings": "الإعدادات العامة",
+    "logout": "تسجيل خروج",
+    "welcome-msg": "مرحبا بعودتك!"
+  },
+  "requests-page": {
+    "page-title": "جميع الطلبات - أركو",
+    "header-titles": {
+      "request": "الطلب",
+      "date": "التاريخ",
+      "time": "الوقت",
+      "status": "الحالة",
+      "amount": "الكمية"
+    },
+    "no-items-msg": "لا يوجد طلبات حتى الان.",
+    "actions-btns": {
+      "view": "عرض"
+    }
+  },
+  "single-request-page": {
+    "page-title": "تفاصيل الطلب - أركو",
+    "request-details": {
+      "title": "تفاصيل الطلب",
+      "date": "التاريخ:",
+      "time": "الوقت:",
+      "amount": "المبلغ:"
+    },
+    "change-status": {
+      "title": "تغيير الحالة:",
+      "statuses": {
+        "ordered": "طُلِبت",
+        "confirmed": "أُكِدت",
+        "shipped": "شُحِنت",
+        "delivered": "سُلِّمت",
+        "returned": "أُرجعت",
+        "canceled": "أُلغيت"
+      }
+    },
+    "customer-info": {
+      "title": "معلومات المشتري",
+      "name": "الاسم:",
+      "email": "البريد الإلكتروني:",
+      "country": "البلد:",
+      "gender": "النوع:"
+    },
+    "request-goods": {
+      "header-titles": {
+        "item": "العنصر",
+        "size": "الحجم",
+        "price": "السعر",
+        "qty": "الكمية",
+        "total": "الإجمالي",
+        "status": "الحالة"
+      },
+      "no-items-msg": "تم حذف جميع المنتجات من قبل المستخدم.",
+      "delivered": "سُلِّمت",
+      "returned": "أُرجعت"
+    }
+  },
+  "returns-page": {
+    "page-title": "المرتجعات - أركو",
+    "header-titles": {
+      "item": "العنصر",
+      "date": "التاريخ",
+      "total": "الإجمالي"
+    },
+    "no-items-msg": "لا يوجد مرتجعات.",
+    "dates": {
+      "ordered": "طُلِبت:",
+      "delivered": "سُلِّمت:",
+      "returned": "أُرجعت:"
+    },
+    "totals": {
+      "price": "السعر:",
+      "qty": "الكمية:",
+      "total": "الإجمالي:"
+    },
+    "actions-btns": {
+      "details": "تفاصيل"
+    }
+  },
+  "single-return-page": {
+    "page-title": "تفاصيل المرتجع - أركو",
+    "box-title": "العنصر",
+    "ordered": "طُلِبت:",
+    "delivered": "سُلِّمت:",
+    "returned": "أُرجعت:",
+    "user": "المستخدم:",
+    "reasons": "الأسباب:",
+    "comment": "التعليق:"
+  },
+  "admin-categories-page": {
+    "page-title": "الفئات - أركو",
+    "header-titles": {
+      "category": "الفئة",
+      "slug": "الاسم اللطيف",
+      "children": "الأبناء"
+    },
+    "no-items-msg": "لا توجد فئات.",
+    "actions-btns": {
+      "edit": "تعديل",
+      "delete": "حذف"
+    },
+    "add-new": "أضف جديد"
+  },
+  "add-admin-categories-page": {
+    "page-title": "إضافة فئة جديدة - أركو",
+    "box-title": "أضف فئة جديدة",
+    "name-label": "الاسم",
+    "name-placeholder": "مثل: أزياء رجالية",
+    "child-name-placeholder": "مثل: ملابس",
+    "slug-label": "الاسم اللطيف",
+    "slug-placeholder": "مثل: men-fashion",
+    "child-slug-placeholder": "مثل: clothes",
+    "brief-label": "تعليق موجز",
+    "brief-placeholder": "مثل: قم بزيارة متجرنا لرؤية منتجات مذهلة",
+    "icon-label": "الصورة المصغرة",
+    "img-label": "الصورة",
+    "optional":"اختياري",
+    "remove": "إزالة",
+    "remove-child": "إزالة الأبن",
+    "add-child": "أضف ابنًا",
+    "cancel": "إلغاء",
+    "save-new-category": "حفظ الفئة"
+  },
+  "edit-admin-categories-page": {
+    "page-title": "تعديل الفئة - أركو",
+    "edit": "تعديل",
+    "category": "فئة",
+    "save-changes": "حفظ التغييرات"
+  },
+  "products-page": {
+    "page-title": "المنتجات - أركو",
+    "header-titles": {
+      "product": "المنتج",
+      "date-added": "تاريخ الإضافة",
+      "selling-price": "سعر البيع"
+    },
+    "no-items-msg": "لا يوجد منتجات.",
+    "actions-btns": {
+      "view": "عرض",
+      "edit": "تعديل",
+      "delete": "حذف"
+    },
+    "add-new": "أضف جديد"
+  },
+  "add-admin-products-page": {
+    "page-title": "إضافة منتج جديد - أركو",
+    "box-title": "أضف منتج جديد",
+    "category-label": "الفئة",
+    "category-placeholder": "اختر...",
+    "sub-category-label": "الفئة الفرعية",
+    "name-label": "الاسم",
+    "name-placeholder": "مثل: حذاء نايك أزرق",
+    "price-label": "السعر",
+    "discount-label": "الخصم",
+    "desc-label": "الوصف",
+    "desc-placeholder": "يجب أن يوفر الوصف معلومات المنتج الهامة",
+    "sizes-label": "المقاسات",
+    "colors": {
+      "title": "اللون:",
+      "white": "أبيض",
+      "silver": "فضي",
+      "yellow": "أصفر",
+      "orange": "برتقالي",
+      "red": "أحمر",
+      "purple": "بنفسجي",
+      "blue": "أزرق",
+      "skyblue": "أزرق سماوي",
+      "green": "أخضر",
+      "lemon": "ليموني",
+      "brown": "بني",
+      "black": "أسود"
+    },
+    "product-image-field-title": "صورة المنتج",
+    "images-label": "الصور",
+    "new-label": "إظهار وسم (جديد)",
+    "best-label": "إظهار وسم (الأفضل)",
+    "optional": "اختياري",
+    "remove": "إزالة",
+    "cancel": "إلغاء",
+    "save-new-product": "حفظ المنتج"
+  },
+  "edit-admin-products-page": {
+    "page-title": "تعديل المنتج - أركو",
+    "box-title": "تعديل المنتج",
+    "oos-label": "إظهار وسم (نفدت)",
+    "save-changes": "حفظ التغييرات"
+  },
+  "main-slider-page": {
+    "page-title": "السلايدر الرئيسي - أركو",
+    "box-title": "السلايدر الرئيسي",
+    "good-id-field-title": "ID",
+    "good-id-label": "أضف ID المنتج المراد إضافته",
+    "good-id-placeholder": "مثل: 0YhQtWPWfXQ2C3VY7O02",
+    "save": "حفظ",
+    "header-titles": {
+      "item": "العنصر",
+      "date-added": "تاريخ الإضافة",
+      "selling-price": "سعر البيع"
+    },
+    "no-items-msg": "لا يوجد منتجات.",
+    "actions-btns": {
+      "view": "عرض",
+      "edit": "تعديل",
+      "delete": "حذف"
+    }
+  },
+  "main-offer-page": {
+    "page-title": "العرض الرئيسي - أركو",
+    "box-title": "العرض الرئيسي",
+    "good-id-field-title": "ID",
+    "good-id-label": "أضف ID المنتج المراد إضافته",
+    "good-id-placeholder": "مثل: 0YhQtWPWfXQ2C3VY7O02",
+    "discount-type-label": "نوع الخصم:",
+    "percent-discount-label": "خصم نسبة مئوية",
+    "fixed-discount-label": "خصم ثابت",
+    "discount-amount-label": "مبلغ الخصم",
+    "save": "حفظ",
+    "header-titles": {
+      "item": "العنصر",
+      "date-added": "تاريخ الإضافة",
+      "original-price": "السعر الأصلي",
+      "offer-price": "سعر العرض"
+    },
+    "no-items-msg": "لا يوجد منتجات.",
+    "actions-btns": {
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+  "users-page": {
+    "page-title": "المستخدمين - أركو",
+    "header-titles": {
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "date": "التاريخ"
+    },
+    "no-items-msg": "لا يوجد مستخدمون.",
+    "actions-btns": {
+      "view": "عرض",
+      "make-admin": "تعيين كمسؤول",
+      "remove-admin": "إزالة مسؤول"
+    }
+  },
+  "user-page": {
+    "page-title": "بيانات المستخدم - أركو",
+    "admin": "مشرف",
+    "date": "التاريخ:",
+    "name": "الاسم:",
+    "email": "البريد الإلكتروني:",
+    "registration-date": "تاريخ التسجيل:",
+    "country": "البلد:",
+    "birth-date": "تاريخ الميلاد:",
+    "gender": "النوع:",
+    "register-by": "سجل بواسطة:"
+  },
+  "coupons-page": {
+    "page-title": "كوبونات خصم - أركو",
+    "header-titles": {
+      "coupon-code": "الرمز",
+      "amount": "الخصم",
+      "expires": "الانتهاء",
+      "uses-number": "الاستخدامات",
+      "enabled": "متاح"
+    },
+    "no-items-msg": "لا توجد كوبونات خصم.",
+    "actions-btns": {
+      "edit": "تعديل",
+      "delete": "حذف"
+    },
+    "add-new": "أضف جديد"
+  },
+  "add-coupons-page": {
+    "page-title": "إضافة كوبون جديد - أركو",
+    "box-title": "إنشاء كوبون جديد",
+    "coupon-type-label": "نوع الخصم:",
+    "percent-label": "خصم نسبة مئوية",
+    "fixed-label": "خصم ثابت",
+    "amount-label": "مبلغ الخصم",
+    "uses-limit-label": "عدد الاستخدامات",
+    "ExpDate-label": "تاريخ الانتهاء",
+    "ExpDate-placeholder": "DD/MM/YYYY",
+    "cancel": "إلغاء",
+    "save-new-coupon": "حفظ كوبون جديد"
+  },
+  "edit-coupons-page": {
+    "page-title": "تعديل الكوبون - أركو",
+    "box-title": "تعديل الكوبون",
+    "save-changes": "حفظ التغييرات"
+  },
+  "contact-form-page": {
+    "page-title": "نموذج التواصل - أركو",
+    "messages": "الرسائل",
+    "blacklist": "القائمة السوداء",
+    "settings": "الإعدادات"
+  },
+  "messages-page": {
+    "page-title": "الرسائل - أركو",
+    "header-titles": {
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "subject": "الموضوع",
+      "date": "التاريخ"
+    },
+    "no-items-msg": "لا توجد رسائل.",
+    "actions-btns": {
+      "view": "عرض",
+      "block": "حظر",
+      "delete": "حذف"
+    }
+  },
+  "single-message-page": {
+    "page-title": "تفاصيل الرسالة - أركو",
+    "box-title": "رسالة",
+    "name": "الاسم:",
+    "received-on": "تاريخ الاستلام:",
+    "read-on": "قرئت في:",
+    "email": "البريد الإلكتروني:",
+    "phone": "الهاتف:",
+    "subject": "الموضوع:",
+    "message": "الرسالة:"
+  },
+  "contact-form-blacklist-page": {
+    "page-title": "القائمة السوداء - أركو",
+    "email": "البريد الإلكتروني",
+    "no-items-msg": "لا توجد عناوين بريد إلكتروني.",
+    "delete": "حذف"
+  },
+  "contact-form-settings-page": {
+    "page-title": "إعدادات نموذج التواصل - أركو",
+    "box-title": "إعدادات نموذج التواصل",
+    "name-length": "عدد أحرف الاسم",
+    "message-length": "عدد أحرف الرسالة",
+    "subject-label": "اكتب اسم الموضوع",
+    "subject-placeholder": "مثل: أين طلباتي؟",
+    "add-subject": "إضافة موضوع",
+    "remove-subject": "إزالة الموضوع",
+    "save-changes": "حفظ التغييرات"
+  },
+  "newsletter-page": {
+    "page-title": "النشرة الإخبارية - أركو",
+    "header-titles": {
+      "email-address": "البريد الإلكتروني",
+      "join-date": "تاريخ التسجيل"
+    },
+    "no-items-msg": "لا توجد عناوين بريد إلكتروني.",
+    "delete": "حذف",
+    "new-message": "رسالة جديدة"
+  },
+  "general-settings-page": {
+    "page-title": "الإعدادات العامة - أركو",
+    "general-settings-form": {
+      "box-title": "الإعدادات العامة",
+      "shop-goods-limit": "عدد عناصر صفحة المتجر",
+      "shipping-cost": "تكلفة الشحن",
+      "return-period": "فترة إرجاع المنتجات",
+      "time-zone": "المنطقة الزمنية",
+      "select-time-zone": "اختر..."
+    },
+    "admin-settings-form": {
+      "box-title": "إعدادات المسؤول",
+      "requests-limit": "عدد عناصر صفحة الطلبات",
+      "returns-limit": "عدد عناصر صفحة المرتجعات",
+      "categories-limit": "عدد عناصر صفحة الفئات",
+      "goods-limit": "عدد عناصر صفحة المنتجات",
+      "users-limit": "عدد عناصر صفحة المستخدمين",
+      "coupons-limit": "عدد عناصر صفحة الكوبونات",
+      "messages-limit": "عدد عناصر صفحة رسائل التواصل",
+      "blacklist-emails-limit": "عدد عناصر صفحة القائمة السوداء",
+      "newsletter-emails-limit": "عدد عناصر صفحة النشرة الإخبارية"
+    },
+    "user-settings-form": {
+      "box-title": "إعدادات المستخدم",
+      "orders-limit": "عدد عناصر صفحة الطلبات",
+      "addresses-limit": "عدد عناصر صفحة العناوين",
+      "payment-methods-limit": "عدد عناصر صفحة طرق الدفع",
+      "returned-goods-limit": "عدد عناصر صفحة المرتجعات"
+    },
+    "save-changes":"حفظ التغييرات"
+  },
+
+
+  "custom-elements": {
+    "file-upload": {
+      "upload-text1": "سحب وإفلات أو",
+      "browse": "تصفح",
+      "upload-text2": "ملفات لتحميلها!",
+      "choose-file": "اختر ملف",
+      "of": "من"
+    },
+    "select-menu": {
+      "search": "بحث...",
+      "no-results-msg": "لا توجد نتائج..."
+    },
+    "modal": {
+      "cancel": "إلغاء"
+    },
+    "review-model": {
+      "rating-values": {
+        "excellent": "ممتاز",
+        "very-good": "جيد جدا",
+        "good": "جيد",
+        "fair": "مقبول",
+        "poor": "رديء",
+        "rate-this-product": "قيم هذا المنتج"
+      },
+      "comment": {
+        "your-comment": "تعليقك",
+        "comment-label": "تعليق موجز",
+        "optional": "اختياري",
+        "comment-placeholder": "اكتب تعليقاتك هنا..."
+        },
+      "footer": {
+        "cancel": "إلغاء",
+        "submit": "إرسال"
+      }
+    },
+    "star-rating": {
+      "5": "5 نجوم",
+      "4": "4 نجوم",
+      "3": "3 نجوم",
+      "2": "نجمتان",
+      "1": "نجمة واحدة"
+    },
+    "product-light-box": {
+      "close": "إغلاق",
+      "prev": "السابق",
+      "next": "التالي"
+    },
+    "simple-pagination": {
+      "of": "من",
+      "items": "عناصر",
+      "prev": "الصفحة السابقة",
+      "next": "الصفحة التالية"
+    }
+  },
+
+
+  "toast-notifications": {
+    "item-deleted": "تم حذف العنصر بنجاح!",
+    "changes-saved": "تم حفظ التغييرات بنجاح!",
+    "oops-something-wrong": "عفوا! حدث خطأ ما، حاول مرة اخرى.",
+    "message-sent": "تم إرسال الرسالة بنجاح!",
+    "message-deleted": "تم حذف الرسالة بنجاح!",
+    "email-blocked": "تم حظر البريد الإلكتروني بنجاح!",
+    "this-email-blocked": "تم حظر هذا البريد الإلكتروني.",
+    "this-email-already-blocked": "تم حظر هذا البريد الإلكتروني بالفعل.",
+    "email-deleted": "تم حذف البريد الإلكتروني بنجاح!",
+    "thanks-for-feedback": "شكرا لملاحظاتك!",
+    "enter-cat-slug-first": "الرجاء إدخال'الاسم اللطيف' للفئة أولاً",
+    "failed-category-exist": "فشل! ربما الفئة موجودة بالفعل.",
+    "category-deleted": "تم حذف الفئة بنجاح!",
+    "category-saved": "تم حفظ الفئة بنجاح!",
+    "coupon-deleted": "تم حذف الكوبون بنجاح!",
+    "coupon-saved": "تم حفظ الكوبون بنجاح!",
+    "product-exist": "المنتج موجود بالفعل",
+    "product-deleted": "تم حذف المنتج بنجاح!",
+    "product-removed": "تمت إزالة المنتج بنجاح!",
+    "product-saved": "تم حفظ المنتج بنجاح!",
+    "applied": "تم التطبيق بنجاح!",
+    "failed-address-exist": "فشل! ربما العنوان موجود بالفعل.",
+    "address-deleted": "تم حذف العنوان بنجاح!",
+    "address-saved": "تم حفظ العنوان بنجاح!",
+    "returning-in-progress": "يتم العمل على إرجاع المنتج!",
+    "failed-card-exist": "فشل! ربما البطاقة موجودة بالفعل.",
+    "card-deleted": "تم حذف البطاقة بنجاح!",
+    "card-saved": "تم حفظ البطاقة بنجاح!",
+    "cannot-sort-by-newest-in-price-filter": "لا يمكن الفرز حسب الأحدث أثناء تطبيق فلتر الأسعار.",
+    "cannot-sort-by-rating-in-price-filter": "لا يمكن الفرز حسب التقييم أثناء تطبيق فلتر الأسعار.",
+    "invalid-sort-method": "طريقة الفرز غير صالحة!",
+    "sign-in-to-complete-order": "يرجى تسجيل الدخول لإكمال طلبك.",
+    "coupon-code": "كود الخصم",
+    "is-invalid": "غير صالح",
+    "add-shipping-address": "يرجى إضافة عنوان الشحن.",
+    "verify-email-address": "يرجى تأكيد عنوان بريدك الإلكتروني. فضلا قم بمراجعة البريد الوارد.",
+    "password-reset-email-should-arrive-shortly": "يجب أن يصل البريد الإلكتروني لإعادة تعيين كلمة المرور قريبًا",
+    "type-email-to-receive-password-reset-link": "اكتب بريدك الإلكتروني لتلقي رابط إعادة تعيين كلمة المرور",
+    "successfully-registered": "رائع! تم التسجيل بنجاح!",
+    "no-more-reviews": "لا يوجد مزيد من المراجعات.",
+    "already-subscribed": "أنت مشترك بالفعل!",
+    "subscribed-successfully": "تم الاشتراك بنجاح!",
+    "not-allowed-here": "عذرا، لا يسمح لك الوصول إلى هذه الصفحة",
+    "sign-in-to-go-to-this-page": "يرجى تسجيل الدخول قبل الذهاب إلى هذه الصفحة",
+    "is-required": "مطلوب",
+    "must-be-at-least": "يجب أن يكون على الأقل",
+    "must-be-at-most": "يجب أن يكون على الأكثر",
+    "characters": "أحرف",
+    "enter-valid-email": "يرجى إدخال عنوان بريد إلكتروني صالح",
+    "enter-valid-phone": "يرجى إدخال رقم هاتف صالح",
+    "enter-valid-date": "يرجى إدخال تاريخ صالح",
+    "card-number-not-valid": "رقم البطاقة غير صالح",
+    "cannot-contain-spaces": "لا يمكن أن يحتوي على مسافات",
+    "passwords-must-match": "يجب مطابقة كلمة المرور",
+    "enter-password-first": "يرجى إدخال كلمة المرور أولاً",
+    "confirm-your-password": "يرجى تأكيد كلمة المرور",
+    "not-valid-file-format": "تنسيق الملف غير صالح ، نحن ندعم فقط",
+    "for": "من أجل"
+  },
+
+
+  "confirm-msg": {
+    "sure-to-remove-item": "هل أنت متأكد من إزالة هذا العنصر?",
+    "sure-to-delete-image": "هل أنت متأكد من حذف هذه الصورة?",
+    "sure-to-delete-picture": "هل أنت متأكد من حذف هذه الصورة?",
+    "sure-to-delete-email": "هل أنت متأكد من حذف هذا البريد الإلكتروني?",
+    "sure-to-delete-address": "هل أنت متأكد من حذف هذا العنوان?",
+    "sure-to-delete-payment-method": "هل أنت متأكد من حذف طريقة الدفع هذه?",
+    "sure-to-delete-message": "هل أنت متأكد من حذف هذه الرسالة?",
+    "sure-to-delete-category": "هل أنت متأكد من حذف هذه الفئة?",
+    "sure-to-delete-coupon": "هل أنت متأكد من حذف هذا الكوبون?",
+    "sure-to-delete-product": "هل أنت متأكد من حذف هذا المنتج?"
+  }
+}

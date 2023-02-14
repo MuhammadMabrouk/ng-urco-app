@@ -1,0 +1,9 @@
+<ul class="notifications-container">
+  <li [id]="notif.id"
+    [ngClass]="['notification', notif.class]"
+    *ngFor="let notif of notifications; index as i"
+    @fadeUp>
+    {{ notif.msg }}
+    <i class="fa fa-times" aria-hidden="true" (click)="dismissNotify(i)"></i>
+  </li>
+</ul>

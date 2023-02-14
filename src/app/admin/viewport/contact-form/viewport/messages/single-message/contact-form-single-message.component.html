@@ -1,0 +1,55 @@
+<div class="content">
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <div class="box-title">
+          <img src="../../../../assets/images/icons/admin/newsletter.png" alt="message">
+          <h3 class="title" *ngIf="translateSer?.currentLang === 'en'">
+            {{ thisMessage?.subject?.label }} - {{ 'single-message-page.box-title' | translate }}
+          </h3>
+          <h3 class="title" *ngIf="translateSer?.currentLang === 'ar'">
+            {{ 'single-message-page.box-title' | translate }} - {{ thisMessage?.subject?.label }}
+          </h3>
+        </div>
+        <table class="loading" *ngIf="!thisMessage">
+          <span class="spinner"></span>
+        </table>
+        <table class="message" *ngIf="thisMessage" @fadeInUpStaggerEnter>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-message-page.name' | translate }}</th>
+            <td>{{ thisMessage?.name }}</td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-message-page.received-on' | translate }}</th>
+            <td>{{ thisMessage?.receivedDate }}</td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-message-page.read-on' | translate }}</th>
+            <td>{{ thisMessage?.readingDate }}</td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-message-page.email' | translate }}</th>
+            <td>{{ thisMessage?.email }}</td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-message-page.phone' | translate }}</th>
+            <td class="phone" *ngIf="thisMessage?.phone">
+              <span>{{ thisMessage?.phone }}</span>
+            </td>
+            <td *ngIf="!thisMessage?.phone">
+              <span class="infinity"></span>
+            </td>
+          </tr>
+          <tr class="fadeInUpStagger">
+            <th>{{ 'single-message-page.subject' | translate }}</th>
+            <td>{{ thisMessage?.subject?.label }}</td>
+          </tr>
+          <tr class="message-text fadeInUpStagger">
+            <th>{{ 'single-message-page.message' | translate }}</th>
+            <td>{{ thisMessage?.message }}</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>

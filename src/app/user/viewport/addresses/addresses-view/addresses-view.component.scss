@@ -1,0 +1,74 @@
+@import "../../../../../styles/helpers/variables";
+@import "../../../../../styles/helpers/mixins";
+@import "../../../../../styles/components/components";
+
+.content {
+  .the-main-box {
+    .box {
+      .no-items-msg {
+        .title {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: 16px;
+          margin: 0;
+        }
+      }
+
+      .box-content {
+        .address-details {
+          @media #{$min_768} {
+            @include flexbox(flex, "", center, between, "", "");
+          }
+
+          .details {
+            @media #{$min_768} {
+              @include flexbox(flex, "", center, "", "", wrap);
+            }
+
+            li {
+              margin-bottom: 20px;
+
+              @media #{$min_768} {
+                @include appDir(margin-right, 40px, margin-left, 40px);
+
+                &:not(:last-of-type) {
+                  width: calc((100% / 3) - 40px);
+                }
+              }
+
+              @media #{$max_767} {
+                width: 100%;
+              }
+
+              strong {
+                font-weight: 500;
+              }
+
+              .text {
+                margin: 8px 0 0;
+              }
+            }
+          }
+
+          .edit-and-delete {
+            @include flexbox(flex, "", center, center, "", "");
+            margin-bottom: 20px;
+
+            @media #{$min_768} {
+              @include align-self(end);
+            }
+
+            li {
+              &:not(:last-of-type) {
+                @include appDir(margin-right, 12px, margin-left, 12px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

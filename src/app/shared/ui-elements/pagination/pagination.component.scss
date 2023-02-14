@@ -1,0 +1,46 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.pagination {
+  @include flexbox(flex, "", center, center, "", "");
+  background-color: #fff;
+  padding: 12px 30px;
+  border-radius: $borderRadius;
+  box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+
+  li {
+    a, span {
+      @include flexbox(flex, "", center, center, "", "");
+      height: 36px;
+      width: 36px;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+
+    a {
+      &.prev, &.next {
+        background-color: $backgroundColor;
+        box-shadow: $insetShadow;
+
+        .fa {
+          @include appDir(transform, unset, transform, rotateY(180deg));
+        }
+      }
+
+      &:not(.prev):not(.next):hover {
+        background-color: $backgroundColor;
+        box-shadow: $insetShadow;
+      }
+
+      &.active {
+        background-color: $color-one;
+        color: #fff;
+      }
+    }
+
+    &:not(:last-of-type) {
+      @include appDir(margin-right, 6px, margin-left, 6px);
+    }
+  }
+}

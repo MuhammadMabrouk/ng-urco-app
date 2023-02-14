@@ -1,0 +1,379 @@
+@import "../../../../../styles/helpers/variables";
+@import "../../../../../styles/helpers/mixins";
+@import "../../../../../styles/components/components";
+
+.content {
+  .the-main-box {
+    .box {
+      @media #{$max_767} {
+        background: none;
+        padding: 0;
+        border-radius: unset;
+        box-shadow: none;
+      }
+
+      .box-content {
+        @media #{$max_767} {
+          margin-bottom: auto;
+        }
+
+        .order-goods {
+          .no-items-msg {
+            @include flexbox(flex, "", center, center, "", "");
+            min-height: 80px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 500;
+
+            @media #{$min_768} {
+              padding: 14px 0;
+            }
+
+            @media #{$max_767} {
+              background-color: #fff;
+              padding: 20px;
+              border-radius: $borderRadius;
+              box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+            }
+          }
+
+          .good {
+            position: relative; // for returned-overlay
+
+            @media #{$min_768} {
+              @include flexbox(flex, "", center, center, "", "");
+              padding: 14px 0;
+
+              &:not(:last-of-type) {
+                border-bottom: 1px solid $borderColor;
+              }
+
+              &:not(.goods-header) {
+                min-height: 100px;
+              }
+
+              &:last-of-type {
+                padding-bottom: 0;
+                margin-bottom: 20px;
+              }
+            }
+
+            @media #{$max_767} {
+              background-color: #fff;
+              padding: 20px;
+              border-radius: $borderRadius;
+              box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+
+              &:not(:last-of-type) {
+                margin-bottom: 20px;
+              }
+            }
+
+            &.goods-header {
+              @include flexbox(flex, "", center, between, "", "");
+              padding-top: 0;
+
+              @media #{$max_767} {
+                display: none;
+              }
+
+              > div {
+                @include appDir(
+                  text-transform,
+                  capitalize,
+                  text-transform,
+                  unset
+                );
+                min-width: 70px;
+
+                &:first-of-type {
+                  flex-grow: 1;
+                }
+
+                &:not(:first-of-type) {
+                  @include flexbox(flex, "", center, center, "", "");
+                  @include appDir(margin-left, 40px, margin-right, 40px);
+                }
+
+                .title {
+                  margin: 0;
+                }
+              }
+            }
+
+            > div {
+              @media #{$min_768} {
+                @include flexbox(flex, "", center, "", "", "");
+              }
+
+              @media #{$max_767} {
+                @include flexbox(flex, "", center, center, "", wrap);
+              }
+            }
+
+            .img-and-name {
+              @media #{$min_768} {
+                flex-grow: 1;
+              }
+
+              @media #{$max_767} {
+                margin-bottom: 30px;
+              }
+
+              .item-img {
+                width: 125px;
+
+                a {
+                  display: block;
+                  width: fit-content;
+                  margin: auto;
+
+                  img {
+                    display: block;
+                    max-width: 100%;
+                    max-height: 80px;
+                    object-fit: contain;
+                  }
+                }
+              }
+
+              .item-name {
+                width: 100%;
+
+                @media #{$min_768} {
+                  @include appDir(margin-left, 40px, margin-right, 40px);
+                }
+
+                @media #{$max_767} {
+                  text-align: center;
+                  margin-top: 15px;
+                }
+
+                .name {
+                  font-size: 16px;
+                  margin: 0;
+
+                  a:hover {
+                    color: $color-one;
+                  }
+                }
+              }
+            }
+
+            .other-fields {
+              @media #{$max_767} {
+                @include flexbox(flex, "", center, between, "", wrap);
+              }
+
+              > div {
+                @include flexbox(flex, "", center, center, "", "");
+
+                @media #{$min_768} {
+                  min-width: 70px;
+
+                  &:not(:first-of-type) {
+                    @include appDir(margin-left, 40px, margin-right, 40px);
+                  }
+                }
+
+                &.actions-col {
+                  position: relative;
+                  width: fit-content;
+                  text-align: end;
+
+                  .actions-btn {
+                    position: relative;
+                    @include flexbox(inline-flex, "", center, center, "", "");
+                    width: fit-content;
+                    background-color: $backgroundColor;
+                    padding: 10px;
+                    border: 0;
+                    border-radius: 12px;
+                    box-shadow: $insetShadow;
+                    cursor: pointer;
+                    @include transition(0.3s);
+
+                    &.disabled {
+                      cursor: not-allowed;
+
+                      span {
+                        background-color: rgba($color-four, 0.4);
+                      }
+                    }
+
+                    span {
+                      display: block;
+                      height: 4px;
+                      width: 4px;
+                      background-color: $color-four;
+                      border-radius: 50%;
+                      @include transition(0.3s);
+
+                      &:not(:last-of-type) {
+                        @include appDir(margin-right, 2px, margin-left, 2px);
+                      }
+                    }
+
+                    &:not(.disabled):hover {
+                      background-color: darken($backgroundColor, 5);
+
+                      span {
+                        background-color: $color-three;
+                      }
+                    }
+
+                    &:after {
+                      content: "";
+                      position: absolute;
+                      z-index: 2;
+                      @include ltr_rotate(45);
+                      top: calc(100% + 10px);
+                      @include appDir(right, 13px, left, 13px);
+                      height: 10px;
+                      width: 10px;
+                      background-color: #fff;
+                      @include appDir(
+                        border-color,
+                        $borderColor transparent transparent $borderColor,
+                        border-color,
+                        $borderColor $borderColor transparent transparent
+                      );
+                      border-style: solid;
+                      border-width: 1px;
+                      animation: fadeInUp 0.4s ease-in-out both;
+                      display: none;
+                    }
+
+                    &.open {
+                      &:after {
+                        display: unset;
+                      }
+                    }
+                  }
+
+                  .dropdown-list {
+                    position: absolute;
+                    z-index: 1;
+                    top: calc(50% + 27px);
+                    @include appDir(right, 0, left, 0);
+                    width: fit-content;
+                    background-color: #fff;
+                    border: 1px solid $borderColor;
+                    border-radius: 10px;
+                    box-shadow: 0 1px 20px rgba($color-three, 0.1);
+                    animation: fadeInUp 0.4s ease-in-out both;
+                    display: none;
+
+                    &.open {
+                      display: unset;
+                    }
+
+                    li {
+                      a {
+                        @include flexbox(flex, "", center, "", "", "");
+                        color: $color-three;
+                        padding: 10px 14px;
+                        white-space: nowrap;
+
+                        img {
+                          width: 16px;
+                          @include appDir(
+                            margin-right,
+                            12px,
+                            margin-left,
+                            12px
+                          );
+                        }
+
+                        &:hover {
+                          color: $color-one;
+                        }
+                      }
+
+                      &:first-of-type {
+                        a {
+                          padding-top: 14px;
+                          border-radius: 10px 10px 0 0;
+                        }
+                      }
+
+                      &:last-of-type {
+                        a {
+                          padding-bottom: 13px;
+                          border-radius: 0 0 10px 10px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .returned-overlay {
+              @include flexbox(flex, "", "", center, "", "");
+              position: absolute;
+              z-index: 1;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              height: 100%;
+              width: 100%;
+              background-color: rgba(#fff, 0.5);
+
+              strong {
+                background-color: $danger-color;
+                color: #fff;
+                font-weight: 500;
+                padding: 5px 10px;
+                border-radius: 10px;
+                box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ::ng-deep {
+    .modal {
+      .modal-body {
+        form {
+          margin-bottom: -20px;
+
+          .small-fields {
+            margin-bottom: 10px;
+          }
+
+          .rating {
+            text-align: center;
+            margin-bottom: 30px;
+
+            .star-rating {
+              label {
+                font-size: 36px;
+                margin: 0 10px;
+              }
+            }
+
+            .rating-title {
+              @include appDir(
+                text-transform,
+                capitalize,
+                text-transform,
+                unset
+              );
+              margin: 30px 0 0;
+            }
+          }
+
+          textarea {
+            height: 120px;
+            resize: none !important;
+          }
+        }
+      }
+    }
+  }
+}

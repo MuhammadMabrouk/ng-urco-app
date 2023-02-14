@@ -1,0 +1,42 @@
+<div class="content">
+  <div class="the-main-box">
+    <section class="box">
+      <div class="box-content">
+        <table class="newsletter" [@fadeInUpStaggerBind]="animationStates">
+          <tr class="email newsletter-header">
+            <th><h5>{{ 'newsletter-page.header-titles.email-address' | translate }}</h5></th>
+            <th colspan="2"><h5>{{ 'newsletter-page.header-titles.join-date' | translate }}</h5></th>
+          </tr>
+          <tr class="no-items-msg" *ngIf="!newsletterEmails?.length">
+            <td colspan="3">{{ 'newsletter-page.no-items-msg' | translate }}</td>
+          </tr>
+          <tr class="email" *ngFor="let email of newsletterEmails; trackBy: track">
+            <td class="email-address" [attr.data-title]="'newsletter-page.header-titles.email-address' | translate">
+              <span>{{ email?.email }}</span>
+            </td>
+            <td [attr.data-title]="'newsletter-page.header-titles.join-date' | translate">
+              {{ email?.subscribedDate }}
+            </td>
+            <td class="del-btn">
+              <button class="icon-btn small"
+                [title]="'newsletter-page.delete' | translate"
+                (click)="deleteEmail(email?.email)">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <div class="the-main-box-footer">
+
+      <!-- simple pagination with items count -->
+      <app-simple-pagination *ngIf="newsletterEmails?.length" (callPrev)="getPrevPage()" (callNext)="getNextPage()"></app-simple-pagination>
+
+      <button class="add-new" *ngIf="newsletterEmails?.length">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        {{ 'newsletter-page.new-message' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

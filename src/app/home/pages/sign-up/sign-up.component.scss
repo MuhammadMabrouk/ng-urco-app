@@ -1,0 +1,110 @@
+@import "../../../../styles/helpers/variables";
+@import "../../../../styles/helpers/mixins";
+@import "../../../../styles/components/components";
+
+.sign-up {
+  position: relative;
+
+  form {
+    max-width: 700px;
+    width: 90%;
+    text-align: center;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+    background-color: #fff;
+    border-radius: $borderRadius;
+    box-shadow: 0 0 20px 0px rgba(40, 47, 58, 0.1);
+    overflow: hidden;
+
+    @media #{$min_768} {
+      padding: 30px 40px;
+    }
+
+    @media #{$max_767} {
+      padding: 25px;
+    }
+
+    .title {
+      margin: 0 0 20px;
+    }
+
+    .social-networks {
+      margin-bottom: 16px;
+
+      p {
+        font-size: 18px;
+        margin: 0 0 16px;
+      }
+
+      .icons {
+        position: relative;
+        padding-bottom: 24px;
+        border-bottom: 1px solid $borderColor;
+
+        li {
+          @include flexbox(inline-flex, "", center, center, "", "");
+          height: 50px;
+          width: 50px;
+          color: #fff;
+          font-size: 22px;
+          border: 1px solid $borderColor;
+          border-radius: 50%;
+          cursor: pointer;
+          @include transition(0.3s);
+
+          &:not(:last-of-type) {
+            @include appDir(margin-right, 16px, margin-left, 16px);
+          }
+
+          &.facebook {
+            background-color: #4267b2;
+          }
+
+          &.twitter {
+            background-color: #2aa9e0;
+          }
+
+          &.google {
+            background-color: #ea4335;
+          }
+
+          &:hover {
+            background-color: $color-three;
+          }
+        }
+
+        &:after {
+          content: attr(data-or);
+          display: block;
+          position: absolute;
+          bottom: 0;
+          @include appDir(left, 50%, right, 50%);
+          @include ltr_translate(-50%, 50%);
+          background-color: #fff;
+          padding: 0 8px;
+        }
+      }
+    }
+
+    .checkbox-container {
+      @include flexbox("", "", "", center, "", "");
+
+      > label {
+        a {
+          color: $color-one;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    button[type="submit"] {
+      min-width: 200px;
+      margin-top: 32px;
+    }
+  }
+}
